@@ -1,8 +1,6 @@
 <section class="brand-hero" aria-labelledby="brand-hero-title" data-brand-hero>
 	<div class="brand-hero__wash brand-hero__wash--one" aria-hidden="true"></div>
 	<div class="brand-hero__wash brand-hero__wash--two" aria-hidden="true"></div>
-	<div class="brand-hero__line brand-hero__line--one" aria-hidden="true"></div>
-	<div class="brand-hero__line brand-hero__line--two" aria-hidden="true"></div>
 
 	<div class="brand-hero__meta">
 		<p class="brand-hero__name">Juanita Rodríguez</p>
@@ -203,19 +201,6 @@
 		background: radial-gradient(circle, rgb(213 138 156 / 0.25), transparent 68%);
 	}
 
-	.brand-hero__line {
-		position: absolute;
-		z-index: -1;
-		width: clamp(10rem, 21vw, 20rem);
-		aspect-ratio: 1;
-		border: 1px solid rgb(96 8 34 / 0.13);
-		border-radius: 50%;
-		transform: translate3d(var(--far-x), var(--far-y), 0);
-	}
-
-	.brand-hero__line--one { top: 13%; left: 7%; }
-	.brand-hero__line--two { right: 7%; bottom: 9%; border-color: rgb(213 138 156 / 0.3); }
-
 	.brand-hero__meta {
 		position: absolute;
 		top: clamp(1.5rem, 4vw, 3rem);
@@ -391,7 +376,6 @@
 			width: auto;
 			height: min(72svh, 37rem, calc(100% - 7rem));
 		}
-		.brand-hero__line--one { top: 28%; }
 		.brand-hero__statement {
 			display: block;
 			bottom: 1rem;
@@ -418,7 +402,6 @@
 
 	@media (prefers-reduced-motion: reduce) {
 		.brand-hero__wash,
-		.brand-hero__line,
 		.brand-hero__character { transform: none; }
 		.brand-hero__title-word,
 		.brand-hero__quiet-o,
