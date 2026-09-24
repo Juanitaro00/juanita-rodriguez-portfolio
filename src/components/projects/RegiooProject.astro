@@ -1,0 +1,148 @@
+---
+import type { CollectionEntry } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+interface Props { project: CollectionEntry<"projects">["data"]; }
+const { project } = Astro.props;
+const prototypeUrl = "https://www.figma.com/proto/Uvb4D0xiLBQ5HKZU6VnAQQ/Regio?node-id=69-251&p=f&t=6WFv1Kr2WzEX54pP-1&scaling=scale-down&content-scaling=fixed&page-id=64%3A4&starting-point-node-id=69%3A251";
+const embedUrl = "https://embed.figma.com/proto/Uvb4D0xiLBQ5HKZU6VnAQQ/Regio?node-id=69-251&p=f&scaling=scale-down&content-scaling=fixed&page-id=64%3A4&starting-point-node-id=69%3A251&embed-host=share";
+
+const experiences = [
+	{ number: "01", title: "Bitácora", subtitle: "Motor de inspiración visual.", copy: "Permite explorar estilos, guardar referencias, organizar tableros y construir looks propios." },
+	{ number: "02", title: "Ropero inteligente", subtitle: "Tu clóset, pero optimizado.", copy: "Permite registrar y clasificar prendas para crear combinaciones y aprovechar mejor lo que el usuario ya tiene." },
+	{ number: "03", title: "Reggi", subtitle: "Tu asesor digital impulsado por IA.", copy: "Ofrece recomendaciones personalizadas considerando estilo, cuerpo, contexto y ocasión, acompañando al usuario sin imponer reglas." },
+	{ number: "04", title: "Perfil", subtitle: "Tu espacio para proyectar quién eres.", copy: "Reúne looks, preferencias y evolución de estilo en un espacio orientado a construir identidad, no competencia." },
+];
+---
+
+<BaseLayout title="Regioo — Juanita Rodríguez" description={project.summary} hideFooter hideHeader headerTheme="regioo">
+	<article class="rg">
+		<header class="rg-hero">
+			<div class="rg-wrap">
+				<a class="rg-back" href="/#proyectos">← Proyectos seleccionados</a>
+				<div class="rg-hero__grid">
+					<div class="rg-hero__copy">
+						<p class="rg-label">Proyecto UX/UI · Mobile App</p>
+						<h1>Regioo</h1>
+						<p class="rg-hero__type">App móvil de estilo personal impulsada por IA</p>
+						<p class="rg-hero__summary">Regioo es una experiencia móvil pensada para ayudar a los hombres a construir su estilo con mayor intención y seguridad. Combina inspiración visual, organización del clóset y recomendaciones personalizadas a través de Reggi, un asesor digital que acompaña sin imponer reglas. La propuesta parte de la idea de que vestir también es una forma de proyectar identidad.</p>
+						<dl>
+							<div><dt>Tipo</dt><dd>Mobile App</dd></div>
+							<div><dt>Rol</dt><dd>UX/UI Design · Interaction Design</dd></div>
+							<div><dt>Prototipo</dt><dd>Figma</dd></div>
+							<div><dt>Enfoque</dt><dd>Identidad · Personalización · IA</dd></div>
+						</dl>
+					</div>
+					<div class="rg-hero__visual" aria-label="Prototipo interactivo de Regioo">
+						<div class="rg-hero__prototype">
+							<iframe src={embedUrl} title="Prototipo interactivo de Regioo en Figma" loading="lazy" allowfullscreen></iframe>
+						</div>
+						<a class="rg-hero__prototype-link" href={prototypeUrl} target="_blank" rel="noreferrer">Ver prototipo interactivo <span aria-hidden="true">↗</span></a>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<section class="rg-challenge">
+			<div class="rg-wrap rg-challenge__grid">
+				<p class="rg-label">El reto</p>
+				<div><h2>Vestirse con intención sin convertir el estilo en reglas.</h2><p>Diseñar una experiencia que simplificara la decisión de qué vestir, ayudara a aprovechar mejor las prendas existentes y ofreciera orientación personalizada sin convertir la moda en un conjunto rígido de reglas.</p></div>
+			</div>
+		</section>
+
+		<section class="rg-experience" aria-labelledby="rg-experience-title">
+			<div class="rg-wrap">
+				<div class="rg-section-heading"><p class="rg-label">Experiencia</p><h2 id="rg-experience-title">Cuatro espacios para construir el estilo personal.</h2></div>
+				<div class="rg-experience__layout">
+					<div class="rg-experience__list">
+						{experiences.map((item) => <article><span>{item.number}</span><div><h3>{item.title}</h3><strong>{item.subtitle}</strong><p>{item.copy}</p></div></article>)}
+					</div>
+				</div>
+				<p class="rg-experience__note"><span data-text="Una experiencia móvil para vestir con más claridad y confianza.">Una experiencia móvil para vestir con más claridad y confianza.</span></p>
+			</div>
+		</section>
+
+		<section class="rg-prototype" aria-labelledby="rg-prototype-title">
+			<div class="rg-wrap">
+				<div class="rg-section-heading"><p id="rg-prototype-title" class="rg-label">Prototipo · Sistema de diseño</p></div>
+				<div class="rg-design-system" aria-label="Componentes del sistema de diseño de Regioo">
+					<figure class="rg-design-system__item rg-design-system__item--buttons"><img src="/images/projects/regioo/design-system-01-buttons.png" alt="Sistema de botones de Regioo en tamaños grande, mediano y pequeño" width="748" height="920" loading="lazy" /></figure>
+					<figure class="rg-design-system__item rg-design-system__item--controls"><img src="/images/projects/regioo/design-system-02-controls.png" alt="Checkboxes, radio buttons y switches del sistema de diseño" width="1052" height="492" loading="lazy" /></figure>
+					<figure class="rg-design-system__item rg-design-system__item--navigation"><img src="/images/projects/regioo/design-system-03-navigation.png" alt="Botones de navegación principal de Regioo" width="1064" height="500" loading="lazy" /></figure>
+					<figure class="rg-design-system__item rg-design-system__item--layout"><img src="/images/projects/regioo/design-system-04-layout.png" alt="Estructura tipográfica y componentes de una pantalla móvil" width="1260" height="924" loading="lazy" /></figure>
+					<figure class="rg-design-system__item rg-design-system__item--popups"><img src="/images/projects/regioo/design-system-05-popups.png" alt="Variantes de pop-ups con el personaje Reggi" width="740" height="570" loading="lazy" /></figure>
+				</div>
+			</div>
+		</section>
+
+		<footer class="rg-close"><div class="rg-wrap"><p>Construyamos algo que importe.</p></div></footer>
+	</article>
+</BaseLayout>
+
+<style>
+	@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
+	.rg { --teal:#087f8c; --teal-deep:#075d68; --teal-bright:#22a8b4; --aqua:#d9f1f4; --aqua-soft:#eef9fa; --paper:#fdfdfe; --ink:#17373b; --muted:#587176; --line:rgb(8 127 140 / .16); --font:"Poppins",sans-serif; overflow:clip; background:var(--aqua-soft); color:var(--ink); }
+	.rg * { min-width:0; }
+	.rg h1,.rg h2,.rg h3 { font-family:var(--font); }
+	.rg-wrap { width:min(calc(100% - 2rem),76rem); margin-inline:auto; }
+	.rg-label { margin:0; color:var(--teal); font:800 .68rem/1.2 var(--font); letter-spacing:.14em; text-transform:uppercase; }
+	.rg-back { display:inline-block; margin-bottom:clamp(2rem,4vw,3.5rem); color:var(--teal-deep); font:700 .72rem/1.2 var(--font); letter-spacing:.05em; text-decoration:none; text-transform:uppercase; }
+	.rg-hero { padding-block:clamp(2.5rem,5vw,5rem); background:radial-gradient(42rem 30rem at 84% 22%,rgb(34 168 180 / .18),transparent 66%),radial-gradient(38rem 28rem at 12% 10%,rgb(217 241 244 / .82),transparent 68%),#fdfdfe; }
+	.rg-hero__grid { display:grid; gap:clamp(3rem,6vw,6rem); align-items:center; }
+	.rg-hero__copy { width:100%; overflow:hidden; }
+	.rg-hero h1 { margin:.75rem 0 0; color:var(--teal); font-size:clamp(4rem,9vw,8rem); font-weight:700; line-height:.82; letter-spacing:-.065em; text-transform:uppercase; }
+	.rg-hero__type { max-width:25ch; margin:1.25rem 0 0; color:var(--teal-deep); font:600 clamp(1.1rem,2vw,1.65rem)/1.25 var(--font); }
+	.rg-hero__summary { max-width:60ch; margin:1.35rem 0 0; color:var(--muted); font:.92rem/1.65 var(--font); overflow-wrap:anywhere; }
+	.rg-hero dl { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.9rem 1.5rem; margin:clamp(1.5rem,3vw,2.25rem) 0 0; padding-top:1rem; border-top:1px solid var(--line); }
+	.rg-hero dl div { display:grid; gap:.2rem; }
+	.rg-hero dt { color:var(--teal-bright); font:800 .62rem/1.2 var(--font); letter-spacing:.12em; text-transform:uppercase; }
+	.rg-hero dd { margin:0; color:var(--teal-deep); font:600 .76rem/1.45 var(--font); }
+	.rg-hero__visual { position:relative; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:clamp(2.5rem,4vw,3.5rem); min-height:clamp(42rem,58vw,52rem); }
+	.rg-hero__prototype { overflow:hidden; border:.45rem solid #11131a; border-radius:2.2rem; background:white; box-shadow:0 1.6rem 3.5rem rgb(20 48 53 / .2); }
+	.rg-hero__prototype { width:min(100%,26rem); height:clamp(38rem,52vw,48rem); margin-inline:auto; }
+	.rg-hero__prototype iframe { display:block; width:100%; height:100%; border:0; background:#fff; }
+	.rg-hero__prototype-link { display:inline-flex; min-height:3.75rem; align-items:center; justify-content:center; gap:.8rem; padding:1rem 1.8rem; border-radius:999px; background:var(--teal); color:#fff; font:700 .9rem/1.2 var(--font); text-decoration:none; box-shadow:0 .75rem 1.8rem rgb(8 127 140 / .18); transition:transform .25s ease,background .25s ease; }
+	.rg-hero__prototype-link:hover { background:var(--teal-deep); transform:translateY(-.15rem); }
+	.rg-challenge { padding-block:clamp(3.5rem,7vw,6rem); border-block:1px solid var(--line); background:linear-gradient(110deg,#fff,rgb(217 241 244 / .64)); }
+	.rg-challenge__grid { display:grid; gap:1.5rem; }
+	.rg-challenge h2,.rg-section-heading h2 { max-width:24ch; margin:0; color:var(--teal-deep); font-size:clamp(1.8rem,3.4vw,3.25rem); font-weight:650; line-height:1.04; letter-spacing:-.04em; }
+	.rg-challenge div > p { max-width:68ch; margin:1rem 0 0; color:var(--muted); font:.94rem/1.65 var(--font); }
+	.rg-experience { padding-block:clamp(4rem,8vw,7rem); background:var(--paper); }
+	.rg-section-heading { display:grid; gap:.9rem; margin-bottom:clamp(2.5rem,5vw,4.5rem); }
+	.rg-experience__layout { display:block; }
+	.rg-experience__list { border-block:1px solid var(--line); }
+	.rg-experience__list article { display:grid; grid-template-columns:2.4rem 1fr; gap:1rem; padding:clamp(1.25rem,2.5vw,2rem) 0; border-bottom:1px solid var(--line); }
+	.rg-experience__list article:last-child { border-bottom:0; }
+	.rg-experience__list span { color:var(--teal-bright); font:800 .68rem/1.4 var(--font); }
+	.rg-experience__list h3 { margin:0 0 .35rem; color:var(--teal); font-size:clamp(1.1rem,1.8vw,1.4rem); text-transform:uppercase; }
+	.rg-experience__list strong { color:var(--teal-deep); font:600 .8rem/1.4 var(--font); }
+	.rg-experience__list p { max-width:52ch; margin:.55rem 0 0; color:var(--muted); font:.82rem/1.55 var(--font); }
+	.rg-experience__note { margin:clamp(2.5rem,4vw,3.25rem) 0 0; padding-left:1rem; border-left:2px solid rgb(8 127 140 / .42); color:var(--teal); font:800 .78rem/1.55 var(--font); }
+	.rg-experience__note span { position:relative; display:inline-block; }
+	.rg-experience__note span::after { position:absolute; inset:0; color:transparent; background:linear-gradient(105deg,transparent 22%,#42bdae 43%,#0a8e98 50%,#72d2c7 57%,transparent 78%); background-position:140% 0; background-size:240% 100%; -webkit-background-clip:text; background-clip:text; content:attr(data-text); animation:rg-note-shine 5.5s ease-in-out infinite; pointer-events:none; }
+	@keyframes rg-note-shine { 0%,18% { background-position:140% 0; } 72%,100% { background-position:-140% 0; } }
+	.rg-prototype { padding-block:clamp(4rem,8vw,7rem); background:radial-gradient(40rem 30rem at 15% 72%,rgb(34 168 180 / .18),transparent 66%),linear-gradient(180deg,#f7fcfd,#e7f6f8); }
+	.rg-design-system { display:grid; grid-template-columns:repeat(12,minmax(0,1fr)); gap:clamp(.8rem,1.8vw,1.4rem); align-items:start; }
+	.rg-design-system__item { overflow:hidden; margin:0; border:1px solid rgb(8 127 140 / .1); border-radius:clamp(1rem,2vw,1.6rem); background:rgb(255 255 255 / .78); box-shadow:0 1rem 2.8rem rgb(8 127 140 / .09); }
+	.rg-design-system__item img { display:block; width:100%; height:100%; object-fit:contain; }
+	.rg-design-system__item--buttons { grid-column:span 5; grid-row:span 2; align-self:stretch; }
+	.rg-design-system__item--controls,.rg-design-system__item--navigation { grid-column:span 7; }
+	.rg-design-system__item--layout { grid-column:span 7; }
+	.rg-design-system__item--popups { grid-column:span 5; }
+	.rg-close { padding-block:clamp(2.5rem,5vw,4rem); background:var(--teal-deep); color:white; }
+	.rg-close .rg-wrap { display:flex; flex-wrap:wrap; gap:1.25rem; justify-content:space-between; align-items:center; }
+	.rg-close p { margin:0; font:650 clamp(1.35rem,3vw,2.5rem)/1 var(--font); letter-spacing:-.04em; }
+	.rg-close a { color:#bdecef; font:700 .75rem/1.2 var(--font); text-decoration:none; text-transform:uppercase; }
+	@media (min-width:48rem) {
+		.rg-hero__grid { grid-template-columns:minmax(0,.92fr) minmax(28rem,1.08fr); }
+		.rg-challenge__grid { grid-template-columns:.32fr 1fr; }
+		.rg-experience__list { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); }
+		.rg-experience__list article { min-height:13rem; align-content:start; }
+		.rg-experience__list article:nth-child(odd) { padding-right:clamp(1.5rem,4vw,3.5rem); border-right:1px solid var(--line); }
+		.rg-experience__list article:nth-child(even) { padding-left:clamp(1.5rem,4vw,3.5rem); }
+		.rg-experience__list article:nth-last-child(-n+2) { border-bottom:0; }
+	}
+	@media (max-width:47.99rem) { .rg-wrap { width:calc(100% - 2rem); max-width:calc(100vw - 2rem); } .rg-hero__grid { grid-template-columns:minmax(0,1fr); width:100%; } .rg-hero__copy,.rg-hero__summary { width:100%; max-width:calc(100vw - 2rem); white-space:normal; } .rg-hero__visual { min-height:0; } .rg-hero__prototype { width:min(100%,23rem); height:42rem; } .rg-design-system { grid-template-columns:1fr; } .rg-design-system__item--buttons,.rg-design-system__item--controls,.rg-design-system__item--navigation,.rg-design-system__item--layout,.rg-design-system__item--popups { grid-column:auto; grid-row:auto; } }
+	@media (max-width:32rem) { .rg-hero dl { grid-template-columns:1fr; } }
+	@media (prefers-reduced-motion:reduce) { .rg-hero__prototype-link { transition:none; } .rg-experience__note span::after { animation:none; opacity:0; } }
+</style>

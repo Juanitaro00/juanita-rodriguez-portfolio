@@ -1,0 +1,752 @@
+---
+interface GenerativeVideo {
+	src: string;
+	poster?: string;
+	title: string;
+	description: string;
+	fit?: "cover" | "contain";
+}
+
+const verticalVideos: GenerativeVideo[] = [
+	{
+		src: "/videos/generative-ai/vertical-illustration.mp4",
+		title: "Ilustración en movimiento",
+		description: "Animación generativa que transforma una ilustración estática en una secuencia de movimiento fluida.",
+	},
+	{
+		src: "/videos/generative-ai/juntos-podemos-construir.mov",
+		title: "Juntos podemos construir",
+		description: "Pieza publicitaria animada con una canción generada con inteligencia artificial para acompañar su mensaje colaborativo.",
+		fit: "contain",
+	},
+	{
+		src: "/videos/generative-ai/vertical-panda.mp4",
+		title: "Panda Cha en Realidad Aumentada",
+		description: "Experiencia de AR aplicada al empaque, donde el panda de la marca cobra vida sobre la lata mediante una animación interactiva. El personaje aparece bailando alrededor del producto, extendiendo la identidad de Panda Cha del mundo físico al digital.",
+	},
+	{
+		src: "/videos/generative-ai/vertical-butterfly.mp4",
+		title: "Saludo con una mariposa",
+		description: "Secuencia animada de un personaje saludando mientras una mariposa acompaña la escena.",
+	},
+	{
+		src: "/videos/generative-ai/vertical-clara-vision.mp4",
+		title: "ClaraVisión para redes",
+		description: "Pieza publicitaria vertical creada para las redes sociales de ClaraVisión, con una narrativa visual clara y cercana que comunica su propuesta médica en formato digital.",
+	},
+];
+const horizontalVideos: GenerativeVideo[] = [
+	{
+		src: "/videos/generative-ai/horizontal-dali.mp4",
+		title: "La persistencia de la memoria",
+		description: "Reinterpretación animada de la obra de Salvador Dalí mediante una secuencia audiovisual generada con inteligencia artificial.",
+	},
+	{
+		src: "/videos/generative-ai/horizontal-emotional-reflection.mp4",
+		title: "Escena cinematográfica emocional",
+		description: "Escena cinematográfica de un perro en estado de vulnerabilidad que refleja la tristeza del abandono. La pieza invita a reconocer nuestra responsabilidad de proteger, respetar y cuidar a todos los seres vivos.",
+	},
+	{
+		src: "/videos/generative-ai/horizontal-emotional.mp4",
+		title: "Cruz Roja: La historia que ayudaste a cambiar.",
+		description: "Pieza creada para una experiencia de mapping de la Cruz Roja. La escena muestra una situación de vulnerabilidad y revela al donante la historia que su aporte ayudó a transformar.",
+	},
+	{
+		src: "/videos/generative-ai/horizontal-hyperrealistic.mp4",
+		title: "Exploración hiperrealista",
+		description: "Escena desarrollada para una experiencia de mapping de la Cruz Roja, donde una situación de la vida real hace visible cómo una donación puede proteger y cambiar una historia.",
+	},
+	{
+		src: "/videos/generative-ai/horizontal-ultra-realistic.mp4",
+		title: "Narrativa ultrarrealista",
+		description: "Pieza audiovisual creada para el mapping de una actividad de la Cruz Roja. Su narrativa habla directamente a los donantes y revela las historias que ayudaron a cambiar sin haberlas visto.",
+	},
+	{
+		src: "/videos/generative-ai/horizontal-panda-tea.mp4",
+		title: "Panda presenta la marca",
+		description: "Pieza generativa en la que un panda introduce una marca de té mediante una breve secuencia publicitaria.",
+	},
+	{
+		src: "/videos/generative-ai/horizontal-presentacion-personal.mp4",
+		title: "Hacer visible lo que otros no ven",
+		description: "Presentación personal construida a través de un personaje y una narrativa audiovisual que representan mi manera de observar, conectar y crear desde lo humano y la tecnología.",
+	},
+];
+const hasVideos = verticalVideos.length > 0 || horizontalVideos.length > 0;
+---
+
+<section class="generative-gallery" aria-labelledby="generative-gallery-title" data-generative-gallery>
+	<header class="generative-gallery__intro">
+		<h4 id="generative-gallery-title" data-generative-heading>Videos y animaciones generadas con IA</h4>
+	</header>
+
+	{hasVideos && (
+		<div class="generative-gallery__collections">
+			{verticalVideos.length > 0 && (
+				<section class="generative-gallery__collection" aria-labelledby="generative-vertical-title">
+					<h5 id="generative-vertical-title" data-generative-heading>Formato vertical</h5>
+					<div class="generative-carousel" data-generative-carousel>
+						<div class="generative-carousel__stage">
+						{verticalVideos.map((video, index) => (
+							<figure
+								class="generative-media generative-media--carousel"
+								data-generative-card
+								data-position={index === 0 ? "center" : index === 1 ? "right" : index === verticalVideos.length - 1 ? "left" : "far"}
+							>
+								<div class="generative-media__device generative-media__device--vertical">
+									<span class="generative-media__screen">
+										<video
+											class:list={{ "is-contained": video.fit === "contain" }}
+											src={video.src}
+											poster={video.poster}
+											controls={index === 0}
+											playsinline
+											preload="metadata"
+											data-generative-card-video
+										></video>
+									</span>
+									<button
+										class="generative-media__select"
+										type="button"
+										aria-label={`Llevar ${video.title} al centro`}
+										data-generative-select
+										data-card-index={index}
+									></button>
+								</div>
+								<figcaption>
+									<strong>{video.title}</strong>
+									<p>{video.description}</p>
+								</figcaption>
+							</figure>
+						))}
+						</div>
+						<div class="generative-carousel__controls">
+							<button type="button" data-generative-previous>Anterior</button>
+							<p aria-live="polite" data-generative-status>{verticalVideos[0]?.title}</p>
+							<button type="button" data-generative-next>Siguiente</button>
+						</div>
+					</div>
+				</section>
+			)}
+
+			{horizontalVideos.length > 0 && (
+				<section class="generative-gallery__collection" aria-labelledby="generative-horizontal-title">
+					<h5 id="generative-horizontal-title" data-generative-heading>Formato horizontal</h5>
+					<div class="generative-carousel generative-carousel--horizontal" data-generative-carousel>
+						<div class="generative-carousel__stage">
+						{horizontalVideos.map((video, index) => (
+							<figure
+								class="generative-media generative-media--carousel generative-media--horizontal-carousel"
+								data-generative-card
+								data-position={index === 0 ? "center" : index === 1 ? "right" : index === 2 ? "far" : index === horizontalVideos.length - 1 ? "left" : "far"}
+							>
+								<div class="generative-media__device generative-media__device--horizontal">
+									<span class="generative-media__screen">
+										<video
+											src={video.src}
+											poster={video.poster}
+											controls={index === 0}
+											playsinline
+											preload="metadata"
+											data-generative-card-video
+										></video>
+									</span>
+									<button
+										class="generative-media__select"
+										type="button"
+										aria-label={`Llevar ${video.title} al centro`}
+										data-generative-select
+										data-card-index={index}
+									></button>
+								</div>
+								<figcaption>
+									<strong>{video.title}</strong>
+									<p>{video.description}</p>
+								</figcaption>
+							</figure>
+						))}
+						</div>
+						<div class="generative-carousel__controls">
+							<button type="button" data-generative-previous>Anterior</button>
+							<p aria-live="polite" data-generative-status>{horizontalVideos[0]?.title}</p>
+							<button type="button" data-generative-next>Siguiente</button>
+						</div>
+					</div>
+				</section>
+			)}
+		</div>
+	)}
+
+</section>
+
+<style>
+	@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&display=swap");
+
+	.generative-gallery {
+		--generative-ink: #600822;
+		--generative-accent: #600822;
+		--generative-heading-start: #d58a9c;
+		position: relative;
+		isolation: isolate;
+		display: grid;
+		gap: clamp(3.5rem, 8vw, 7rem);
+		padding-block: clamp(4.5rem, 9vw, 8rem);
+	}
+
+	.generative-gallery::before {
+		position: absolute;
+		inset: -10rem calc(50% - 50vw) 0;
+		z-index: -1;
+		background:
+			radial-gradient(ellipse 55% 28% at 14% 24%, rgb(222 173 185 / 0.72), transparent 72%),
+			radial-gradient(ellipse 48% 30% at 87% 42%, rgb(213 138 156 / 0.5), transparent 72%),
+			linear-gradient(145deg, #fffafb 0%, #f8e9ee 54%, #f4dde4 100%);
+		content: "";
+		-webkit-mask-image: linear-gradient(to bottom, transparent 0, rgb(0 0 0 / 0.28) 4rem, #000 10rem);
+		mask-image: linear-gradient(to bottom, transparent 0, rgb(0 0 0 / 0.28) 4rem, #000 10rem);
+	}
+
+	.generative-gallery__intro {
+		max-width: none;
+	}
+
+	.generative-gallery__intro h4 {
+		max-width: none;
+		margin: 0;
+		color: var(--generative-ink);
+		font-family: "Poppins", var(--font-sans);
+		font-size: clamp(1rem, 3.9vw, 3.75rem);
+		font-weight: 800;
+		letter-spacing: -0.045em;
+		line-height: 1.05;
+		white-space: nowrap;
+	}
+
+	.generative-gallery__collections,
+	.generative-gallery__collection {
+		display: grid;
+		gap: clamp(2rem, 4vw, 3.5rem);
+	}
+
+	.generative-gallery__collections {
+		gap: clamp(5rem, 10vw, 9rem);
+	}
+
+	.generative-gallery__collection h5 {
+		margin: 0;
+		color: var(--generative-ink);
+		font-family: "Poppins", var(--font-sans);
+		font-size: clamp(1rem, 1.75vw, 1.45rem);
+		font-weight: 700;
+		letter-spacing: -0.025em;
+	}
+
+	[data-generative-heading] {
+		position: relative;
+		width: max-content;
+		color: var(--generative-ink);
+	}
+
+	.generative-gallery__row {
+		display: grid;
+		gap: clamp(1.5rem, 3vw, 2.75rem);
+	}
+
+	.generative-gallery__row--horizontal {
+		grid-template-columns: 1fr;
+	}
+
+	.generative-media {
+		min-width: 0;
+		margin: 0;
+	}
+
+	.generative-carousel {
+		display: grid;
+		gap: 1.25rem;
+		min-width: 0;
+	}
+
+	.generative-carousel__stage {
+		position: relative;
+		isolation: isolate;
+		height: clamp(60rem, 72vw, 68rem);
+		overflow: hidden;
+	}
+
+	.generative-carousel--horizontal .generative-carousel__stage {
+		height: clamp(36rem, 45vw, 42rem);
+	}
+
+	.generative-media--carousel {
+		--carousel-x: 0px;
+		--carousel-scale: 1;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		z-index: 2;
+		width: clamp(13rem, 21vw, 20rem);
+		opacity: 1;
+		transform: translate3d(calc(-50% + var(--carousel-x)), -50%, 0) scale(var(--carousel-scale));
+		transform-origin: center;
+		transition:
+			transform 900ms cubic-bezier(0.77, 0, 0.175, 1),
+			opacity 220ms cubic-bezier(0.23, 1, 0.32, 1),
+			filter 900ms cubic-bezier(0.77, 0, 0.175, 1);
+		will-change: transform;
+	}
+
+	.generative-media--carousel[data-position="center"] {
+		--carousel-scale: 1;
+		z-index: 4;
+		filter: none;
+	}
+
+	.generative-media--carousel[data-position="left"] {
+		--carousel-x: clamp(-23rem, -27vw, -15rem);
+		--carousel-scale: 0.78;
+		z-index: 3;
+		opacity: 0.9;
+		filter: saturate(0.88);
+	}
+
+	.generative-media--carousel[data-position="right"] {
+		--carousel-x: clamp(15rem, 27vw, 23rem);
+		--carousel-scale: 0.78;
+		z-index: 3;
+		opacity: 0.9;
+		filter: saturate(0.88);
+	}
+
+	.generative-media--carousel[data-position="far"] {
+		--carousel-x: clamp(22rem, 32vw, 27rem);
+		--carousel-scale: 0.68;
+		z-index: 1;
+		opacity: 0;
+		filter: saturate(0.72);
+		pointer-events: none;
+	}
+
+	.generative-media--horizontal-carousel {
+		width: clamp(24rem, 49vw, 43rem);
+	}
+
+	.generative-media--horizontal-carousel[data-position="left"] {
+		--carousel-x: clamp(-30rem, -32vw, -24rem);
+		--carousel-scale: 0.62;
+	}
+
+	.generative-media--horizontal-carousel[data-position="right"] {
+		--carousel-x: clamp(24rem, 32vw, 30rem);
+		--carousel-scale: 0.62;
+	}
+
+	.generative-media--horizontal-carousel[data-position="far"] {
+		--carousel-x: clamp(31rem, 39vw, 37rem);
+		--carousel-scale: 0.52;
+	}
+
+	.generative-media__device {
+		position: relative;
+		display: grid;
+		overflow: hidden;
+		width: 100%;
+		padding: clamp(0.5rem, 1vw, 0.8rem);
+		border-radius: clamp(1.35rem, 2.5vw, 2.25rem);
+		background: #181821;
+		box-shadow: 0 1.5rem 3rem rgb(41 40 77 / 0.16);
+	}
+
+	.generative-media__device--vertical {
+		max-width: 20rem;
+		margin-inline: auto;
+		aspect-ratio: 9 / 18.4;
+	}
+
+	.generative-media__device--horizontal {
+		aspect-ratio: 18.4 / 9;
+		border-radius: clamp(2rem, 3.25vw, 3rem);
+	}
+
+	.generative-media__screen {
+		display: block;
+		overflow: hidden;
+		width: 100%;
+		height: 100%;
+		border-radius: clamp(0.95rem, 2vw, 1.7rem);
+		background: #eeeef2;
+		clip-path: inset(0 round clamp(0.95rem, 2vw, 1.7rem));
+	}
+
+	.generative-media__device--horizontal .generative-media__screen {
+		border-radius: clamp(1.45rem, 2.7vw, 2.35rem);
+		clip-path: inset(0 round clamp(1.45rem, 2.7vw, 2.35rem));
+	}
+
+	.generative-media video {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	.generative-media video.is-contained {
+		background: #f7f2eb;
+		object-fit: contain;
+		object-position: center;
+	}
+
+	.generative-media video:fullscreen,
+	.generative-media video:-webkit-full-screen {
+		width: 100vw;
+		height: 100dvh;
+		border-radius: 0;
+		background: #0d0d12;
+		object-fit: contain;
+		object-position: center;
+	}
+
+	.generative-media__select {
+		position: absolute;
+		inset: 0;
+		z-index: 2;
+		border: 0;
+		border-radius: inherit;
+		background: transparent;
+		cursor: pointer;
+	}
+
+	.generative-media--carousel[data-position="center"] .generative-media__select {
+		display: none;
+	}
+
+	.generative-media figcaption {
+		display: grid;
+		gap: 0.45rem;
+		max-width: 34rem;
+		padding-block-start: 1.25rem;
+	}
+
+	.generative-media--carousel figcaption {
+		position: relative;
+		box-sizing: border-box;
+		gap: 0.55rem;
+		width: 100%;
+		margin-block-start: 1rem;
+		padding: 1rem 1.05rem 1.05rem 1.2rem;
+		border: 1px solid rgb(101 77 245 / 0.14);
+		border-radius: 1rem;
+		background: rgb(255 255 255 / 0.78);
+		box-shadow: 0 0.9rem 2.4rem rgb(60 56 112 / 0.09), inset 0 1px 0 rgb(255 255 255 / 0.82);
+		-webkit-backdrop-filter: blur(16px) saturate(125%);
+		backdrop-filter: blur(16px) saturate(125%);
+		opacity: 0;
+		pointer-events: none;
+		transform: translateY(1rem);
+		transition:
+			transform 250ms cubic-bezier(0.23, 1, 0.32, 1),
+			opacity 250ms cubic-bezier(0.23, 1, 0.32, 1);
+	}
+
+	.generative-media--carousel figcaption::before {
+		position: absolute;
+		top: 1rem;
+		bottom: 1rem;
+		left: 0;
+		width: 3px;
+		border-radius: 999px;
+		background: var(--generative-accent);
+		content: "";
+	}
+
+	.generative-media--carousel[data-position="center"] figcaption {
+		opacity: 1;
+		pointer-events: auto;
+		transform: translateY(0);
+	}
+
+	.generative-media--horizontal-carousel figcaption {
+		width: 100%;
+		max-width: none;
+		margin-inline: auto;
+		padding: 1.15rem 1.35rem 1.25rem 1.55rem;
+	}
+
+	.generative-media figcaption strong {
+		color: var(--generative-ink);
+		font-size: 1rem;
+		letter-spacing: -0.015em;
+	}
+
+	.generative-media figcaption p {
+		margin: 0;
+		color: var(--color-muted);
+		font-size: 0.94rem;
+		line-height: 1.55;
+	}
+
+	.generative-carousel__controls {
+		display: grid;
+		grid-template-columns: auto minmax(8rem, 1fr) auto;
+		align-items: center;
+		gap: 1rem;
+		width: min(100%, 38rem);
+		margin-inline: auto;
+	}
+
+	.generative-carousel__controls p {
+		margin: 0;
+		color: var(--color-muted);
+		font-size: 0.84rem;
+		font-weight: 650;
+		text-align: center;
+	}
+
+	.generative-carousel__controls button {
+		padding: 0.65rem 0.9rem;
+		border: 1px solid rgb(101 77 245 / 0.34);
+		border-radius: 999px;
+		background: transparent;
+		color: var(--generative-accent);
+		font: inherit;
+		font-size: 0.8rem;
+		font-weight: 750;
+		cursor: pointer;
+	}
+
+	@media (min-width: 48rem) {
+		.generative-gallery__row--horizontal {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+	}
+
+	@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+		.generative-media__device {
+			transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s ease;
+		}
+
+		.generative-gallery__row--horizontal .generative-media:hover .generative-media__device {
+			box-shadow: 0 2rem 4rem rgb(41 40 77 / 0.22);
+			transform: translateY(-0.45rem);
+		}
+	}
+
+	@media (prefers-reduced-motion: no-preference) {
+		[data-generative-heading].is-motion-ready {
+			opacity: 0;
+			filter: blur(6px);
+			transform: translateY(1.6rem);
+		}
+
+		[data-generative-heading].is-visible {
+			animation: generative-heading-in 900ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+		}
+	}
+
+	@keyframes generative-heading-in {
+		from {
+			color: #b45f78;
+			opacity: 0;
+			filter: blur(6px);
+			transform: translateY(1.6rem);
+		}
+
+		to {
+			color: var(--generative-ink);
+			opacity: 1;
+			filter: blur(0);
+			transform: translateY(0);
+		}
+	}
+
+	@media (max-width: 36rem) {
+		.generative-carousel__stage {
+			height: 56rem;
+			margin-inline: calc(50% - 50vw);
+		}
+
+		.generative-media--carousel {
+			width: min(72vw, 18rem);
+		}
+
+		.generative-carousel--horizontal .generative-carousel__stage {
+			height: 32rem;
+		}
+
+		.generative-media--horizontal-carousel {
+			width: min(88vw, 34rem);
+		}
+
+		.generative-media--carousel[data-position="left"] {
+			--carousel-x: -58vw;
+			--carousel-scale: 0.68;
+		}
+
+		.generative-media--carousel[data-position="right"] {
+			--carousel-x: 58vw;
+			--carousel-scale: 0.68;
+		}
+
+		.generative-media--horizontal-carousel[data-position="left"] {
+			--carousel-x: -72vw;
+			--carousel-scale: 0.58;
+		}
+
+		.generative-media--horizontal-carousel[data-position="right"] {
+			--carousel-x: 72vw;
+			--carousel-scale: 0.58;
+		}
+
+		.generative-media--carousel[data-position="far"] {
+			opacity: 0;
+			pointer-events: none;
+		}
+
+		.generative-carousel__controls {
+			grid-template-columns: 1fr 1fr;
+		}
+
+		.generative-carousel__controls p {
+			grid-column: 1 / -1;
+			grid-row: 1;
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.generative-media--carousel {
+			transition: opacity 200ms ease;
+		}
+
+		.generative-media--carousel figcaption {
+			transform: none;
+			transition: opacity 200ms ease;
+		}
+	}
+</style>
+
+<script>
+	document.querySelectorAll<HTMLElement>("[data-generative-gallery]").forEach((gallery) => {
+		const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+		const animatedHeadings = gallery.querySelectorAll<HTMLElement>("[data-generative-heading]");
+
+		if (!reducedMotion.matches) {
+			animatedHeadings.forEach((heading) => {
+				heading.classList.add("is-motion-ready");
+				let resetTimer = 0;
+				const headingObserver = new IntersectionObserver(
+					([entry]) => {
+						if (!entry) return;
+						window.clearTimeout(resetTimer);
+
+						if (!entry.isIntersecting) {
+							heading.classList.remove("is-visible");
+							heading.classList.add("is-motion-ready");
+							return;
+						}
+
+						heading.classList.add("is-motion-ready");
+						heading.classList.remove("is-visible");
+						window.requestAnimationFrame(() => {
+							window.requestAnimationFrame(() => heading.classList.add("is-visible"));
+						});
+						resetTimer = window.setTimeout(
+							() => heading.classList.remove("is-motion-ready", "is-visible"),
+							1600,
+						);
+					},
+					{ threshold: 0.01 },
+				);
+				headingObserver.observe(heading);
+			});
+		}
+
+		gallery.querySelectorAll<HTMLElement>("[data-generative-carousel]").forEach((carousel) => {
+			const cards = Array.from(carousel.querySelectorAll<HTMLElement>("[data-generative-card]"));
+			const previousButton = carousel.querySelector<HTMLButtonElement>("[data-generative-previous]");
+			const nextButton = carousel.querySelector<HTMLButtonElement>("[data-generative-next]");
+			const status = carousel.querySelector<HTMLElement>("[data-generative-status]");
+			if (!cards.length || !previousButton || !nextButton || !status) return;
+
+			let activeIndex = 0;
+			let rotationTimer = 0;
+			let activationTimer = 0;
+			let isVisible = false;
+			const transitionDuration = reducedMotion.matches ? 0 : 900;
+
+			const activeVideo = () => cards[activeIndex]?.querySelector<HTMLVideoElement>("[data-generative-card-video]");
+
+			const clearRotation = () => window.clearTimeout(rotationTimer);
+
+			const scheduleRotation = () => {
+				clearRotation();
+				if (reducedMotion.matches || !isVisible || !activeVideo()?.paused) return;
+				rotationTimer = window.setTimeout(() => setActive(activeIndex + 1), 5200);
+			};
+
+			const enableCenterVideo = () => {
+				const video = activeVideo();
+				if (!video) return;
+				video.controls = true;
+				video.tabIndex = 0;
+				scheduleRotation();
+			};
+
+			const setActive = (nextIndex: number, immediate = false) => {
+				activeIndex = (nextIndex + cards.length) % cards.length;
+				clearRotation();
+				window.clearTimeout(activationTimer);
+
+				cards.forEach((card, index) => {
+					const relativePosition = (index - activeIndex + cards.length) % cards.length;
+					const position = relativePosition === 0 ? "center" : relativePosition === 1 ? "right" : relativePosition === cards.length - 1 ? "left" : "far";
+					const video = card.querySelector<HTMLVideoElement>("[data-generative-card-video]");
+					const selectButton = card.querySelector<HTMLButtonElement>("[data-generative-select]");
+
+					card.dataset.position = position;
+					if (video) {
+						video.pause();
+						video.controls = false;
+						video.tabIndex = -1;
+					}
+					if (selectButton) selectButton.tabIndex = position === "center" ? -1 : 0;
+				});
+
+				const activeTitle = cards[activeIndex]?.querySelector("figcaption strong")?.textContent;
+				status.textContent = activeTitle ?? "Video generado con IA";
+				if (immediate) enableCenterVideo();
+				else activationTimer = window.setTimeout(enableCenterVideo, transitionDuration);
+			};
+
+			cards.forEach((card, index) => {
+				card.querySelector<HTMLButtonElement>("[data-generative-select]")?.addEventListener("click", () => setActive(index));
+				const video = card.querySelector<HTMLVideoElement>("[data-generative-card-video]");
+				video?.addEventListener("play", clearRotation);
+				video?.addEventListener("pause", scheduleRotation);
+				video?.addEventListener("ended", scheduleRotation);
+			});
+
+			previousButton.addEventListener("click", () => setActive(activeIndex - 1));
+			nextButton.addEventListener("click", () => setActive(activeIndex + 1));
+			carousel.addEventListener("pointerenter", clearRotation);
+			carousel.addEventListener("pointerleave", scheduleRotation);
+			carousel.addEventListener("focusin", clearRotation);
+			carousel.addEventListener("focusout", () => {
+				window.setTimeout(() => {
+					if (!carousel.contains(document.activeElement)) scheduleRotation();
+				}, 0);
+			});
+
+			const observer = new IntersectionObserver(
+				([entry]) => {
+					isVisible = Boolean(entry?.isIntersecting);
+					if (isVisible) scheduleRotation();
+					else clearRotation();
+				},
+				{ threshold: 0.25 },
+			);
+			observer.observe(carousel);
+			setActive(0, true);
+		});
+
+	});
+</script>

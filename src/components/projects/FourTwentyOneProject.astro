@@ -1,0 +1,141 @@
+---
+import type { CollectionEntry } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+interface Props { project: CollectionEntry<"projects">["data"]; }
+const { project } = Astro.props;
+
+---
+
+<BaseLayout title="421 Co. — Juanita Rodríguez" description={project.summary} hideFooter hideHeader headerTheme="four-twenty-one">
+	<article class="c421">
+		<header class="c421-hero">
+			<div class="c421-wrap">
+				<a class="c421-back" href="/#proyectos">← Proyectos seleccionados</a>
+				<div class="c421-hero__grid">
+					<div class="c421-hero__copy">
+						<p class="c421-label">Proyecto UX/UI · Web Design</p>
+						<h1>421 Co.</h1>
+						<p class="c421-hero__type">Sitio web responsive para una marca de café artesanal.</p>
+						<p class="c421-hero__summary">421 Co. es una marca de café artesanal enfocada en la conexión, la comunidad y el consumo en el hogar. El proyecto consistió en trasladar su identidad a una experiencia web responsive, clara y visual, capaz de funcionar de manera consistente en desktop y mobile.</p>
+						<dl>
+							<div><dt>Rol</dt><dd>UX/UI Design · Web Design</dd></div>
+							<div><dt>Tipo</dt><dd>Sitio web responsive</dd></div>
+							<div><dt>Enfoque</dt><dd>E-commerce · Marca · Experiencia digital</dd></div>
+							<div><dt>Tecnologías</dt><dd>HTML · CSS · JavaScript</dd></div>
+						</dl>
+					</div>
+
+					<div class="c421-hero__visual" aria-label="Vista responsive del sitio web 421 Co.">
+						<div class="c421-laptop c421-laptop--hero">
+							<div class="c421-laptop__camera" aria-hidden="true"></div>
+							<div class="c421-laptop__screen"><img src="/images/projects/421-co/inicio-desktop.png" alt="Página de inicio de 421 Co. en desktop" width="1440" height="1000" /></div>
+							<div class="c421-laptop__base" aria-hidden="true"></div>
+						</div>
+						<div class="c421-phone c421-phone--hero"><img src="/images/projects/421-co/home-mobile.png" alt="Página de inicio de 421 Co. en móvil" width="390" height="844" /></div>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<section class="c421-challenge" aria-labelledby="c421-challenge-title">
+			<div class="c421-wrap c421-challenge__grid">
+				<p class="c421-label">El reto</p>
+				<div>
+					<h2 id="c421-challenge-title">Una identidad cercana en una experiencia clara y consistente.</h2>
+					<p>Diseñar una experiencia digital coherente con la personalidad de la marca, que permitiera explorar sus productos, navegar con facilidad y mantener una experiencia consistente entre desktop y mobile.</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="c421-live" aria-labelledby="c421-live-title">
+			<div class="c421-wrap">
+				<header class="c421-section-heading">
+					<p class="c421-label">Proyecto navegable</p>
+					<h2 id="c421-live-title">Explora la experiencia completa.</h2>
+					<p>La versión funcional conserva sus páginas, navegación, catálogo, producto, carrito, formularios y comportamiento responsive.</p>
+					<a class="c421-open" href="/projects/421-co/index.html" target="_blank" rel="noreferrer">Abrir sitio completo <span aria-hidden="true">↗</span></a>
+				</header>
+
+				<div class="c421-browser">
+					<div class="c421-browser__bar" aria-hidden="true">
+						<span></span><span></span><span></span>
+						<p>421 Co. — sitio navegable</p>
+					</div>
+					<div class="c421-browser__viewport">
+						<iframe src="/projects/421-co/index.html" title="Sitio web navegable de 421 Co." loading="eager"></iframe>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<footer class="c421-close">
+			<div class="c421-wrap"><p>Diseño visual que también funciona.</p><a href="/#proyectos">Volver a proyectos →</a></div>
+		</footer>
+	</article>
+</BaseLayout>
+
+<style>
+	.c421 { --navy:#18275c; --lavender:#c7bedc; --yellow:#ffd050; --paper:#fdfdfe; --ink:#17203f; --muted:#586078; --line:rgb(24 39 92 / .15); overflow:clip; background:var(--paper); color:var(--ink); }
+	.c421 * { min-width:0; }
+	.c421-wrap { width:min(calc(100% - 2rem),76rem); margin-inline:auto; }
+	.c421-label { margin:0; color:var(--navy); font-size:.7rem; font-weight:800; letter-spacing:.14em; text-transform:uppercase; }
+	.c421-back { display:inline-block; margin-bottom:clamp(2.25rem,5vw,4rem); color:var(--navy); font-size:.74rem; font-weight:800; letter-spacing:.05em; text-decoration:none; text-transform:uppercase; }
+	.c421-hero { padding-block:clamp(2.75rem,6vw,5.5rem); background:radial-gradient(42rem 30rem at 84% 24%,rgb(199 190 220 / .65),transparent 68%),radial-gradient(30rem 24rem at 8% 14%,rgb(255 208 80 / .15),transparent 70%),#fdfdfe; }
+	.c421-hero__grid { display:grid; gap:clamp(3rem,7vw,6rem); align-items:center; }
+	.c421-hero h1 { margin:.8rem 0 0; color:var(--navy); font-size:clamp(4rem,9vw,8rem); font-weight:800; line-height:.84; letter-spacing:-.065em; text-transform:uppercase; }
+	.c421-hero__type { max-width:27ch; margin:1.25rem 0 0; color:var(--navy); font-size:clamp(1.15rem,2.1vw,1.7rem); font-weight:700; line-height:1.25; }
+	.c421-hero__summary { max-width:60ch; margin:1.35rem 0 0; color:var(--muted); font-size:.94rem; line-height:1.7; }
+	.c421-hero dl { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem 1.5rem; margin:clamp(1.75rem,3vw,2.5rem) 0 0; padding-top:1.15rem; border-top:1px solid var(--line); }
+	.c421-hero dl div { display:grid; gap:.25rem; }
+	.c421-hero dt { color:#726697; font-size:.63rem; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
+	.c421-hero dd { margin:0; color:var(--navy); font-size:.78rem; font-weight:650; line-height:1.45; }
+	.c421-hero__visual { position:relative; min-height:clamp(24rem,46vw,36rem); }
+	.c421-laptop { position:relative; width:100%; padding:clamp(.85rem,1.7vw,1.25rem) clamp(.85rem,1.7vw,1.25rem) clamp(1.2rem,2.4vw,1.75rem); border-radius:clamp(1rem,2vw,1.6rem); background:#111526; box-shadow:0 1.8rem 4rem rgb(24 39 92 / .2); }
+	.c421-laptop__camera { position:absolute; top:.4rem; left:50%; width:.34rem; aspect-ratio:1; border-radius:50%; background:#373c55; transform:translateX(-50%); }
+	.c421-laptop__screen { overflow:hidden; aspect-ratio:16 / 10; border-radius:clamp(.45rem,1vw,.8rem); background:#fff; }
+	.c421-laptop__screen img { width:100%; height:100%; object-fit:cover; object-position:top; }
+	.c421-laptop__base { position:absolute; right:-4%; bottom:-.65rem; left:-4%; height:.8rem; border-radius:0 0 60% 60%; background:linear-gradient(180deg,#d9dbe4,#9da1af); box-shadow:0 .6rem .8rem rgb(24 39 92 / .12); }
+	.c421-laptop--hero { position:absolute; inset:3% 3% auto auto; width:94%; transform:rotate(-1deg); }
+	.c421-phone { overflow:hidden; aspect-ratio:390 / 844; border:.28rem solid #111526; border-radius:clamp(1.25rem,2vw,1.8rem); background:#fff; box-shadow:0 1.2rem 2.8rem rgb(24 39 92 / .22); }
+	.c421-phone img { width:100%; height:100%; object-fit:cover; object-position:top; }
+	.c421-phone--hero { position:absolute; right:-1%; bottom:-2%; z-index:2; width:27%; background:#c7bedc; transform:rotate(4deg); }
+	.c421-phone--hero img { height:calc(100% - .5rem); margin-top:.5rem; }
+	.c421-challenge { padding-block:clamp(3.5rem,7vw,6.5rem); border-block:1px solid var(--line); background:linear-gradient(110deg,#fff,rgb(199 190 220 / .24)); }
+	.c421-challenge__grid { display:grid; gap:1.5rem; }
+	.c421-challenge h2,.c421-section-heading h2 { max-width:25ch; margin:0; color:var(--navy); font-size:clamp(1.9rem,3.6vw,3.4rem); font-weight:750; letter-spacing:-.04em; }
+	.c421-challenge div > p,.c421-section-heading > p:last-child { max-width:68ch; margin:1rem 0 0; color:var(--muted); font-size:.94rem; line-height:1.7; }
+	.c421-live { padding-block:clamp(4rem,8vw,7.5rem); background:radial-gradient(36rem 28rem at 88% 25%,rgb(255 208 80 / .16),transparent 68%),#f7f6fb; }
+	.c421-section-heading { display:grid; justify-items:start; gap:.9rem; margin-bottom:clamp(2.5rem,5vw,4.5rem); }
+	.c421-browser { overflow:hidden; border:1px solid rgb(24 39 92 / .16); border-radius:clamp(1rem,2vw,1.6rem); background:#fff; box-shadow:0 1.8rem 4rem rgb(24 39 92 / .15); }
+	.c421-browser__bar { display:grid; grid-template-columns:repeat(3,.7rem) 1fr; align-items:center; gap:.45rem; min-height:3rem; padding:.75rem 1rem; border-bottom:1px solid rgb(24 39 92 / .12); background:#ece9f4; }
+	.c421-browser__bar > span { aspect-ratio:1; border-radius:50%; background:#9c91ba; }
+	.c421-browser__bar > span:first-child { background:var(--yellow); }
+	.c421-browser__bar p { justify-self:center; margin:0; padding:.35rem 1.5rem; border-radius:999px; background:rgb(255 255 255 / .76); color:#5e6680; font-size:.7rem; }
+	.c421-browser__viewport { height:clamp(38rem,70vw,52rem); }
+	.c421-browser iframe { display:block; width:100%; height:100%; border:0; background:#fff; }
+	.c421-open { display:inline-flex; min-height:3.25rem; align-items:center; justify-content:center; gap:.7rem; margin-top:.65rem; padding:.85rem 1.45rem; border-radius:999px; background:var(--navy); color:#fff; font-size:.8rem; font-weight:750; text-decoration:none; box-shadow:0 .75rem 1.7rem rgb(24 39 92 / .16); transition:transform .25s ease,background .25s ease; }
+	.c421-open:hover { background:#263a7b; transform:translateY(-.15rem); }
+	.c421-close { padding-block:clamp(2.75rem,5vw,4.5rem); background:var(--navy); color:#fff; }
+	.c421-close .c421-wrap { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1.25rem; }
+	.c421-close p { margin:0; color:#fff; font-size:clamp(1.35rem,3vw,2.5rem); font-weight:750; letter-spacing:-.04em; }
+	.c421-close a { color:var(--yellow); font-size:.76rem; font-weight:800; text-decoration:none; text-transform:uppercase; }
+	@media (min-width:48rem) {
+		.c421-hero__grid { grid-template-columns:minmax(0,.9fr) minmax(26rem,1.1fr); }
+		.c421-challenge__grid { grid-template-columns:.32fr 1fr; }
+	}
+	@media (max-width:47.99rem) {
+		.c421-hero__visual { min-height:25rem; }
+		.c421-phone--hero { right:1%; width:25%; }
+		.c421-browser__viewport { height:42rem; }
+	}
+	@media (max-width:34rem) {
+		.c421-hero dl { grid-template-columns:1fr; }
+		.c421-hero__visual { min-height:18rem; }
+		.c421-laptop--hero { top:4%; }
+		.c421-phone--hero { bottom:0; width:28%; }
+		.c421-browser__bar p { overflow:hidden; padding-inline:.65rem; text-overflow:ellipsis; white-space:nowrap; }
+		.c421-browser__viewport { height:36rem; }
+	}
+	@media (prefers-reduced-motion:reduce) { .c421-open { transition:none; } }
+</style>

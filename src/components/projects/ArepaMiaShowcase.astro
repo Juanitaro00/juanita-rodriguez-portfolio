@@ -1,0 +1,692 @@
+---
+const pages = Array.from({ length: 21 }, (_, index) => ({
+	src: `/images/projects/arepa-mia/page-${index + 1}.webp`,
+	alt: index === 0
+		? "Portada del manual de marca Arepa Mía"
+		: `Páginas ${index + 1} del manual de marca Arepa Mía`,
+}));
+---
+
+<article id="proyecto-arepa-mia" class="arepa-case" data-arepamia-case>
+	<div class="arepa-case__copy">
+		<p class="arepa-case__number" aria-label="Proyecto 05">05</p>
+		<h3>Arepa Mía, Cultura que se comparte</h3>
+		<p class="arepa-case__discipline">Identidad visual · Branding · Sistema de marca</p>
+		<p class="arepa-case__description">Una marca que celebra la arepa como símbolo de tradición y encuentro. Su identidad combina calidez, cercanía y cultura local a través de Don Arepito, un personaje creado para convertir cada interacción en una experiencia familiar y memorable.</p>
+		<div class="arepa-case__credits">
+			<span>Equipo</span>
+			<p>Juanita Rodríguez · Tatiana Chaves · Daniela Vargas</p>
+		</div>
+		<button class="arepa-case__cta" type="button" data-arepamia-open>
+			Ver proyecto <span aria-hidden="true">→</span>
+		</button>
+	</div>
+
+	<button class="arepa-preview" type="button" data-arepamia-open aria-label="Abrir el manual interactivo de Arepa Mía">
+		<span class="arepa-preview__glow" aria-hidden="true"></span>
+		<span class="arepa-preview__spread arepa-preview__spread--back" aria-hidden="true">
+			<img src="/images/projects/arepa-mia/page-14.webp" alt="" width="1920" height="1080" loading="lazy" />
+		</span>
+		<span class="arepa-preview__spread arepa-preview__spread--front" aria-hidden="true">
+			<img src="/images/projects/arepa-mia/page-20.webp" alt="" width="1920" height="1080" loading="lazy" />
+		</span>
+		<span class="arepa-preview__cover">
+			<img src="/images/projects/arepa-mia/cover-book.webp" alt="Mockup del manual de marca Arepa Mía" width="1536" height="1024" loading="lazy" />
+		</span>
+	</button>
+
+	<dialog class="arepa-viewer" data-arepamia-dialog aria-labelledby="arepamia-viewer-title">
+		<div class="arepa-viewer__shell">
+			<header class="arepa-viewer__header">
+				<div>
+					<p>Manual de marca</p>
+					<h3 id="arepamia-viewer-title">Arepa Mía</h3>
+				</div>
+				<button class="arepa-viewer__close" type="button" data-arepamia-close aria-label="Cerrar el manual">
+					<span>Cerrar</span><b aria-hidden="true">×</b>
+				</button>
+			</header>
+
+			<div class="arepa-book-stage" data-book-stage data-state="closed">
+				<div class="arepa-book" data-book>
+					<div class="arepa-book__base" aria-hidden="true"></div>
+					<img
+						class="arepa-book__spread"
+						data-book-image
+						src={pages[0].src}
+						alt={pages[0].alt}
+						width="1920"
+						height="1080"
+					/>
+					<div class="arepa-book__old-half" data-book-old-half aria-hidden="true"></div>
+					<div class="arepa-book__turn" data-book-turn aria-hidden="true">
+						<div class="arepa-book__turn-face arepa-book__turn-face--front"></div>
+						<div class="arepa-book__turn-face arepa-book__turn-face--back"></div>
+					</div>
+					<div class="arepa-book__spine" aria-hidden="true"></div>
+					<div class="arepa-book__cover" data-book-cover aria-hidden="true">
+						<img src="/images/projects/arepa-mia/page-1.webp" alt="" width="1920" height="1080" />
+					</div>
+				</div>
+				<p class="arepa-book__status" data-book-status role="status" aria-live="polite"></p>
+			</div>
+
+			<footer class="arepa-viewer__controls">
+				<button type="button" data-book-prev aria-keyshortcuts="ArrowLeft">Anterior</button>
+				<p><span data-book-current>01</span><span aria-hidden="true"> / </span><span class="sr-only">de</span><span>21</span></p>
+				<button type="button" data-book-next aria-keyshortcuts="ArrowRight">Siguiente</button>
+			</footer>
+		</div>
+	</dialog>
+</article>
+
+<script>
+	const pages = Array.from({ length: 21 }, (_, index) => ({
+		src: `/images/projects/arepa-mia/page-${index + 1}.webp`,
+		alt: index === 0
+			? "Portada del manual de marca Arepa Mía"
+			: `Páginas ${index + 1} del manual de marca Arepa Mía`,
+	}));
+
+	document.querySelectorAll<HTMLElement>("[data-arepamia-case]").forEach((caseStudy) => {
+		const dialog = caseStudy.querySelector<HTMLDialogElement>("[data-arepamia-dialog]");
+		const openButtons = caseStudy.querySelectorAll<HTMLButtonElement>("[data-arepamia-open]");
+		const closeButton = caseStudy.querySelector<HTMLButtonElement>("[data-arepamia-close]");
+		const stage = caseStudy.querySelector<HTMLElement>("[data-book-stage]");
+		const book = caseStudy.querySelector<HTMLElement>("[data-book]");
+		const image = caseStudy.querySelector<HTMLImageElement>("[data-book-image]");
+		const previousButton = caseStudy.querySelector<HTMLButtonElement>("[data-book-prev]");
+		const nextButton = caseStudy.querySelector<HTMLButtonElement>("[data-book-next]");
+		const currentLabel = caseStudy.querySelector<HTMLElement>("[data-book-current]");
+		const status = caseStudy.querySelector<HTMLElement>("[data-book-status]");
+		const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+		if (!dialog || !stage || !book || !image || !previousButton || !nextButton || !currentLabel || !status) return;
+
+		let currentIndex = 0;
+		let isTurning = false;
+		let openingTimer = 0;
+		let lastFocused: HTMLElement | null = null;
+		const bookRatio = 16 / 9;
+		const pageTurnDuration = 720;
+
+		const fitBook = () => {
+			const stageWidth = stage.clientWidth;
+			const stageHeight = stage.clientHeight;
+			if (!stageWidth || !stageHeight) return;
+
+			const edgeSpace = Math.max(12, Math.min(32, stageWidth * 0.025));
+			const availableWidth = Math.max(240, stageWidth - edgeSpace * 2);
+			const availableHeight = Math.max(180, stageHeight - 88);
+			const fittedWidth = Math.min(availableWidth, availableHeight * bookRatio);
+			const fittedHeight = fittedWidth / bookRatio;
+
+			book.style.width = `${fittedWidth}px`;
+			book.style.height = `${fittedHeight}px`;
+		};
+
+		const bookResizeObserver = new ResizeObserver(fitBook);
+		bookResizeObserver.observe(stage);
+
+		const updateControls = () => {
+			previousButton.disabled = currentIndex === 0 || isTurning;
+			nextButton.disabled = currentIndex === pages.length - 1 || isTurning;
+			currentLabel.textContent = String(currentIndex + 1).padStart(2, "0");
+		};
+
+		const loadPage = (index: number) => new Promise<void>((resolve, reject) => {
+			const preloader = new Image();
+			preloader.onload = () => resolve();
+			preloader.onerror = () => reject(new Error("No se pudo cargar esta página."));
+			preloader.src = pages[index].src;
+		});
+
+		const preloadBook = () => {
+			pages.forEach((page) => {
+				const preloader = new Image();
+				preloader.src = page.src;
+			});
+		};
+
+		const showPage = async (targetIndex: number, direction: "next" | "previous") => {
+			if (isTurning || targetIndex < 0 || targetIndex >= pages.length || targetIndex === currentIndex) return;
+			isTurning = true;
+			status.textContent = "Cargando página";
+			updateControls();
+
+			try {
+				await loadPage(targetIndex);
+				const oldPage = pages[currentIndex];
+				const newPage = pages[targetIndex];
+				book.style.setProperty("--page-from", `url("${oldPage.src}")`);
+				book.style.setProperty("--page-to", `url("${newPage.src}")`);
+				image.src = newPage.src;
+				image.alt = newPage.alt;
+				currentIndex = targetIndex;
+				currentLabel.textContent = String(currentIndex + 1).padStart(2, "0");
+
+				if (reduceMotion.matches) {
+					isTurning = false;
+					status.textContent = `Página ${currentIndex + 1} de ${pages.length}`;
+					updateControls();
+					return;
+				}
+
+				book.dataset.direction = direction;
+				book.classList.remove("is-turning");
+				window.requestAnimationFrame(() => {
+					window.requestAnimationFrame(() => book.classList.add("is-turning"));
+				});
+
+				window.setTimeout(() => {
+					book.classList.remove("is-turning");
+					delete book.dataset.direction;
+					isTurning = false;
+					status.textContent = `Página ${currentIndex + 1} de ${pages.length}`;
+					updateControls();
+				}, pageTurnDuration);
+			} catch (error) {
+				isTurning = false;
+				status.textContent = error instanceof Error ? error.message : "No se pudo cargar esta página.";
+				updateControls();
+			}
+		};
+
+		const openBook = () => {
+			lastFocused = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+			dialog.showModal();
+			document.documentElement.classList.add("has-open-dialog");
+			stage.dataset.state = "closed";
+			currentIndex = 1;
+			image.src = pages[1].src;
+			image.alt = pages[1].alt;
+			status.textContent = "Abriendo el manual";
+			updateControls();
+			fitBook();
+
+			window.clearTimeout(openingTimer);
+			window.requestAnimationFrame(() => {
+				fitBook();
+				stage.dataset.state = reduceMotion.matches ? "open" : "opening";
+				closeButton?.focus({ preventScroll: true });
+			});
+			openingTimer = window.setTimeout(() => {
+				stage.dataset.state = "open";
+				status.textContent = `Página 2 de ${pages.length}`;
+			}, reduceMotion.matches ? 0 : 850);
+			window.setTimeout(preloadBook, 120);
+		};
+
+		const closeBook = () => {
+			window.clearTimeout(openingTimer);
+			dialog.close();
+		};
+
+		openButtons.forEach((button) => button.addEventListener("click", openBook));
+		closeButton?.addEventListener("click", closeBook);
+		previousButton.addEventListener("click", () => showPage(currentIndex - 1, "previous"));
+		nextButton.addEventListener("click", () => showPage(currentIndex + 1, "next"));
+
+		dialog.addEventListener("click", (event) => {
+			if (event.target === dialog) closeBook();
+		});
+
+		dialog.addEventListener("keydown", (event) => {
+			if (event.repeat || (event.key !== "ArrowLeft" && event.key !== "ArrowRight")) return;
+			event.preventDefault();
+			if (event.key === "ArrowLeft") showPage(currentIndex - 1, "previous");
+			if (event.key === "ArrowRight") showPage(currentIndex + 1, "next");
+		});
+
+		dialog.addEventListener("close", () => {
+			document.documentElement.classList.remove("has-open-dialog");
+			stage.dataset.state = "closed";
+			status.textContent = "";
+			lastFocused?.focus();
+		});
+	});
+</script>
+
+<style>
+	:global(html.has-open-dialog) { overflow: hidden; }
+
+	.arepa-case {
+		--arepa-orange: #dd5523;
+		--arepa-gold: #fdb23b;
+		--arepa-cream: #f4e6e1;
+		--arepa-burgundy: #6d282c;
+		--arepa-cacao: #3e1718;
+		position: relative;
+		display: grid;
+		isolation: isolate;
+		gap: clamp(2rem, 5vw, 5rem);
+		padding: clamp(2rem, 5vw, 4.5rem);
+		overflow: hidden;
+		border: 1px solid rgb(255 255 255 / 0.85);
+		border-radius: clamp(1.5rem, 3vw, 2.75rem);
+		background:
+			radial-gradient(circle at 86% 12%, rgb(253 178 59 / 0.27), transparent 25%),
+			radial-gradient(circle at 18% 92%, rgb(221 85 35 / 0.13), transparent 30%),
+			linear-gradient(135deg, rgb(255 253 251 / 0.96), rgb(247 231 224 / 0.92));
+		box-shadow: 0 1.5rem 4rem rgb(109 40 44 / 0.12), inset 0 1px 0 rgb(255 255 255 / 0.96);
+	}
+
+	.arepa-case::after {
+		position: absolute;
+		right: -8rem;
+		bottom: -10rem;
+		z-index: -1;
+		width: 24rem;
+		aspect-ratio: 1;
+		border-radius: 50%;
+		background: rgb(221 85 35 / 0.12);
+		content: "";
+	}
+
+	.arepa-case__copy {
+		align-self: center;
+		max-width: 37rem;
+	}
+
+	.arepa-case__number {
+		margin: 0 0 1rem;
+		color: var(--arepa-orange);
+		font-size: 0.72rem;
+		font-weight: 800;
+		letter-spacing: 0.12em;
+		line-height: 1.2;
+	}
+
+	.arepa-case h3 {
+		max-width: none;
+		margin: 0 0 var(--space-1);
+		color: var(--arepa-cacao);
+		font-family: var(--font-sans);
+		font-size: clamp(1.65rem, 3vw, 2.7rem);
+		font-weight: 800;
+		letter-spacing: -0.025em;
+		line-height: 1.08;
+		text-transform: uppercase;
+	}
+
+	.arepa-case__discipline {
+		margin: 0 0 var(--space-1);
+		color: var(--arepa-burgundy);
+		font-size: var(--step--1);
+		font-weight: 700;
+		letter-spacing: normal;
+		line-height: inherit;
+		text-transform: none;
+	}
+
+	.arepa-case__description {
+		max-width: var(--measure);
+		margin: 0;
+		color: #664d49;
+		font-size: clamp(1rem, 1.25vw, 1.12rem);
+		line-height: 1.6;
+	}
+
+	.arepa-case__cta {
+		display: inline-block;
+		margin-block-start: clamp(1rem, 2vw, 1.75rem);
+		padding: 0;
+		border: 0;
+		background: transparent;
+		color: var(--arepa-cacao);
+		font: inherit;
+		font-size: var(--step--1);
+		font-weight: 700;
+		line-height: 1.2;
+		cursor: pointer;
+		transition: color 0.25s ease, transform 0.25s ease;
+	}
+
+	.arepa-case__cta span { display: inline-block; margin-left: 0.35rem; transition: transform 0.25s ease; }
+	.arepa-case__cta:hover { color: var(--arepa-orange); }
+	.arepa-case__cta:hover span { transform: translateX(0.25rem); }
+	.arepa-case__cta:active { transform: translateY(1px); }
+
+	.arepa-case__credits {
+		display: grid;
+		gap: 0.18rem;
+		margin-block-start: clamp(0.9rem, 1.5vw, 1.25rem);
+		color: #725b56;
+		font-size: clamp(0.72rem, 0.85vw, 0.82rem);
+		line-height: 1.45;
+	}
+
+	.arepa-case__credits span {
+		color: var(--arepa-orange);
+		font-size: 0.66rem;
+		font-weight: 800;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+	}
+
+	.arepa-case__credits p { margin: 0; }
+
+	.arepa-preview {
+		position: relative;
+		min-width: 0;
+		min-height: clamp(27rem, 52vw, 42rem);
+		padding: 0;
+		border: 0;
+		background: transparent;
+		cursor: zoom-in;
+		perspective: 100rem;
+	}
+
+	.arepa-preview__glow {
+		position: absolute;
+		inset: 13% 4% 7% 8%;
+		border-radius: 50%;
+		background: rgb(253 178 59 / 0.24);
+		filter: blur(3.5rem);
+	}
+
+	.arepa-preview__spread,
+	.arepa-preview__cover {
+		position: absolute;
+		display: block;
+		overflow: hidden;
+		border-radius: clamp(0.5rem, 1vw, 0.9rem);
+		box-shadow: 0 1.5rem 3.6rem rgb(60 74 70 / 0.22);
+		transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.65s ease;
+	}
+
+	.arepa-preview__spread img,
+	.arepa-preview__cover img { width: 100%; height: 100%; object-fit: cover; }
+
+	.arepa-preview__spread--back {
+		top: 8%;
+		right: -1%;
+		width: 73%;
+		aspect-ratio: 16 / 9;
+		transform: rotate(4.5deg) translateZ(-2rem);
+	}
+
+	.arepa-preview__spread--front {
+		top: 21%;
+		left: 0;
+		width: 72%;
+		aspect-ratio: 16 / 9;
+		transform: rotate(-5deg) translateZ(-1rem);
+	}
+
+	.arepa-preview__cover {
+		right: -1%;
+		bottom: 2%;
+		z-index: 3;
+		width: 91%;
+		aspect-ratio: 3 / 2;
+		overflow: visible;
+		border-radius: 0;
+		background: transparent;
+		box-shadow: none;
+		transform: rotate(-1.8deg) translateZ(1rem);
+	}
+
+	.arepa-preview__cover img {
+		display: block;
+		border-radius: 0;
+		object-fit: cover;
+	}
+
+	@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+		.arepa-preview:hover .arepa-preview__spread--back { transform: rotate(7deg) translate(0.5rem, -0.55rem) translateZ(-2rem); }
+		.arepa-preview:hover .arepa-preview__spread--front { transform: rotate(-8deg) translate(-0.75rem, -0.35rem) translateZ(-1rem); }
+		.arepa-preview:hover .arepa-preview__cover { transform: rotate(-0.6deg) translate(0.25rem, -0.7rem) translateZ(1rem); }
+	}
+
+	.arepa-viewer {
+		width: 100vw;
+		max-width: none;
+		height: 100dvh;
+		max-height: none;
+		margin: 0;
+		padding: 0;
+		border: 0;
+		border-radius: 0;
+		background: #f4e6e1;
+		color: var(--arepa-cacao);
+		box-shadow: none;
+	}
+
+	.arepa-viewer::backdrop {
+		background: rgb(45 19 20 / 0.74);
+		-webkit-backdrop-filter: blur(0.6rem);
+		backdrop-filter: blur(0.6rem);
+	}
+
+	.arepa-viewer__shell {
+		position: relative;
+		height: 100%;
+		padding: 0;
+	}
+
+	.arepa-viewer__header,
+	.arepa-viewer__controls {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+	}
+
+	.arepa-viewer__header {
+		position: absolute;
+		top: clamp(1rem, 2.2vw, 2rem);
+		right: clamp(1rem, 2.2vw, 2rem);
+		left: clamp(1rem, 2.2vw, 2rem);
+		z-index: 20;
+		pointer-events: none;
+	}
+	.arepa-viewer__header > * { pointer-events: auto; }
+	.arepa-viewer__header p { margin: 0 0 0.1rem; color: #85594e; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; }
+	.arepa-viewer__header h3 { max-width: none; margin: 0; font-family: var(--font-sans); font-size: clamp(1.2rem, 2vw, 1.7rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1; }
+
+	.arepa-viewer__close,
+	.arepa-viewer__controls button {
+		border: 1px solid rgb(62 23 24 / 0.2);
+		background: rgb(255 255 255 / 0.84);
+		color: var(--arepa-cacao);
+		font-size: 0.88rem;
+		font-weight: 700;
+		cursor: pointer;
+		transition: background 0.2s ease, transform 0.2s ease;
+		-webkit-backdrop-filter: blur(0.8rem);
+		backdrop-filter: blur(0.8rem);
+	}
+
+	.arepa-viewer__close { display: flex; align-items: center; gap: 0.65rem; padding: 0.5rem 0.75rem 0.5rem 0.9rem; border-radius: 999px; }
+	.arepa-viewer__close b { font-size: 1.4rem; font-weight: 400; line-height: 0.8; }
+	.arepa-viewer__close:hover,
+	.arepa-viewer__controls button:hover { background: #fff; }
+	.arepa-viewer__close:active,
+	.arepa-viewer__controls button:active { transform: translateY(1px); }
+
+	.arepa-book-stage {
+		position: relative;
+		display: grid;
+		width: 100%;
+		height: 100%;
+		min-height: 0;
+		place-items: center;
+		overflow: hidden;
+		background:
+			radial-gradient(ellipse 58% 66% at 50% 44%, rgb(255 253 250 / 0.98), transparent 72%),
+			radial-gradient(circle at 86% 14%, rgb(253 178 59 / 0.24), transparent 26%),
+			linear-gradient(145deg, #f7e9e3, #edcfc4);
+		perspective: 120rem;
+	}
+
+	.arepa-book {
+		--page-from: url("/images/projects/arepa-mia/page-1.webp");
+		--page-to: url("/images/projects/arepa-mia/page-2.webp");
+		position: relative;
+		width: min(86%, 76rem);
+		aspect-ratio: 16 / 9;
+		transform-style: preserve-3d;
+		transform: rotateX(1.2deg);
+		filter: drop-shadow(0 2.2rem 2.4rem rgb(62 23 24 / 0.22));
+	}
+
+	.arepa-book::before {
+		position: absolute;
+		inset: -0.4% -0.5% -0.7%;
+		z-index: 2;
+		border: 1px solid rgb(255 255 255 / 0.72);
+		border-radius: 0.5rem;
+		box-shadow: inset 0 0 0 1px rgb(93 62 54 / 0.07);
+		content: "";
+		pointer-events: none;
+		transform: translateZ(0.08rem);
+	}
+
+	.arepa-book__base {
+		position: absolute;
+		inset: -0.7% -0.9% -2.1%;
+		border-radius: 0.6rem;
+		background-color: #f7eee9;
+		background-image: linear-gradient(
+			90deg,
+			transparent 24%,
+			rgb(196 170 158 / 0.65) 24.15%,
+			transparent 24.3%,
+			transparent 49.85%,
+			rgb(196 170 158 / 0.65) 50%,
+			transparent 50.15%,
+			transparent 74.7%,
+			rgb(196 170 158 / 0.65) 74.85%,
+			transparent 75%
+		);
+		box-shadow:
+			0 0.5rem 0 #eee1da,
+			0 0.76rem 0 var(--arepa-burgundy),
+			0 1.4rem 2.2rem rgb(62 23 24 / 0.2);
+		transform: translateZ(-0.5rem);
+	}
+
+	.arepa-book__spread,
+	.arepa-book__cover {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		border-radius: 0.35rem;
+		object-fit: cover;
+		background: var(--arepa-cream);
+		box-shadow: inset 0 0 0 1px rgb(75 48 41 / 0.05);
+	}
+
+	.arepa-book__cover {
+		z-index: 5;
+		overflow: hidden;
+		transform-origin: left center;
+		transition: transform 0.82s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.32s 0.48s ease;
+	}
+
+	.arepa-book__cover img { width: 100%; height: 100%; object-fit: cover; }
+	[data-state="opening"] .arepa-book__cover,
+	[data-state="open"] .arepa-book__cover { opacity: 0; transform: rotateY(-112deg); pointer-events: none; }
+
+	.arepa-book__spine {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 50%;
+		z-index: 7;
+		width: 1.15%;
+		background: linear-gradient(90deg, rgb(72 52 47 / 0.12), rgb(255 255 255 / 0.52), rgb(72 52 47 / 0.14));
+		box-shadow: 0 0 1.2rem rgb(73 52 47 / 0.16);
+		transform: translateX(-50%) translateZ(0.2rem);
+		pointer-events: none;
+	}
+
+	.arepa-book__old-half,
+	.arepa-book__turn {
+		position: absolute;
+		top: 0;
+		z-index: 4;
+		display: none;
+		width: 50%;
+		height: 100%;
+	}
+
+	.arepa-book__turn { z-index: 6; transform-style: preserve-3d; will-change: transform; contain: paint; }
+	.arepa-book__turn-face { position: absolute; inset: 0; overflow: hidden; border-radius: 0.25rem; background-repeat: no-repeat; background-size: 200% 100%; backface-visibility: hidden; }
+	.arepa-book__turn-face::after { position: absolute; inset: 0; background: linear-gradient(90deg, rgb(64 40 34 / 0.2), transparent 18%, transparent 78%, rgb(255 255 255 / 0.24)); content: ""; opacity: 0.42; }
+	.arepa-book__turn-face--back { transform: rotateY(180deg); }
+
+	.arepa-book[data-direction="next"].is-turning .arepa-book__old-half { left: 0; display: block; background: var(--page-from) left center / 200% 100% no-repeat; }
+	.arepa-book[data-direction="next"].is-turning .arepa-book__turn { right: 0; display: block; transform-origin: left center; animation: arepa-page-next 0.72s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
+	.arepa-book[data-direction="next"].is-turning .arepa-book__turn-face--front { background-image: var(--page-from); background-position: right center; box-shadow: inset 1rem 0 1.8rem rgb(52 37 32 / 0.08); }
+	.arepa-book[data-direction="next"].is-turning .arepa-book__turn-face--back { background-image: var(--page-to); background-position: left center; box-shadow: inset -1rem 0 1.8rem rgb(52 37 32 / 0.08); }
+
+	.arepa-book[data-direction="previous"].is-turning .arepa-book__old-half { right: 0; display: block; background: var(--page-from) right center / 200% 100% no-repeat; }
+	.arepa-book[data-direction="previous"].is-turning .arepa-book__turn { left: 0; display: block; transform-origin: right center; animation: arepa-page-previous 0.72s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
+	.arepa-book[data-direction="previous"].is-turning .arepa-book__turn-face--front { background-image: var(--page-from); background-position: left center; box-shadow: inset -1rem 0 1.8rem rgb(52 37 32 / 0.08); }
+	.arepa-book[data-direction="previous"].is-turning .arepa-book__turn-face--back { background-image: var(--page-to); background-position: right center; box-shadow: inset 1rem 0 1.8rem rgb(52 37 32 / 0.08); }
+
+	@keyframes arepa-page-next {
+		from { transform: translateZ(0.08rem) rotateY(0deg); }
+		to { transform: translateZ(0.08rem) rotateY(-180deg); }
+	}
+
+	@keyframes arepa-page-previous {
+		from { transform: translateZ(0.08rem) rotateY(0deg); }
+		to { transform: translateZ(0.08rem) rotateY(180deg); }
+	}
+
+	.arepa-book__status { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+
+	.arepa-viewer__controls {
+		position: absolute;
+		right: clamp(1rem, 2.2vw, 2rem);
+		bottom: clamp(0.8rem, 1.8vw, 1.5rem);
+		left: clamp(1rem, 2.2vw, 2rem);
+		z-index: 20;
+		pointer-events: none;
+	}
+	.arepa-viewer__controls > * { pointer-events: auto; }
+	.arepa-viewer__controls button { min-width: 7.2rem; padding: 0.65rem 1rem; border-radius: 999px; }
+	.arepa-viewer__controls button:disabled { cursor: not-allowed; opacity: 0.38; }
+	.arepa-viewer__controls p { display: flex; gap: 0.25rem; margin: 0; color: #79534c; font-size: 0.8rem; font-variant-numeric: tabular-nums; }
+
+	.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+
+	@media (min-width: 64rem) {
+		.arepa-case { grid-template-columns: minmax(22rem, 0.84fr) minmax(0, 1.5fr); align-items: center; }
+		.arepa-case__copy { padding-left: clamp(0rem, 1.5vw, 1.25rem); }
+	}
+
+	@media (max-width: 63.99rem) {
+		.arepa-case { grid-template-columns: 1fr; }
+		.arepa-case__copy { max-width: 38rem; }
+		.arepa-preview { min-height: clamp(25rem, 73vw, 42rem); }
+	}
+
+	@media (max-width: 40rem) {
+		.arepa-case { padding: 1.4rem; gap: 1.5rem; }
+		.arepa-case h3 { font-size: clamp(1.65rem, 3vw, 2.7rem); }
+		.arepa-case__discipline { text-transform: none; }
+		.arepa-preview { min-height: clamp(20rem, 93vw, 29rem); }
+		.arepa-preview__spread--back { top: 2%; width: 72%; }
+		.arepa-preview__spread--front { top: 13%; width: 73%; }
+		.arepa-preview__cover { right: -3%; bottom: 1%; width: 98%; }
+
+		.arepa-viewer__header { top: 0.75rem; right: 0.75rem; left: 0.75rem; justify-content: flex-end; }
+		.arepa-viewer__header > div { display: none; }
+		.arepa-viewer__close span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); }
+		.arepa-viewer__close { width: 2.65rem; height: 2.65rem; justify-content: center; padding: 0; }
+		.arepa-book__base { box-shadow: 0 0.35rem 0 var(--arepa-burgundy), 0 0.9rem 1.4rem rgb(62 23 24 / 0.15); }
+		.arepa-viewer__controls { right: 0.75rem; bottom: 0.65rem; left: 0.75rem; }
+		.arepa-viewer__controls button { min-width: 0; padding: 0.55rem 0.78rem; }
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.arepa-preview__spread,
+		.arepa-preview__cover,
+		.arepa-book__cover { transition: none; }
+	}
+</style>

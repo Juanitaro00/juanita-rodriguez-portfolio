@@ -1,0 +1,139 @@
+[
+  {
+    "name": "home",
+    "viewport": "desktop",
+    "title": "Tu nombre — Diseñadora digital",
+    "horizontalOverflow": false,
+    "scrollWidth": 1440,
+    "viewportWidth": 1440,
+    "brokenImages": [],
+    "projectCardPresent": true,
+    "projectLink": "/proyectos/421-co/",
+    "iframePresent": false,
+    "iframePath": null,
+    "iframeBrokenImages": [],
+    "iframeOverflow": false,
+    "consoleErrors": [],
+    "screenshot": "/Users/juanitarodriguez/Desktop/portafolioBehance/qa/screenshots/portfolio-421/home-desktop.png"
+  },
+  {
+    "name": "project",
+    "viewport": "desktop",
+    "title": "421 Co. — Juanita Rodríguez",
+    "horizontalOverflow": false,
+    "scrollWidth": 1440,
+    "viewportWidth": 1440,
+    "brokenImages": [],
+    "projectCardPresent": false,
+    "projectLink": null,
+    "iframePresent": true,
+    "iframePath": "/projects/421-co/index.html",
+    "iframeBrokenImages": [],
+    "iframeOverflow": false,
+    "consoleErrors": [],
+    "screenshot": "/Users/juanitarodriguez/Desktop/portafolioBehance/qa/screenshots/portfolio-421/project-desktop.png"
+  },
+  {
+    "name": "home",
+    "viewport": "tablet",
+    "title": "Tu nombre — Diseñadora digital",
+    "horizontalOverflow": false,
+    "scrollWidth": 768,
+    "viewportWidth": 768,
+    "brokenImages": [],
+    "projectCardPresent": true,
+    "projectLink": "/proyectos/421-co/",
+    "iframePresent": false,
+    "iframePath": null,
+    "iframeBrokenImages": [],
+    "iframeOverflow": false,
+    "consoleErrors": [],
+    "screenshot": "/Users/juanitarodriguez/Desktop/portafolioBehance/qa/screenshots/portfolio-421/home-tablet.png"
+  },
+  {
+    "name": "project",
+    "viewport": "tablet",
+    "title": "421 Co. — Juanita Rodríguez",
+    "horizontalOverflow": false,
+    "scrollWidth": 768,
+    "viewportWidth": 768,
+    "brokenImages": [],
+    "projectCardPresent": false,
+    "projectLink": null,
+    "iframePresent": true,
+    "iframePath": "/projects/421-co/index.html",
+    "iframeBrokenImages": [],
+    "iframeOverflow": false,
+    "consoleErrors": [],
+    "screenshot": "/Users/juanitarodriguez/Desktop/portafolioBehance/qa/screenshots/portfolio-421/project-tablet.png"
+  },
+  {
+    "name": "home",
+    "viewport": "mobile",
+    "title": "Tu nombre — Diseñadora digital",
+    "horizontalOverflow": false,
+    "scrollWidth": 390,
+    "viewportWidth": 390,
+    "brokenImages": [],
+    "projectCardPresent": true,
+    "projectLink": "/proyectos/421-co/",
+    "iframePresent": false,
+    "iframePath": null,
+    "iframeBrokenImages": [],
+    "iframeOverflow": false,
+    "consoleErrors": [],
+    "screenshot": "/Users/juanitarodriguez/Desktop/portafolioBehance/qa/screenshots/portfolio-421/home-mobile.png"
+  },
+  {
+    "name": "project",
+    "viewport": "mobile",
+    "title": "421 Co. — Juanita Rodríguez",
+    "horizontalOverflow": false,
+    "scrollWidth": 390,
+    "viewportWidth": 390,
+    "brokenImages": [],
+    "projectCardPresent": false,
+    "projectLink": null,
+    "iframePresent": true,
+    "iframePath": "/projects/421-co/index.html",
+    "iframeBrokenImages": [],
+    "iframeOverflow": false,
+    "consoleErrors": [],
+    "screenshot": "/Users/juanitarodriguez/Desktop/portafolioBehance/qa/screenshots/portfolio-421/project-mobile.png"
+  },
+  {
+    "name": "iframe-navigation",
+    "routes": [
+      {
+        "route": "productos.html",
+        "path": "/projects/421-co/productos.html",
+        "title": "421 Co.",
+        "brokenImages": 0
+      },
+      {
+        "route": "Producto.html",
+        "path": "/projects/421-co/Producto.html",
+        "title": "421 Co.",
+        "brokenImages": 0
+      },
+      {
+        "route": "contacto_.html",
+        "path": "/projects/421-co/contacto_.html",
+        "title": "Contácto",
+        "brokenImages": 0
+      },
+      {
+        "route": "iniciar-sesion.html",
+        "path": "/projects/421-co/iniciar-sesion.html",
+        "title": "Contácto",
+        "brokenImages": 0
+      },
+      {
+        "route": "registrarse.html",
+        "path": "/projects/421-co/registrarse.html",
+        "title": "421 Co.",
+        "brokenImages": 0
+      }
+    ]
+  }
+]

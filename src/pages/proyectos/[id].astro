@@ -1,0 +1,30 @@
+---
+import { getCollection, render, type CollectionEntry } from "astro:content";
+import ProjectLayout from "../../layouts/ProjectLayout.astro";
+import RegiooProject from "../../components/projects/RegiooProject.astro";
+import TailorsShopCaseStudy from "../../components/projects/TailorsShopCaseStudy.astro";
+import FourTwentyOneProject from "../../components/projects/FourTwentyOneProject.astro";
+
+export async function getStaticPaths() {
+	const publishedProjectIds = new Set(["tailors-shop", "regioo", "421-co"]);
+	const projects = (await getCollection("projects")).filter((project) => publishedProjectIds.has(project.id));
+	return projects.map((project) => ({ params: { id: project.id }, props: { project } }));
+}
+
+interface Props { project: CollectionEntry<"projects">; }
+
+const { project } = Astro.props;
+const { Content } = await render(project);
+---
+
+{
+	project.id === "tailors-shop" ? (
+		<TailorsShopCaseStudy project={project.data} />
+	) : project.id === "regioo" ? (
+		<RegiooProject project={project.data} />
+	) : project.id === "421-co" ? (
+		<FourTwentyOneProject project={project.data} />
+	) : (
+		<ProjectLayout project={project.data}><Content /></ProjectLayout>
+	)
+}

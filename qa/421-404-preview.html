@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>421 Co. — Página no encontrada</title>
+		<style>
+			* { box-sizing: border-box; }
+			html, body { min-height: 100%; margin: 0; }
+			body { background: #18275c; color: #c7bedc; font-family: Arial, Helvetica, sans-serif; }
+			header { display: flex; min-height: 5.5rem; align-items: center; justify-content: space-between; padding: 1rem 7vw; background: #c7bedc; color: #18275c; }
+			.logo { font-size: 1.65rem; font-weight: 900; letter-spacing: -.08em; }
+			nav { display: flex; gap: 2rem; font-weight: 700; }
+			.icons { display: flex; gap: 1rem; font-size: 1.8rem; }
+			main { display: grid; min-height: calc(100vh - 5.5rem); place-items: center; padding: 3rem 1.5rem; text-align: center; background: radial-gradient(circle at 50% 35%, #263b80 0, #18275c 55%); }
+			strong { display: block; color: #ffd050; font-size: clamp(6rem, 19vw, 15rem); line-height: .78; letter-spacing: -.08em; }
+			h1 { margin: 2rem 0 .75rem; font-size: clamp(1.5rem, 3vw, 3rem); }
+			p { margin: 0; color: #fff; font-size: clamp(.95rem, 1.4vw, 1.25rem); }
+			@media (max-width: 600px) {
+				header { min-height: 4.5rem; padding-inline: 1.2rem; }
+				nav { display: none; }
+				.logo { font-size: 1.35rem; }
+				main { min-height: calc(100vh - 4.5rem); }
+				strong { font-size: 8rem; }
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<span class="logo">421Co.</span>
+			<nav aria-label="Navegación de muestra"><span>Inicio</span><span>Nosotros</span><span>Productos</span><span>Contacto</span></nav>
+			<span class="icons" aria-hidden="true">♙ 🛒</span>
+		</header>
+		<main>
+			<div><strong>404</strong><h1>Página no encontrada</h1><p>La ruta que buscas no está disponible.</p></div>
+		</main>
+	</body>
+</html>

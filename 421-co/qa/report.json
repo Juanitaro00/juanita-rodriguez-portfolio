@@ -1,0 +1,2622 @@
+[
+  {
+    "route": "inicio",
+    "viewport": "desktop",
+    "title": "421 Co.",
+    "url": "http://127.0.0.1:4210/index.html?qa=1789845088061",
+    "viewportWidth": 1440,
+    "scrollWidth": 1440,
+    "horizontalOverflow": false,
+    "overflowingElements": [
+      {
+        "tag": "aside",
+        "className": "cart-panel",
+        "left": 1462,
+        "right": 1908
+      },
+      {
+        "tag": "div",
+        "className": "cart-panel__head",
+        "left": 1490,
+        "right": 1880
+      },
+      {
+        "tag": "h2",
+        "className": "",
+        "left": 1490,
+        "right": 1608
+      },
+      {
+        "tag": "button",
+        "className": "cart-close",
+        "left": 1851,
+        "right": 1880
+      },
+      {
+        "tag": "div",
+        "className": "cart-items",
+        "left": 1490,
+        "right": 1880
+      },
+      {
+        "tag": "div",
+        "className": "cart-item",
+        "left": 1490,
+        "right": 1880
+      },
+      {
+        "tag": "div",
+        "className": "",
+        "left": 1490,
+        "right": 1584
+      },
+      {
+        "tag": "strong",
+        "className": "",
+        "left": 1490,
+        "right": 1551
+      },
+      {
+        "tag": "span",
+        "className": "",
+        "left": 1490,
+        "right": 1584
+      },
+      {
+        "tag": "button",
+        "className": "",
+        "left": 1851,
+        "right": 1880
+      },
+      {
+        "tag": "div",
+        "className": "cart-total",
+        "left": 1490,
+        "right": 1880
+      }
+    ],
+    "brokenImages": [],
+    "emptyLinks": [],
+    "menuVisible": true,
+    "cartVisible": true,
+    "interactionChecks": {},
+    "consoleErrors": [],
+    "screenshot": "/Users/juanitarodriguez/Desktop/portafolioBehance/421-co/qa/screenshots/inicio-desktop.png"
+  },
+  {
+    "route": "inicio",
+    "viewport": "laptop",
+    "title": "421 Co.",
+    "url": "http://127.0.0.1:4210/index.html?qa=1789845089860",
+    "viewportWidth": 1024,
+    "scrollWidth": 1024,
+    "horizontalOverflow": false,
+    "overflowingElements": [
+      {
+        "tag": "aside",
+        "className": "cart-panel",
+        "left": 1046,
+        "right": 1492
+      },
+      {
+        "tag": "div",
+        "className": "cart-panel__head",
+        "left": 1074,
+        "right": 1464
+      },
+      {
+        "tag": "h2",
+        "className": "",
+        "left": 1074,
+        "right": 1192
+      },
+      {
+        "tag": "button",
+        "className": "cart-close",
+        "left": 1435,
+        "right": 1464
+      },
+      {
+        "tag": "div",
+        "className": "cart-items",
+        "left": 1074,
+        "right": 1464
+      },
+      {
+        "tag": "div",
+        "className": "cart-item",
+        "left": 1074,
+        "right": 1464
+      },
+      {
+        "tag": "div",
+        "className": "",
+        "left": 1074,
+        "right": 1168
+      },
+      {
+        "tag": "strong",
+        "className": "",
+        "left": 1074,
+        "right": 1135
+      },
+      {
+        "tag": "span",
+        "className": "",
+        "left": 1074,
+        "right": 1168
+      },
+      {
+        "tag": "button",
+        "className": "",
+        "left": 1435,
+        "right": 1464
+      },
+      {
+        "tag": "div",
+        "className": "cart-total",
+        "left": 1074,
+        "right": 1464
+      }
+    ],
+    "brokenImages": [],
+    "emptyLinks": [],
+    "menuVisible": true,
+    "cartVisible": true,
+    "interactionChecks": {
+      "mobileMenuOpens": true
+    },
+    "consoleErrors": [],
+    "screenshot": "/Users/juanitarodriguez/Desktop/portafolioBehance/421-co/qa/screenshots/inicio-laptop.png"
+  },
+  {
+    "route": "inicio",
+    "viewport": "tablet",
+    "title": "421 Co.",
+    "url": "http://127.0.0.1:4210/index.html?qa=1789845091542",
+    "viewportWidth": 768,
+    "scrollWidth": 768,
+    "horizontalOverflow": false,
+    "overflowingElements": [
+      {
+        "tag": "aside",
+        "className": "cart-panel",
+        "left": 790,
+        "right": 1236
+      },
+      {
+        "tag": "div",
+        "className": "cart-panel__head",
+        "left": 818,
+        "right": 1208
+      },
+      {
+        "tag": "h2",
+        "className": "",
+        "left": 818,
+        "right": 936
+      },
+      {
+        "tag": "button",
+        "className": "cart-close",
+        "left": 1179,
+        "right": 1208
+      },
+      {
+        "tag": "div",
+        "className": "cart-items",
+        "left": 818,
+        "right": 1208
+      },
+      {
+        "tag": "div",
+        "className": "cart-item",
+        "left": 818,
+        "right": 1208
+      },
+      {
+        "tag": "div",
+        "className": "",
+        "left": 818,
+        "right": 912
+      },
+      {
+        "tag": "strong",
+        "className": "",
+        "left": 818,
+        "right": 879
+      },
+      {
+        "tag": "span",
+        "className": "",
+        "left": 818,
+        "right": 912
+      },
+      {
+        "tag": "button",
+        "className": "",
+        "left": 1179,
+        "right": 1208
+      },
+      {
+        "tag": "div",
+        "className": "cart-total",
+        "left": 818,
+        "right": 1208
+      }
+    ],
+    "brokenImages": [],
+    "emptyLinks": [],
+    "menuVisible": true,
+    "cartVisible": true,
+    "interactionChecks": {
+      "mobileMenuOpens": true
+    },
+    "consoleErrors": [],
+    "screenshot": "/Users/juanitarodriguez/Desktop/portafolioBehance/421-co/qa/screenshots/inicio-tablet.png"
+  },
+  {
+    "route": "inicio",
+    "viewport": "small-tablet",
+    "title": "421 Co.",
+    "url": "http://127.0.0.1:4210/index.html?qa=1789845093156",
+    "viewportWidth": 744,
+    "scrollWidth": 744,
+    "horizontalOverflow": false,
+    "overflowingElements": [
+      {
+        "tag": "aside",
+        "className": "cart-panel",
+        "left": 766,
+        "right": 1212
+      },
+      {
+        "tag": "div",
+        "className": "cart-panel__head",
+        "left": 794,
+        "right": 1184
+      },
+      {
+        "tag": "h2",
+        "className": "",
+        "left": 794,
+        "right": 912
+      },
+      {
+        "tag": "button",
+        "className": "cart-close",
+        "left": 1155,
+        "right": 1184
+      },
+      {
+        "tag": "div",
+        "className": "cart-items",
+        "left": 794,
+        "right": 1184
+      },
+      {
+        "tag": "div",
+        "className": "cart-item",
+        "left": 794,
+        "right": 1184
+      },
+      {
+        "tag": "div",
+        "className": "",
+        "left": 794,
+        "right": 888
+      },
+      {
+        "tag": "strong",
+        "className": "",
+        "left": 794,
+        "right": 855
+      },
+      {
+        "tag": "span",
+        "className": "",
+        "left": 794,
+        "right": 888
+      },
+      {
+        "tag": "button",
+        "className": "",
+        "left": 1155,
+        "right": 1184
+      },
+      {
+        "tag": "div",
+        "className": "cart-total",
+        "left": 794,
+        "right": 1184
+      }
+    ],
+    "brokenImages": [],
+    "emptyLinks": [],
+    "menuVisible": true,
+    "cartVisible": true,
+    "interactionChecks": {
+      "mobileMenuOpens": true
+    },
+    "consoleErrors": [],
+    "screenshot": "/Users/juanitarodriguez/Desktop/portafolioBehance/421-co/qa/screenshots/inicio-small-tablet.png"
+  },
+  {
+    "route": "inicio",
+    "viewport": "mobile",
+    "title": "421 Co.",
+    "url": "http://127.0.0.1:4210/index.html?qa=1789845094778",
+    "viewportWidth": 390,
+    "scrollWidth": 390,
+    "horizontalOverflow": false,
+    "overflowingElements": [
+      {
+        "tag": "aside",
+        "className": "cart-panel",
+        "left": 409,
+        "right": 783
+      },
+      {
+        "tag": "div",
+        "className": "cart-panel__head",
+        "left": 427,
+        "right": 765
+      },
+      {
+        "tag": "h2",
+        "className": "",
+        "left": 427,
+        "right": 544
+      },
+      {
+        "tag": "button",
+        "className": "cart-close",
+        "left": 735,
+        "right": 765
+      },
+      {
+        "tag": "div",
+        "className": "cart-items",
+        "left": 427,
+        "right": 765
+      },
+      {
+        "tag": "div",
+        "className": "cart-item",
+        "left": 427,
+        "right": 765
+      },
+      {
+        "tag": "div",
+        "className": "",
+        "left": 427,
+        "right": 520
+      },
+      {
+        "tag": "strong",
+        "className": "",
+        "left": 427,
+        "right": 487
+      },
+      {
+        "tag": "span",
+        "className": "",
+        "left": 427,
+        "right": 520
+      },
+      {
+        "tag": "button",
+        "className": "",
+        "left": 735,
+        "right": 765
+      },
+      {
+        "tag": "div",
+        "className": "cart-total",
+        "left": 427,
+        "right": 765
+      }
+    ],
+    "brokenImages": [],
+    "emptyLinks": [],
+    "menuVisible": true,
+    "cartVisible": true,
+    "interactionChecks": {
+      "mobileMenuOpens": true
+    },
+    "consoleErrors": [],
+    "screenshot": "/Users/juanitarodriguez/Desktop/portafolioBehance/421-co/qa/screenshots/inicio-mobile.png"
+  },
+  {
+    "route": "productos",
+    "viewport": "desktop",
+    "title": "421 Co.",
+    "url": "http://127.0.0.1:4210/productos.html?qa=1789845096346",
+    "viewportWidth": 1440,
+    "scrollWidth": 1440,
+    "horizontalOverflow": false,
+    "overflowingElements": [
+      {
+        "tag": "aside",
+        "className": "cart-panel",
+        "left": 1462,
+        "right": 1908
+      },
+      {
+        "tag": "div",
+        "className": "cart-panel__head",
+        "left": 1490,
+        "right": 1880
+      },
+      {
+        "tag": "h2",
+        "className": "",
+        "left": 1490,
+        "right": 1608
+      },
+      {
+        "tag": "button",
+        "className": "cart-close",
+        "left": 1851,
+        "right": 1880
+      },
+      {
+        "tag": "div",
+        "className": "cart-items",
+        "left": 1490,
+        "right": 1880
+      },
+      {
+        "tag": "div",
+        "className": "cart-item",
+        "left": 1490,
+        "right": 1880
+      },
+      {
+        "tag": "div",
+        "className": "",
+        "left": 1490,
+        "right": 1584
+      },
+      {
+        "tag": "strong",
+        "className": "",
+        "left": 1490,
+        "right": 1551
+      },
+      {
+        "tag": "span",
+        "className": "",
+        "left": 1490,
+        "right": 1584
+      },
+      {
+        "tag": "button",
+        "className": "",
+        "left": 1851,
+        "right": 1880
+      },
+      {
+        "tag": "div",
+        "className": "cart-total",
+        "left": 1490,
+        "right": 1880
+      }
+    ],
+    "brokenImages": [],
+    "emptyLinks": [],
+    "menuVisible": true,
+    "cartVisible": true,
+    "interactionChecks": {
+      "searchFilters": true
+    },
+    "consoleErrors": [],
+    "screenshot": "/Users/juanitarodriguez/Desktop/portafolioBehance/421-co/qa/screenshots/productos-desktop.png"
+  },
+  {
+    "route": "productos",
+    "viewport": "laptop",
+    "title": "421 Co.",
+    "url": "http://127.0.0.1:4210/productos.html?qa=1789845100478",
+    "viewportWidth": 1024,
+    "scrollWidth": 1024,
+    "horizontalOverflow": false,
+    "overflowingElements": [
+      {
+        "tag": "aside",
+        "className": "cart-panel",
+        "left": 1046,
+        "right": 1492
+      },
+      {
+        "tag": "div",
+        "className": "cart-panel__head",
+        "left": 1074,
+        "right": 1464
+      },
+      {
+        "tag": "h2",
+        "className": "",
+        "left": 1074,
+        "right": 1192
+      },
+      {
+        "tag": "button",
+        "className": "cart-close",
+        "left": 1435,
+        "right": 1464
+      },
+      {
+        "tag": "div",
+        "className": "cart-items",
+        "left": 1074,
+        "right": 1464
+      },
+      {
+        "tag": "div",
+        "className": "cart-item",
+        "left": 1074,
+        "right": 1464
+      },
+      {
+        "tag": "div",
+        "className": "",
+        "left": 1074,
+        "right": 1168
+      },
+      {
+        "tag": "strong",
+        "className": "",
+        "left": 1074,
+        "right": 1135
+      },
+      {
+        "tag": "span",
+        "className": "",
+        "left": 1074,
+        "right": 1168
+      },
+      {
+        "tag": "button",
+        "className": "",
+        "left": 1435,
+        "right": 1464
+      },
+      {
+        "tag": "div",
+        "className": "cart-total",
+        "left": 1074,
+        "right": 1464
+      }
+    ],
+    "brokenImages": [],
+    "emptyLinks": [],
+    "menuVisible": true,
+    "cartVisible": true,
+    "interactionChecks": {
+      "mobileMenuOpens": true,
+      "searchFilters": true
+    },
+    "consoleErrors": [],
+    "screenshot": "/Users/juanitarodriguez/Desktop/portafolioBehance/421-co/qa/screenshots/productos-laptop.png"
+  },
+  {
+    "route": "productos",
+    "viewport": "tablet",
+    "title": "421 Co.",
+    "url": "http://127.0.0.1:4210/productos.html?qa=1789845102979",
+    "viewportWidth": 768,
+    "scrollWidth": 768,
+    "horizontalOverflow": false,
+    "overflowingElements": [
+      {
+        "tag": "aside",
+        "className": "cart-panel",
+        "left": 790,
+        "right": 1236
+      },
+      {
+        "tag": "div",
+        "className": "cart-panel__head",
+        "left": 818,
+        "right": 1208
+      },
+      {
+        "tag": "h2",
+        "className": "",
+        "left": 818,
+        "right": 936
+      },
+      {
+        "tag": "button",
+        "className": "cart-close",
+        "left": 1179,
+        "right": 1208
+      },
+      {
+        "tag": "div",
+        "className": "cart-items",
+        "left": 818,
+        "right": 1208
+      },
+      {
+        "tag": "div",
+        "className": "cart-item",
+        "left": 818,
+        "right": 1208
+      },
+      {
+        "tag": "div",
+        "className": "",
+        "left": 818,
+        "right": 912
+      },
+      {
+        "tag": "strong",
+        "className": "",
+        "left": 818,
+        "right": 879
+      },
+      {
+        "tag": "span",
+        "className": "",
+        "left": 818,
+        "right": 912
+      },
+      {
+        "tag": "button",
+        "className": "",
+        "left": 1179,
+        "right": 1208
+      },
+      {
+        "tag": "div",
+        "className": "cart-total",
+        "left": 818,
+        "right": 1208
+      }
+    ],
+    "brokenImages": [],
+    "emptyLinks": [],
+    "menuVisible": true,
+    "cartVisible": true,
+    "interactionChecks": {
+      "mobileMenuOpens": true,
+      "searchFilters": true
+    },
+    "consoleErrors": [],
+    "screenshot": "/Users/juanitarodriguez/Desktop/portafolioBehance/421-co/qa/screenshots/productos-tablet.png"
+  },
+  {
+    "route": "productos",
+    "viewport": "small-tablet",
+    "title": "421 Co.",
+    "url": "http://127.0.0.1:4210/productos.html?qa=1789845105077",
+    "viewportWidth": 744,
+    "scrollWidth": 744,
+    "horizontalOverflow": false,
+    "overflowingElements": [
+      {
+        "tag": "aside",
+        "className": "cart-panel",
+        "left": 766,
+        "right": 1212
+      },
+      {
+        "tag": "div",
+        "className": "cart-panel__head",
+        "left": 794,
+        "right": 1184
+      },
+      {
+        "tag": "h2",
+        "className": "",
+        "left": 794,
+        "right": 912
+      },
+      {
+        "tag": "button",
+        "className": "cart-close",
+        "left": 1155,
+        "right": 1184
+      },
+      {
+        "tag": "div",
+        "className": "cart-items",
+        "left": 794,
+        "right": 1184
+      },
+      {
+        "tag": "div",
+        "className": "cart-item",
+        "left": 794,
+        "right": 1184
+      },
+      {
+        "tag": "div",
+        "className": "",
+        "left": 794,
+        "right": 888
+      },
+      {
+        "tag": "strong",
+        "className": "",
+        "left": 794,
+        "right": 855
+      },
+      {
+        "tag": "span",
+        "className": "",
+        "left": 794,
+        "right": 888
+      },
+      {
+        "tag": "button",
+        "className": "",
+        "left": 1155,
+        "right": 1184
+      },
+      {
+        "tag": "div",
+        "className": "cart-total",
+        "left": 794,
+        "right": 1184
+      }
+    ],
+    "brokenImages": [],
+    "emptyLinks": [],
+    "menuVisible": true,
+    "cartVisible": true,
+    "interactionChecks": {
+      "mobileMenuOpens": true,
+      "searchFilters": true
+    },
+    "consoleErrors": [],
+    "screenshot": "/Users/juanitarodriguez/Desktop/portafolioBehance/421-co/qa/screenshots/productos-small-tablet.png"
+  },
+  {
+    "route": "productos",
+    "viewport": "mobile",
+    "title": "421 Co.",
+    "url": "http://127.0.0.1:4210/productos.html?qa=1789845107184",
+    "viewportWidth": 390,
+    "scrollWidth": 390,
+    "horizontalOverflow": false,
+    "overflowingElements": [
+      {
+        "tag": "aside",
+        "className": "cart-panel",
+        "left": 409,
+        "right": 783
+      },
+      {
+        "tag": "div",
+        "className": "cart-panel__head",
+        "left": 427,
+        "right": 765
+      },
+      {
+        "tag": "h2",
+        "className": "",
+        "left": 427,
+        "right": 544
+      },
+      {
+        "tag": "button",
+        "className": "cart-close",
+        "left": 735,
+        "right": 765
+      },
+      {
+        "tag": "div",
+        "className": "cart-items",
+        "left": 427,
+        "right": 765
+      },
+      {
+        "tag": "div",
+        "className": "cart-item",
+        "left": 427,
+        "right": 765
+      },
+      {
+        "tag": "div",
+        "className": "",
+        "left": 427,
+        "right": 520
+      },
+      {
+        "tag": "strong",
+        "className": "",
+        "left": 427,
+        "right": 487
+      },
+      {
+        "tag": "span",
+        "className": "",
+        "left": 427,
+        "right": 520
+      },
+      {
+        "tag": "button",
+        "className": "",
+        "left": 735,
+        "right": 765
+      },
+      {
+        "tag": "div",
+        "className": "cart-total",
+        "left": 427,
+        "right": 765
+      }
+    ],
+    "brokenImages": [],
+    "emptyLinks": [],
+    "menuVisible": true,
+    "cartVisible": true,
+    "interactionChecks": {
+      "mobileMenuOpens": true,
+      "searchFilters": true
+    },
+    "consoleErrors": [],
+    "screenshot": "/Users/juanitarodriguez/Desktop/portafolioBehance/421-co/qa/screenshots/productos-mobile.png"
+  },
+  {
+    "route": "producto",
+    "viewport": "desktop",
+    "title": "421 Co.",
+    "url": "http://127.0.0.1:4210/Producto.html?qa=1789845108892",
+    "viewportWidth": 1440,
+    "scrollWidth": 1440,
+    "horizontalOverflow": false,
+    "overflowingElements": [
+      {
+        "tag": "aside",
+        "className": "cart-panel is-open",
+        "left": 1462,
+        "right": 1908
+      },
+      {
+        "tag": "div",
+        "className": "cart-panel__head",
+        "left": 1490,
+        "right": 1880
+      },
+      {
+        "tag": "h2",
+        "className": "",
+        "left": 1490,
+        "right": 1608
+      },
+      {
+        "tag": "button",
+        "className": "cart-close",
+        "left": 1851,
+        "right": 1880
+      },
+      {
+        "tag": "div",
+        "className": "cart-items",
+        "left": 1490,
+        "right": 1880
+      },
+      {
+        "tag": "div",
+        "className": "cart-item",
+        "left": 1490,
+        "right": 1880
+      },
+      {
+        "tag": "div",
+        "className": "",
+        "left": 1490,
+        "right": 1584
+      },
+      {
+        "tag": "strong",
+        "className": "",
+        "left": 1490,
+        "right": 1551
+      },
+      {
+        "tag": "span",
+        "className": "",
+        "left": 1490,
+        "right": 1584
+      },
+      {
+        "tag": "button",
+        "className": "",
+        "left": 1851,
+        "right": 1880
+      },
+      {
+        "tag": "div",
+        "className": "cart-total",
+        "left": 1490,
+        "right": 1880
+      }
+    ],
+    "brokenImages": [],
+    "emptyLinks": [],
+    "menuVisible": true,
+    "cartVisible": true,
+    "interactionChecks": {
+      "quantityChanges": true,
+      "cartAddsProduct": true,
+      "cartOpens": true
+    },
+    "consoleErrors": [],
+    "screenshot": "/Users/juanitarodriguez/Desktop/portafolioBehance/421-co/qa/screenshots/producto-desktop.png"
+  },
+  {
+    "route": "producto",
+    "viewport": "laptop",
+    "title": "421 Co.",
+    "url": "http://127.0.0.1:4210/Producto.html?qa=1789845110534",
+    "viewportWidth": 1024,
+    "scrollWidth": 1024,
+    "horizontalOverflow": false,
+    "overflowingElements": [
+      {
+        "tag": "aside",
+        "className": "cart-panel is-open",
+        "left": 1046,
+        "right": 1492
+      },
+      {
+        "tag": "div",
+        "className": "cart-panel__head",
+        "left": 1074,
+        "right": 1464
+      },
+      {
+        "tag": "h2",
+        "className": "",
+        "left": 1074,
+        "right": 1192
+      },
+      {
+        "tag": "button",
+        "className": "cart-close",
+        "left": 1435,
+        "right": 1464
+      },
+      {
+        "tag": "div",
+        "className": "cart-items",
+        "left": 1074,
+        "right": 1464
+      },
+      {
+        "tag": "div",
+        "className": "cart-item",
+        "left": 1074,
+        "right": 1464
+      },
+      {
+        "tag": "div",
+        "className": "",
+        "left": 1074,
+        "right": 1168
+      },
+      {
+        "tag": "strong",
+        "className": "",
+        "left": 1074,
+        "right": 1135
+      },
+      {
+        "tag": "span",
+        "className": "",
+        "left": 1074,
+        "right": 1168
+      },
+      {
+        "tag": "button",
+        "className": "",
+        "left": 1435,
+        "right": 1464
+      },
+      {
+        "tag": "div",
+        "className": "cart-total",
+        "left": 1074,
+        "right": 1464
+      }
+    ],
+    "brokenImages": [],
+    "emptyLinks": [],
+    "menuVisible": true,
+    "cartVisible": true,
+    "interactionChecks": {
+      "mobileMenuOpens": true,
+      "quantityChanges": true,
+      "cartAddsProduct": true,
+      "cartOpens": true
+    },
+    "consoleErrors": [],
+    "screenshot": "/Users/juanitarodriguez/Desktop/portafolioBehance/421-co/qa/screenshots/producto-laptop.png"
+  },
+  {
+    "route": "producto",
+    "viewport": "tablet",
+    "title": "421 Co.",
+    "url": "http://127.0.0.1:4210/Producto.html?qa=1789845112142",
+    "viewportWidth": 768,
+    "scrollWidth": 768,
+    "horizontalOverflow": false,
+    "overflowingElements": [
+      {
+        "tag": "aside",
+        "className": "cart-panel is-open",
+        "left": 790,
+        "right": 1236
+      },
+      {
+        "tag": "div",
+        "className": "cart-panel__head",
+        "left": 818,
+        "right": 1208
+      },
+      {
+        "tag": "h2",
+        "className": "",
+        "left": 818,
+        "right": 936
+      },
+      {
+        "tag": "button",
+        "className": "cart-close",
+        "left": 1179,
+        "right": 1208
+      },
+      {
+        "tag": "div",
+        "className": "cart-items",
+        "left": 818,
+        "right": 1208
+      },
+      {
+        "tag": "div",
+        "className": "cart-item",
+        "left": 818,
+        "right": 1208
+      },
+      {
+        "tag": "div",
+        "className": "",
+        "left": 818,
+        "right": 912
+      },
+      {
+        "tag": "strong",
+        "className": "",
+        "left": 818,
+        "right": 879
+      },
+      {
+        "tag": "span",
+        "className": "",
+        "left": 818,
+        "right": 912
+      },
+      {
+        "tag": "button",
+        "className": "",
+        "left": 1179,
+        "right": 1208
+      },
+      {
+        "tag": "div",
+        "className": "cart-total",
+        "left": 818,
+        "right": 1208
+      }
+    ],
+    "brokenImages": [],
+    "emptyLinks": [],
+    "menuVisible": true,
+    "cartVisible": true,
+    "interactionChecks": {
+      "mobileMenuOpens": true,
+      "quantityChanges": true,
+      "cartAddsProduct": true,
+      "cartOpens": true
+    },
+    "consoleErrors": [],
+    "screenshot": "/Users/juanitarodriguez/Desktop/portafolioBehance/421-co/qa/screenshots/producto-tablet.png"
+  },
+  {
+    "route": "producto",
+    "viewport": "small-tablet",
+    "title": "421 Co.",
+    "url": "http://127.0.0.1:4210/Producto.html?qa=1789845113794",
+    "viewportWidth": 744,
+    "scrollWidth": 744,
+    "horizontalOverflow": false,
+    "overflowingElements": [
+      {
+        "tag": "section",
+        "className": "contenedor-recomendacion",
+        "left": -20,
+        "right": 744
+      },
+      {
+        "tag": "aside",
+        "className": "cart-panel is-open",
+        "left": 766,
+        "right": 1212
+      },
+      {
+        "tag": "div",
+        "className": "cart-panel__head",
+        "left": 794,
+        "right": 1184
+      },
+      {
+        "tag": "h2",
+        "className": "",
+        "left": 794,
+        "right": 912
+      },
+      {
+        "tag": "button",
+        "className": "cart-close",
+        "left": 1155,
+        "right": 1184
+      },
+      {
+        "tag": "div",
+        "className": "cart-items",
+        "left": 794,
+        "right": 1184
+      },
+      {
+        "tag": "div",
+        "className": "cart-item",
+        "left": 794,
+        "right": 1184
+      },
+      {
+        "tag": "div",
+        "className": "",
+        "left": 794,
+        "right": 888
+      },
+      {
+        "tag": "strong",
+        "className": "",
+        "left": 794,
+        "right": 855
+      },
+      {
+        "tag": "span",
+        "className": "",
+        "left": 794,
+        "right": 888
+      },
+      {
+        "tag": "button",
+        "className": "",
+        "left": 1155,
+        "right": 1184
+      },
+      {
+        "tag": "div",
+        "className": "cart-total",
+        "left": 794,
+        "right": 1184
+      }
+    ],
+    "brokenImages": [],
+    "emptyLinks": [],
+    "menuVisible": true,
+    "cartVisible": true,
+    "interactionChecks": {
+      "mobileMenuOpens": true,
+      "quantityChanges": true,
+      "cartAddsProduct": true,
+      "cartOpens": true
+    },
+    "consoleErrors": [],
+    "screenshot": "/Users/juanitarodriguez/Desktop/portafolioBehance/421-co/qa/screenshots/producto-small-tablet.png"
+  },
+  {
+    "route": "producto",
+    "viewport": "mobile",
+    "title": "421 Co.",
+    "url": "http://127.0.0.1:4210/Producto.html?qa=1789845115398",
+    "viewportWidth": 393,
+    "scrollWidth": 393,
+    "horizontalOverflow": false,
+    "overflowingElements": [
+      {
+        "tag": "section",
+        "className": "contenedor-recomendacion",
+        "left": -12,
+        "right": 390
+      },
+      {
+        "tag": "aside",
+        "className": "cart-panel is-open",
+        "left": 412,
+        "right": 786
+      },
+      {
+        "tag": "div",
+        "className": "cart-panel__head",
+        "left": 430,
+        "right": 768
+      },
+      {
+        "tag": "h2",
+        "className": "",
+        "left": 430,
+        "right": 547
+      },
+      {
+        "tag": "button",
+        "className": "cart-close",
+        "left": 738,
+        "right": 768
+      },
+      {
+        "tag": "div",
+        "className": "cart-items",
+        "left": 430,
+        "right": 768
+      },
+      {
+        "tag": "div",
+        "className": "cart-item",
+        "left": 430,
+        "right": 768
+      },
+      {
+        "tag": "div",
+        "className": "",
+        "left": 430,
+        "right": 523
+      },
+      {
+        "tag": "strong",
+        "className": "",
+        "left": 430,
+        "right": 490
+      },
+      {
+        "tag": "span",
+        "className": "",
+        "left": 430,
+        "right": 523
+      },
+      {
+        "tag": "button",
+        "className": "",
+        "left": 738,
+        "right": 768
+      },
+      {
+        "tag": "div",
+        "className": "cart-total",
+        "left": 430,
+        "right": 768
+      }
+    ],
+    "brokenImages": [],
+    "emptyLinks": [],
+    "menuVisible": true,
+    "cartVisible": true,
+    "interactionChecks": {
+      "mobileMenuOpens": true,
+      "quantityChanges": true,
+      "cartAddsProduct": true,
+      "cartOpens": true
+    },
+    "consoleErrors": [],
+    "screenshot": "/Users/juanitarodriguez/Desktop/portafolioBehance/421-co/qa/screenshots/producto-mobile.png"
+  },
+  {
+    "route": "contacto",
+    "viewport": "desktop",
+    "title": "Contácto",
+    "url": "http://127.0.0.1:4210/contacto_.html?qa=1789845116997",
+    "viewportWidth": 1440,
+    "scrollWidth": 1440,
+    "horizontalOverflow": false,
+    "overflowingElements": [
+      {
+        "tag": "aside",
+        "className": "cart-panel",
+        "left": 1460,
+        "right": 1850
+      },
+      {
+        "tag": "div",
+        "className": "cart-panel__head",
+        "left": 1488,
+        "right": 1822
+      },
+      {
+        "tag": "h2",
+        "className": "",
+        "left": 1488,
+        "right": 1605
+      },
+      {
+        "tag": "button",
+        "className": "cart-close",
+        "left": 1804,
+        "right": 1822
+      },
+      {
+        "tag": "div",
+        "className": "cart-items",
+        "left": 1488,
+        "right": 1822
+      },
+      {
+        "tag": "div",
+        "className": "cart-item",
+        "left": 1488,
+        "right": 1822
+      },
+      {
+        "tag": "div",
+        "className": "",
+        "left": 1488,
+        "right": 1581
+      },
+      {
+        "tag": "strong",
+        "className": "",
+        "left": 1488,
+        "right": 1548
+      },
+      {
+        "tag": "span",
+        "className": "",
+        "left": 1488,
+        "right": 1581
+      },
+      {
+        "tag": "button",
+        "className": "",
+        "left": 1804,
+        "right": 1822
+      },
+      {
+        "tag": "div",
+        "className": "cart-total",
+        "left": 1488,
+        "right": 1822
+      }
+    ],
+    "brokenImages": [],
+    "emptyLinks": [],
+    "menuVisible": true,
+    "cartVisible": true,
+    "interactionChecks": {
+      "contactValidates": true
+    },
+    "consoleErrors": [],
+    "screenshot": "/Users/juanitarodriguez/Desktop/portafolioBehance/421-co/qa/screenshots/contacto-desktop.png"
+  },
+  {
+    "route": "contacto",
+    "viewport": "laptop",
+    "title": "Contácto",
+    "url": "http://127.0.0.1:4210/contacto_.html?qa=1789845119110",
+    "viewportWidth": 1024,
+    "scrollWidth": 1024,
+    "horizontalOverflow": false,
+    "overflowingElements": [
+      {
+        "tag": "aside",
+        "className": "cart-panel",
+        "left": 1044,
+        "right": 1434
+      },
+      {
+        "tag": "div",
+        "className": "cart-panel__head",
+        "left": 1072,
+        "right": 1406
+      },
+      {
+        "tag": "h2",
+        "className": "",
+        "left": 1072,
+        "right": 1189
+      },
+      {
+        "tag": "button",
+        "className": "cart-close",
+        "left": 1388,
+        "right": 1406
+      },
+      {
+        "tag": "div",
+        "className": "cart-items",
+        "left": 1072,
+        "right": 1406
+      },
+      {
+        "tag": "div",
+        "className": "cart-item",
+        "left": 1072,
+        "right": 1406
+      },
+      {
+        "tag": "div",
+        "className": "",
+        "left": 1072,
+        "right": 1165
+      },
+      {
+        "tag": "strong",
+        "className": "",
+        "left": 1072,
+        "right": 1132
+      },
+      {
+        "tag": "span",
+        "className": "",
+        "left": 1072,
+        "right": 1165
+      },
+      {
+        "tag": "button",
+        "className": "",
+        "left": 1388,
+        "right": 1406
+      },
+      {
+        "tag": "div",
+        "className": "cart-total",
+        "left": 1072,
+        "right": 1406
+      }
+    ],
+    "brokenImages": [],
+    "emptyLinks": [],
+    "menuVisible": true,
+    "cartVisible": true,
+    "interactionChecks": {
+      "mobileMenuOpens": true,
+      "contactValidates": true
+    },
+    "consoleErrors": [],
+    "screenshot": "/Users/juanitarodriguez/Desktop/portafolioBehance/421-co/qa/screenshots/contacto-laptop.png"
+  },
+  {
+    "route": "contacto",
+    "viewport": "tablet",
+    "title": "Contácto",
+    "url": "http://127.0.0.1:4210/contacto_.html?qa=1789845120718",
+    "viewportWidth": 768,
+    "scrollWidth": 768,
+    "horizontalOverflow": false,
+    "overflowingElements": [
+      {
+        "tag": "aside",
+        "className": "cart-panel",
+        "left": 788,
+        "right": 1178
+      },
+      {
+        "tag": "div",
+        "className": "cart-panel__head",
+        "left": 816,
+        "right": 1150
+      },
+      {
+        "tag": "h2",
+        "className": "",
+        "left": 816,
+        "right": 933
+      },
+      {
+        "tag": "button",
+        "className": "cart-close",
+        "left": 1132,
+        "right": 1150
+      },
+      {
+        "tag": "div",
+        "className": "cart-items",
+        "left": 816,
+        "right": 1150
+      },
+      {
+        "tag": "div",
+        "className": "cart-item",
+        "left": 816,
+        "right": 1150
+      },
+      {
+        "tag": "div",
+        "className": "",
+        "left": 816,
+        "right": 909
+      },
+      {
+        "tag": "strong",
+        "className": "",
+        "left": 816,
+        "right": 876
+      },
+      {
+        "tag": "span",
+        "className": "",
+        "left": 816,
+        "right": 909
+      },
+      {
+        "tag": "button",
+        "className": "",
+        "left": 1132,
+        "right": 1150
+      },
+      {
+        "tag": "div",
+        "className": "cart-total",
+        "left": 816,
+        "right": 1150
+      }
+    ],
+    "brokenImages": [],
+    "emptyLinks": [],
+    "menuVisible": true,
+    "cartVisible": true,
+    "interactionChecks": {
+      "mobileMenuOpens": true,
+      "contactValidates": true
+    },
+    "consoleErrors": [],
+    "screenshot": "/Users/juanitarodriguez/Desktop/portafolioBehance/421-co/qa/screenshots/contacto-tablet.png"
+  },
+  {
+    "route": "contacto",
+    "viewport": "small-tablet",
+    "title": "Contácto",
+    "url": "http://127.0.0.1:4210/contacto_.html?qa=1789845122288",
+    "viewportWidth": 744,
+    "scrollWidth": 744,
+    "horizontalOverflow": false,
+    "overflowingElements": [
+      {
+        "tag": "aside",
+        "className": "cart-panel",
+        "left": 764,
+        "right": 1154
+      },
+      {
+        "tag": "div",
+        "className": "cart-panel__head",
+        "left": 792,
+        "right": 1126
+      },
+      {
+        "tag": "h2",
+        "className": "",
+        "left": 792,
+        "right": 909
+      },
+      {
+        "tag": "button",
+        "className": "cart-close",
+        "left": 1108,
+        "right": 1126
+      },
+      {
+        "tag": "div",
+        "className": "cart-items",
+        "left": 792,
+        "right": 1126
+      },
+      {
+        "tag": "div",
+        "className": "cart-item",
+        "left": 792,
+        "right": 1126
+      },
+      {
+        "tag": "div",
+        "className": "",
+        "left": 792,
+        "right": 885
+      },
+      {
+        "tag": "strong",
+        "className": "",
+        "left": 792,
+        "right": 852
+      },
+      {
+        "tag": "span",
+        "className": "",
+        "left": 792,
+        "right": 885
+      },
+      {
+        "tag": "button",
+        "className": "",
+        "left": 1108,
+        "right": 1126
+      },
+      {
+        "tag": "div",
+        "className": "cart-total",
+        "left": 792,
+        "right": 1126
+      }
+    ],
+    "brokenImages": [],
+    "emptyLinks": [],
+    "menuVisible": true,
+    "cartVisible": true,
+    "interactionChecks": {
+      "mobileMenuOpens": true,
+      "contactValidates": true
+    },
+    "consoleErrors": [],
+    "screenshot": "/Users/juanitarodriguez/Desktop/portafolioBehance/421-co/qa/screenshots/contacto-small-tablet.png"
+  },
+  {
+    "route": "contacto",
+    "viewport": "mobile",
+    "title": "Contácto",
+    "url": "http://127.0.0.1:4210/contacto_.html?qa=1789845123849",
+    "viewportWidth": 390,
+    "scrollWidth": 390,
+    "horizontalOverflow": false,
+    "overflowingElements": [
+      {
+        "tag": "aside",
+        "className": "cart-panel",
+        "left": 409,
+        "right": 783
+      },
+      {
+        "tag": "div",
+        "className": "cart-panel__head",
+        "left": 427,
+        "right": 765
+      },
+      {
+        "tag": "h2",
+        "className": "",
+        "left": 427,
+        "right": 544
+      },
+      {
+        "tag": "button",
+        "className": "cart-close",
+        "left": 747,
+        "right": 765
+      },
+      {
+        "tag": "div",
+        "className": "cart-items",
+        "left": 427,
+        "right": 765
+      },
+      {
+        "tag": "div",
+        "className": "cart-item",
+        "left": 427,
+        "right": 765
+      },
+      {
+        "tag": "div",
+        "className": "",
+        "left": 427,
+        "right": 520
+      },
+      {
+        "tag": "strong",
+        "className": "",
+        "left": 427,
+        "right": 487
+      },
+      {
+        "tag": "span",
+        "className": "",
+        "left": 427,
+        "right": 520
+      },
+      {
+        "tag": "button",
+        "className": "",
+        "left": 747,
+        "right": 765
+      },
+      {
+        "tag": "div",
+        "className": "cart-total",
+        "left": 427,
+        "right": 765
+      }
+    ],
+    "brokenImages": [],
+    "emptyLinks": [],
+    "menuVisible": true,
+    "cartVisible": true,
+    "interactionChecks": {
+      "mobileMenuOpens": true,
+      "contactValidates": true
+    },
+    "consoleErrors": [],
+    "screenshot": "/Users/juanitarodriguez/Desktop/portafolioBehance/421-co/qa/screenshots/contacto-mobile.png"
+  },
+  {
+    "route": "login",
+    "viewport": "desktop",
+    "title": "Contácto",
+    "url": "http://127.0.0.1:4210/iniciar-sesion.html?qa=1789845125386",
+    "viewportWidth": 1440,
+    "scrollWidth": 1440,
+    "horizontalOverflow": false,
+    "overflowingElements": [
+      {
+        "tag": "aside",
+        "className": "cart-panel",
+        "left": 1462,
+        "right": 1908
+      },
+      {
+        "tag": "div",
+        "className": "cart-panel__head",
+        "left": 1490,
+        "right": 1880
+      },
+      {
+        "tag": "h2",
+        "className": "",
+        "left": 1490,
+        "right": 1608
+      },
+      {
+        "tag": "button",
+        "className": "cart-close",
+        "left": 1851,
+        "right": 1880
+      },
+      {
+        "tag": "div",
+        "className": "cart-items",
+        "left": 1490,
+        "right": 1880
+      },
+      {
+        "tag": "div",
+        "className": "cart-item",
+        "left": 1490,
+        "right": 1880
+      },
+      {
+        "tag": "div",
+        "className": "",
+        "left": 1490,
+        "right": 1584
+      },
+      {
+        "tag": "strong",
+        "className": "",
+        "left": 1490,
+        "right": 1551
+      },
+      {
+        "tag": "span",
+        "className": "",
+        "left": 1490,
+        "right": 1584
+      },
+      {
+        "tag": "button",
+        "className": "",
+        "left": 1851,
+        "right": 1880
+      },
+      {
+        "tag": "div",
+        "className": "cart-total",
+        "left": 1490,
+        "right": 1880
+      }
+    ],
+    "brokenImages": [],
+    "emptyLinks": [],
+    "menuVisible": true,
+    "cartVisible": true,
+    "interactionChecks": {
+      "loginResponds": true
+    },
+    "consoleErrors": [],
+    "screenshot": "/Users/juanitarodriguez/Desktop/portafolioBehance/421-co/qa/screenshots/login-desktop.png"
+  },
+  {
+    "route": "login",
+    "viewport": "laptop",
+    "title": "Contácto",
+    "url": "http://127.0.0.1:4210/iniciar-sesion.html?qa=1789845127507",
+    "viewportWidth": 1024,
+    "scrollWidth": 1024,
+    "horizontalOverflow": false,
+    "overflowingElements": [
+      {
+        "tag": "aside",
+        "className": "cart-panel",
+        "left": 1046,
+        "right": 1492
+      },
+      {
+        "tag": "div",
+        "className": "cart-panel__head",
+        "left": 1074,
+        "right": 1464
+      },
+      {
+        "tag": "h2",
+        "className": "",
+        "left": 1074,
+        "right": 1192
+      },
+      {
+        "tag": "button",
+        "className": "cart-close",
+        "left": 1435,
+        "right": 1464
+      },
+      {
+        "tag": "div",
+        "className": "cart-items",
+        "left": 1074,
+        "right": 1464
+      },
+      {
+        "tag": "div",
+        "className": "cart-item",
+        "left": 1074,
+        "right": 1464
+      },
+      {
+        "tag": "div",
+        "className": "",
+        "left": 1074,
+        "right": 1168
+      },
+      {
+        "tag": "strong",
+        "className": "",
+        "left": 1074,
+        "right": 1135
+      },
+      {
+        "tag": "span",
+        "className": "",
+        "left": 1074,
+        "right": 1168
+      },
+      {
+        "tag": "button",
+        "className": "",
+        "left": 1435,
+        "right": 1464
+      },
+      {
+        "tag": "div",
+        "className": "cart-total",
+        "left": 1074,
+        "right": 1464
+      }
+    ],
+    "brokenImages": [],
+    "emptyLinks": [],
+    "menuVisible": true,
+    "cartVisible": true,
+    "interactionChecks": {
+      "mobileMenuOpens": true,
+      "loginResponds": true
+    },
+    "consoleErrors": [],
+    "screenshot": "/Users/juanitarodriguez/Desktop/portafolioBehance/421-co/qa/screenshots/login-laptop.png"
+  },
+  {
+    "route": "login",
+    "viewport": "tablet",
+    "title": "Contácto",
+    "url": "http://127.0.0.1:4210/iniciar-sesion.html?qa=1789845129598",
+    "viewportWidth": 768,
+    "scrollWidth": 768,
+    "horizontalOverflow": false,
+    "overflowingElements": [
+      {
+        "tag": "aside",
+        "className": "cart-panel",
+        "left": 790,
+        "right": 1236
+      },
+      {
+        "tag": "div",
+        "className": "cart-panel__head",
+        "left": 818,
+        "right": 1208
+      },
+      {
+        "tag": "h2",
+        "className": "",
+        "left": 818,
+        "right": 936
+      },
+      {
+        "tag": "button",
+        "className": "cart-close",
+        "left": 1179,
+        "right": 1208
+      },
+      {
+        "tag": "div",
+        "className": "cart-items",
+        "left": 818,
+        "right": 1208
+      },
+      {
+        "tag": "div",
+        "className": "cart-item",
+        "left": 818,
+        "right": 1208
+      },
+      {
+        "tag": "div",
+        "className": "",
+        "left": 818,
+        "right": 912
+      },
+      {
+        "tag": "strong",
+        "className": "",
+        "left": 818,
+        "right": 879
+      },
+      {
+        "tag": "span",
+        "className": "",
+        "left": 818,
+        "right": 912
+      },
+      {
+        "tag": "button",
+        "className": "",
+        "left": 1179,
+        "right": 1208
+      },
+      {
+        "tag": "div",
+        "className": "cart-total",
+        "left": 818,
+        "right": 1208
+      }
+    ],
+    "brokenImages": [],
+    "emptyLinks": [],
+    "menuVisible": true,
+    "cartVisible": true,
+    "interactionChecks": {
+      "mobileMenuOpens": true,
+      "loginResponds": true
+    },
+    "consoleErrors": [],
+    "screenshot": "/Users/juanitarodriguez/Desktop/portafolioBehance/421-co/qa/screenshots/login-tablet.png"
+  },
+  {
+    "route": "login",
+    "viewport": "small-tablet",
+    "title": "Contácto",
+    "url": "http://127.0.0.1:4210/iniciar-sesion.html?qa=1789845131140",
+    "viewportWidth": 744,
+    "scrollWidth": 744,
+    "horizontalOverflow": false,
+    "overflowingElements": [
+      {
+        "tag": "aside",
+        "className": "cart-panel",
+        "left": 766,
+        "right": 1212
+      },
+      {
+        "tag": "div",
+        "className": "cart-panel__head",
+        "left": 794,
+        "right": 1184
+      },
+      {
+        "tag": "h2",
+        "className": "",
+        "left": 794,
+        "right": 912
+      },
+      {
+        "tag": "button",
+        "className": "cart-close",
+        "left": 1155,
+        "right": 1184
+      },
+      {
+        "tag": "div",
+        "className": "cart-items",
+        "left": 794,
+        "right": 1184
+      },
+      {
+        "tag": "div",
+        "className": "cart-item",
+        "left": 794,
+        "right": 1184
+      },
+      {
+        "tag": "div",
+        "className": "",
+        "left": 794,
+        "right": 888
+      },
+      {
+        "tag": "strong",
+        "className": "",
+        "left": 794,
+        "right": 855
+      },
+      {
+        "tag": "span",
+        "className": "",
+        "left": 794,
+        "right": 888
+      },
+      {
+        "tag": "button",
+        "className": "",
+        "left": 1155,
+        "right": 1184
+      },
+      {
+        "tag": "div",
+        "className": "cart-total",
+        "left": 794,
+        "right": 1184
+      }
+    ],
+    "brokenImages": [],
+    "emptyLinks": [],
+    "menuVisible": true,
+    "cartVisible": true,
+    "interactionChecks": {
+      "mobileMenuOpens": true,
+      "loginResponds": true
+    },
+    "consoleErrors": [],
+    "screenshot": "/Users/juanitarodriguez/Desktop/portafolioBehance/421-co/qa/screenshots/login-small-tablet.png"
+  },
+  {
+    "route": "login",
+    "viewport": "mobile",
+    "title": "Contácto",
+    "url": "http://127.0.0.1:4210/iniciar-sesion.html?qa=1789845133204",
+    "viewportWidth": 390,
+    "scrollWidth": 390,
+    "horizontalOverflow": false,
+    "overflowingElements": [
+      {
+        "tag": "aside",
+        "className": "cart-panel",
+        "left": 409,
+        "right": 783
+      },
+      {
+        "tag": "div",
+        "className": "cart-panel__head",
+        "left": 427,
+        "right": 765
+      },
+      {
+        "tag": "h2",
+        "className": "",
+        "left": 427,
+        "right": 544
+      },
+      {
+        "tag": "button",
+        "className": "cart-close",
+        "left": 735,
+        "right": 765
+      },
+      {
+        "tag": "div",
+        "className": "cart-items",
+        "left": 427,
+        "right": 765
+      },
+      {
+        "tag": "div",
+        "className": "cart-item",
+        "left": 427,
+        "right": 765
+      },
+      {
+        "tag": "div",
+        "className": "",
+        "left": 427,
+        "right": 520
+      },
+      {
+        "tag": "strong",
+        "className": "",
+        "left": 427,
+        "right": 487
+      },
+      {
+        "tag": "span",
+        "className": "",
+        "left": 427,
+        "right": 520
+      },
+      {
+        "tag": "button",
+        "className": "",
+        "left": 735,
+        "right": 765
+      },
+      {
+        "tag": "div",
+        "className": "cart-total",
+        "left": 427,
+        "right": 765
+      }
+    ],
+    "brokenImages": [],
+    "emptyLinks": [],
+    "menuVisible": true,
+    "cartVisible": true,
+    "interactionChecks": {
+      "mobileMenuOpens": true,
+      "loginResponds": true
+    },
+    "consoleErrors": [],
+    "screenshot": "/Users/juanitarodriguez/Desktop/portafolioBehance/421-co/qa/screenshots/login-mobile.png"
+  },
+  {
+    "route": "registro",
+    "viewport": "desktop",
+    "title": "421 Co.",
+    "url": "http://127.0.0.1:4210/registrarse.html?qa=1789845134742",
+    "viewportWidth": 1440,
+    "scrollWidth": 1440,
+    "horizontalOverflow": false,
+    "overflowingElements": [
+      {
+        "tag": "aside",
+        "className": "cart-panel",
+        "left": 1462,
+        "right": 1908
+      },
+      {
+        "tag": "div",
+        "className": "cart-panel__head",
+        "left": 1490,
+        "right": 1880
+      },
+      {
+        "tag": "h2",
+        "className": "",
+        "left": 1490,
+        "right": 1608
+      },
+      {
+        "tag": "button",
+        "className": "cart-close",
+        "left": 1851,
+        "right": 1880
+      },
+      {
+        "tag": "div",
+        "className": "cart-items",
+        "left": 1490,
+        "right": 1880
+      },
+      {
+        "tag": "div",
+        "className": "cart-item",
+        "left": 1490,
+        "right": 1880
+      },
+      {
+        "tag": "div",
+        "className": "",
+        "left": 1490,
+        "right": 1584
+      },
+      {
+        "tag": "strong",
+        "className": "",
+        "left": 1490,
+        "right": 1551
+      },
+      {
+        "tag": "span",
+        "className": "",
+        "left": 1490,
+        "right": 1584
+      },
+      {
+        "tag": "button",
+        "className": "",
+        "left": 1851,
+        "right": 1880
+      },
+      {
+        "tag": "div",
+        "className": "cart-total",
+        "left": 1490,
+        "right": 1880
+      }
+    ],
+    "brokenImages": [],
+    "emptyLinks": [],
+    "menuVisible": true,
+    "cartVisible": true,
+    "interactionChecks": {
+      "registrationResponds": true
+    },
+    "consoleErrors": [],
+    "screenshot": "/Users/juanitarodriguez/Desktop/portafolioBehance/421-co/qa/screenshots/registro-desktop.png"
+  },
+  {
+    "route": "registro",
+    "viewport": "laptop",
+    "title": "421 Co.",
+    "url": "http://127.0.0.1:4210/registrarse.html?qa=1789845136841",
+    "viewportWidth": 1024,
+    "scrollWidth": 1024,
+    "horizontalOverflow": false,
+    "overflowingElements": [
+      {
+        "tag": "aside",
+        "className": "cart-panel",
+        "left": 1046,
+        "right": 1492
+      },
+      {
+        "tag": "div",
+        "className": "cart-panel__head",
+        "left": 1074,
+        "right": 1464
+      },
+      {
+        "tag": "h2",
+        "className": "",
+        "left": 1074,
+        "right": 1192
+      },
+      {
+        "tag": "button",
+        "className": "cart-close",
+        "left": 1435,
+        "right": 1464
+      },
+      {
+        "tag": "div",
+        "className": "cart-items",
+        "left": 1074,
+        "right": 1464
+      },
+      {
+        "tag": "div",
+        "className": "cart-item",
+        "left": 1074,
+        "right": 1464
+      },
+      {
+        "tag": "div",
+        "className": "",
+        "left": 1074,
+        "right": 1168
+      },
+      {
+        "tag": "strong",
+        "className": "",
+        "left": 1074,
+        "right": 1135
+      },
+      {
+        "tag": "span",
+        "className": "",
+        "left": 1074,
+        "right": 1168
+      },
+      {
+        "tag": "button",
+        "className": "",
+        "left": 1435,
+        "right": 1464
+      },
+      {
+        "tag": "div",
+        "className": "cart-total",
+        "left": 1074,
+        "right": 1464
+      }
+    ],
+    "brokenImages": [],
+    "emptyLinks": [],
+    "menuVisible": true,
+    "cartVisible": true,
+    "interactionChecks": {
+      "mobileMenuOpens": true,
+      "registrationResponds": true
+    },
+    "consoleErrors": [],
+    "screenshot": "/Users/juanitarodriguez/Desktop/portafolioBehance/421-co/qa/screenshots/registro-laptop.png"
+  },
+  {
+    "route": "registro",
+    "viewport": "tablet",
+    "title": "421 Co.",
+    "url": "http://127.0.0.1:4210/registrarse.html?qa=1789845138438",
+    "viewportWidth": 768,
+    "scrollWidth": 768,
+    "horizontalOverflow": false,
+    "overflowingElements": [
+      {
+        "tag": "aside",
+        "className": "cart-panel",
+        "left": 790,
+        "right": 1236
+      },
+      {
+        "tag": "div",
+        "className": "cart-panel__head",
+        "left": 818,
+        "right": 1208
+      },
+      {
+        "tag": "h2",
+        "className": "",
+        "left": 818,
+        "right": 936
+      },
+      {
+        "tag": "button",
+        "className": "cart-close",
+        "left": 1179,
+        "right": 1208
+      },
+      {
+        "tag": "div",
+        "className": "cart-items",
+        "left": 818,
+        "right": 1208
+      },
+      {
+        "tag": "div",
+        "className": "cart-item",
+        "left": 818,
+        "right": 1208
+      },
+      {
+        "tag": "div",
+        "className": "",
+        "left": 818,
+        "right": 912
+      },
+      {
+        "tag": "strong",
+        "className": "",
+        "left": 818,
+        "right": 879
+      },
+      {
+        "tag": "span",
+        "className": "",
+        "left": 818,
+        "right": 912
+      },
+      {
+        "tag": "button",
+        "className": "",
+        "left": 1179,
+        "right": 1208
+      },
+      {
+        "tag": "div",
+        "className": "cart-total",
+        "left": 818,
+        "right": 1208
+      }
+    ],
+    "brokenImages": [],
+    "emptyLinks": [],
+    "menuVisible": true,
+    "cartVisible": true,
+    "interactionChecks": {
+      "mobileMenuOpens": true,
+      "registrationResponds": true
+    },
+    "consoleErrors": [],
+    "screenshot": "/Users/juanitarodriguez/Desktop/portafolioBehance/421-co/qa/screenshots/registro-tablet.png"
+  },
+  {
+    "route": "registro",
+    "viewport": "small-tablet",
+    "title": "421 Co.",
+    "url": "http://127.0.0.1:4210/registrarse.html?qa=1789845139988",
+    "viewportWidth": 744,
+    "scrollWidth": 744,
+    "horizontalOverflow": false,
+    "overflowingElements": [
+      {
+        "tag": "aside",
+        "className": "cart-panel",
+        "left": 766,
+        "right": 1212
+      },
+      {
+        "tag": "div",
+        "className": "cart-panel__head",
+        "left": 794,
+        "right": 1184
+      },
+      {
+        "tag": "h2",
+        "className": "",
+        "left": 794,
+        "right": 912
+      },
+      {
+        "tag": "button",
+        "className": "cart-close",
+        "left": 1155,
+        "right": 1184
+      },
+      {
+        "tag": "div",
+        "className": "cart-items",
+        "left": 794,
+        "right": 1184
+      },
+      {
+        "tag": "div",
+        "className": "cart-item",
+        "left": 794,
+        "right": 1184
+      },
+      {
+        "tag": "div",
+        "className": "",
+        "left": 794,
+        "right": 888
+      },
+      {
+        "tag": "strong",
+        "className": "",
+        "left": 794,
+        "right": 855
+      },
+      {
+        "tag": "span",
+        "className": "",
+        "left": 794,
+        "right": 888
+      },
+      {
+        "tag": "button",
+        "className": "",
+        "left": 1155,
+        "right": 1184
+      },
+      {
+        "tag": "div",
+        "className": "cart-total",
+        "left": 794,
+        "right": 1184
+      }
+    ],
+    "brokenImages": [],
+    "emptyLinks": [],
+    "menuVisible": true,
+    "cartVisible": true,
+    "interactionChecks": {
+      "mobileMenuOpens": true,
+      "registrationResponds": true
+    },
+    "consoleErrors": [],
+    "screenshot": "/Users/juanitarodriguez/Desktop/portafolioBehance/421-co/qa/screenshots/registro-small-tablet.png"
+  },
+  {
+    "route": "registro",
+    "viewport": "mobile",
+    "title": "421 Co.",
+    "url": "http://127.0.0.1:4210/registrarse.html?qa=1789845141525",
+    "viewportWidth": 390,
+    "scrollWidth": 390,
+    "horizontalOverflow": false,
+    "overflowingElements": [
+      {
+        "tag": "aside",
+        "className": "cart-panel",
+        "left": 409,
+        "right": 783
+      },
+      {
+        "tag": "div",
+        "className": "cart-panel__head",
+        "left": 427,
+        "right": 765
+      },
+      {
+        "tag": "h2",
+        "className": "",
+        "left": 427,
+        "right": 544
+      },
+      {
+        "tag": "button",
+        "className": "cart-close",
+        "left": 735,
+        "right": 765
+      },
+      {
+        "tag": "div",
+        "className": "cart-items",
+        "left": 427,
+        "right": 765
+      },
+      {
+        "tag": "div",
+        "className": "cart-item",
+        "left": 427,
+        "right": 765
+      },
+      {
+        "tag": "div",
+        "className": "",
+        "left": 427,
+        "right": 520
+      },
+      {
+        "tag": "strong",
+        "className": "",
+        "left": 427,
+        "right": 487
+      },
+      {
+        "tag": "span",
+        "className": "",
+        "left": 427,
+        "right": 520
+      },
+      {
+        "tag": "button",
+        "className": "",
+        "left": 735,
+        "right": 765
+      },
+      {
+        "tag": "div",
+        "className": "cart-total",
+        "left": 427,
+        "right": 765
+      }
+    ],
+    "brokenImages": [],
+    "emptyLinks": [],
+    "menuVisible": true,
+    "cartVisible": true,
+    "interactionChecks": {
+      "mobileMenuOpens": true,
+      "registrationResponds": true
+    },
+    "consoleErrors": [],
+    "screenshot": "/Users/juanitarodriguez/Desktop/portafolioBehance/421-co/qa/screenshots/registro-mobile.png"
+  }
+]

@@ -1,0 +1,672 @@
+---
+const pages = Array.from({ length: 17 }, (_, index) => ({
+	src: index === 5
+		? "/images/projects/panda-cha/page-6-usos-prohibidos.webp"
+		: `/images/projects/panda-cha/page-${index + 1}.webp`,
+	alt: index === 0
+		? "Portada del manual de marca Panda Cha"
+		: `Páginas ${index + 1} del manual de marca Panda Cha`,
+}));
+---
+
+<article id="proyecto-sistema-visual" class="panda-case" data-pandacha-case>
+	<div class="panda-case__copy">
+		<p class="panda-case__number" aria-label="Proyecto 04">04</p>
+		<h3>Panda Cha, Identidad de marca</h3>
+		<p class="panda-case__discipline">Branding · Identidad visual · Sistema de diseño</p>
+		<p class="panda-case__description">Una marca de té frío que conecta la cultura visual asiática contemporánea con la diversidad frutal de Colombia. Panda Cha transforma el concepto de “Cha” en una experiencia fresca, cercana y colorida pensada para un público latinoamericano.</p>
+		<button class="panda-case__cta" type="button" data-pandacha-open>
+			Ver proyecto <span aria-hidden="true">→</span>
+		</button>
+	</div>
+
+	<button class="panda-preview" type="button" data-pandacha-open aria-label="Abrir el manual interactivo de Panda Cha">
+		<span class="panda-preview__glow" aria-hidden="true"></span>
+		<span class="panda-preview__spread panda-preview__spread--back" aria-hidden="true">
+			<img src="/images/projects/panda-cha/page-3.webp" alt="" width="1600" height="1130" loading="lazy" />
+		</span>
+		<span class="panda-preview__spread panda-preview__spread--front" aria-hidden="true">
+			<img src="/images/projects/panda-cha/page-2.webp" alt="" width="1600" height="1130" loading="lazy" />
+		</span>
+		<span class="panda-preview__cover">
+			<img src="/images/projects/panda-cha/cover-book-cutout.png" alt="Manual de marca Panda Cha en formato de libro" width="1448" height="1086" loading="lazy" />
+		</span>
+	</button>
+
+	<dialog class="panda-viewer" data-pandacha-dialog aria-labelledby="pandacha-viewer-title">
+		<div class="panda-viewer__shell">
+			<header class="panda-viewer__header">
+				<div>
+					<p>Manual de marca</p>
+					<h3 id="pandacha-viewer-title">Panda Cha</h3>
+				</div>
+				<button class="panda-viewer__close" type="button" data-pandacha-close aria-label="Cerrar el manual">
+					<span>Cerrar</span><b aria-hidden="true">×</b>
+				</button>
+			</header>
+
+			<div class="panda-book-stage" data-book-stage data-state="closed">
+				<div class="panda-book" data-book>
+					<div class="panda-book__base" aria-hidden="true"></div>
+					<img
+						class="panda-book__spread"
+						data-book-image
+						src={pages[0].src}
+						alt={pages[0].alt}
+						width="1600"
+						height="1130"
+					/>
+					<div class="panda-book__old-half" data-book-old-half aria-hidden="true"></div>
+					<div class="panda-book__turn" data-book-turn aria-hidden="true">
+						<div class="panda-book__turn-face panda-book__turn-face--front"></div>
+						<div class="panda-book__turn-face panda-book__turn-face--back"></div>
+					</div>
+					<div class="panda-book__spine" aria-hidden="true"></div>
+					<div class="panda-book__cover" data-book-cover aria-hidden="true">
+						<img src="/images/projects/panda-cha/page-1.webp" alt="" width="1600" height="1130" />
+					</div>
+				</div>
+				<p class="panda-book__status" data-book-status role="status" aria-live="polite"></p>
+			</div>
+
+			<footer class="panda-viewer__controls">
+				<button type="button" data-book-prev aria-keyshortcuts="ArrowLeft">Anterior</button>
+				<p><span data-book-current>01</span><span aria-hidden="true"> / </span><span class="sr-only">de</span><span>17</span></p>
+				<button type="button" data-book-next aria-keyshortcuts="ArrowRight">Siguiente</button>
+			</footer>
+		</div>
+	</dialog>
+</article>
+
+<script>
+	const pages = Array.from({ length: 17 }, (_, index) => ({
+		src: index === 5
+			? "/images/projects/panda-cha/page-6-usos-prohibidos.webp"
+			: `/images/projects/panda-cha/page-${index + 1}.webp`,
+		alt: index === 0
+			? "Portada del manual de marca Panda Cha"
+			: `Páginas ${index + 1} del manual de marca Panda Cha`,
+	}));
+
+	document.querySelectorAll<HTMLElement>("[data-pandacha-case]").forEach((caseStudy) => {
+		const dialog = caseStudy.querySelector<HTMLDialogElement>("[data-pandacha-dialog]");
+		const openButtons = caseStudy.querySelectorAll<HTMLButtonElement>("[data-pandacha-open]");
+		const closeButton = caseStudy.querySelector<HTMLButtonElement>("[data-pandacha-close]");
+		const stage = caseStudy.querySelector<HTMLElement>("[data-book-stage]");
+		const book = caseStudy.querySelector<HTMLElement>("[data-book]");
+		const image = caseStudy.querySelector<HTMLImageElement>("[data-book-image]");
+		const previousButton = caseStudy.querySelector<HTMLButtonElement>("[data-book-prev]");
+		const nextButton = caseStudy.querySelector<HTMLButtonElement>("[data-book-next]");
+		const currentLabel = caseStudy.querySelector<HTMLElement>("[data-book-current]");
+		const status = caseStudy.querySelector<HTMLElement>("[data-book-status]");
+		const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+		if (!dialog || !stage || !book || !image || !previousButton || !nextButton || !currentLabel || !status) return;
+
+		let currentIndex = 0;
+		let isTurning = false;
+		let openingTimer = 0;
+		let lastFocused: HTMLElement | null = null;
+		const bookRatio = 1600 / 1130;
+		const pageTurnDuration = 720;
+
+		const fitBook = () => {
+			const stageWidth = stage.clientWidth;
+			const stageHeight = stage.clientHeight;
+			if (!stageWidth || !stageHeight) return;
+
+			const edgeSpace = Math.max(12, Math.min(32, stageWidth * 0.025));
+			const availableWidth = Math.max(240, stageWidth - edgeSpace * 2);
+			const availableHeight = Math.max(180, stageHeight - 88);
+			const fittedWidth = Math.min(availableWidth, availableHeight * bookRatio);
+			const fittedHeight = fittedWidth / bookRatio;
+
+			book.style.width = `${fittedWidth}px`;
+			book.style.height = `${fittedHeight}px`;
+		};
+
+		const bookResizeObserver = new ResizeObserver(fitBook);
+		bookResizeObserver.observe(stage);
+
+		const updateControls = () => {
+			previousButton.disabled = currentIndex === 0 || isTurning;
+			nextButton.disabled = currentIndex === pages.length - 1 || isTurning;
+			currentLabel.textContent = String(currentIndex + 1).padStart(2, "0");
+		};
+
+		const loadPage = (index: number) => new Promise<void>((resolve, reject) => {
+			const preloader = new Image();
+			preloader.onload = () => resolve();
+			preloader.onerror = () => reject(new Error("No se pudo cargar esta página."));
+			preloader.src = pages[index].src;
+		});
+
+		const preloadBook = () => {
+			pages.forEach((page) => {
+				const preloader = new Image();
+				preloader.src = page.src;
+			});
+		};
+
+		const showPage = async (targetIndex: number, direction: "next" | "previous") => {
+			if (isTurning || targetIndex < 0 || targetIndex >= pages.length || targetIndex === currentIndex) return;
+			isTurning = true;
+			status.textContent = "Cargando página";
+			updateControls();
+
+			try {
+				await loadPage(targetIndex);
+				const oldPage = pages[currentIndex];
+				const newPage = pages[targetIndex];
+				book.style.setProperty("--page-from", `url("${oldPage.src}")`);
+				book.style.setProperty("--page-to", `url("${newPage.src}")`);
+				image.src = newPage.src;
+				image.alt = newPage.alt;
+				currentIndex = targetIndex;
+				currentLabel.textContent = String(currentIndex + 1).padStart(2, "0");
+
+				if (reduceMotion.matches) {
+					isTurning = false;
+					status.textContent = `Página ${currentIndex + 1} de ${pages.length}`;
+					updateControls();
+					return;
+				}
+
+				book.dataset.direction = direction;
+				book.classList.remove("is-turning");
+				window.requestAnimationFrame(() => {
+					window.requestAnimationFrame(() => book.classList.add("is-turning"));
+				});
+
+				window.setTimeout(() => {
+					book.classList.remove("is-turning");
+					delete book.dataset.direction;
+					isTurning = false;
+					status.textContent = `Página ${currentIndex + 1} de ${pages.length}`;
+					updateControls();
+				}, pageTurnDuration);
+			} catch (error) {
+				isTurning = false;
+				status.textContent = error instanceof Error ? error.message : "No se pudo cargar esta página.";
+				updateControls();
+			}
+		};
+
+		const openBook = () => {
+			lastFocused = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+			dialog.showModal();
+			document.documentElement.classList.add("has-open-dialog");
+			stage.dataset.state = "closed";
+			currentIndex = 1;
+			image.src = pages[1].src;
+			image.alt = pages[1].alt;
+			status.textContent = "Abriendo el manual";
+			updateControls();
+			fitBook();
+
+			window.clearTimeout(openingTimer);
+			window.requestAnimationFrame(() => {
+				fitBook();
+				stage.dataset.state = reduceMotion.matches ? "open" : "opening";
+				closeButton?.focus({ preventScroll: true });
+			});
+			openingTimer = window.setTimeout(() => {
+				stage.dataset.state = "open";
+				status.textContent = `Página 2 de ${pages.length}`;
+			}, reduceMotion.matches ? 0 : 850);
+			window.setTimeout(preloadBook, 120);
+		};
+
+		const closeBook = () => {
+			window.clearTimeout(openingTimer);
+			dialog.close();
+		};
+
+		openButtons.forEach((button) => button.addEventListener("click", openBook));
+		closeButton?.addEventListener("click", closeBook);
+		previousButton.addEventListener("click", () => showPage(currentIndex - 1, "previous"));
+		nextButton.addEventListener("click", () => showPage(currentIndex + 1, "next"));
+
+		dialog.addEventListener("click", (event) => {
+			if (event.target === dialog) closeBook();
+		});
+
+		dialog.addEventListener("keydown", (event) => {
+			if (event.repeat || (event.key !== "ArrowLeft" && event.key !== "ArrowRight")) return;
+			event.preventDefault();
+			if (event.key === "ArrowLeft") showPage(currentIndex - 1, "previous");
+			if (event.key === "ArrowRight") showPage(currentIndex + 1, "next");
+		});
+
+		dialog.addEventListener("close", () => {
+			document.documentElement.classList.remove("has-open-dialog");
+			stage.dataset.state = "closed";
+			status.textContent = "";
+			lastFocused?.focus();
+		});
+	});
+</script>
+
+<style>
+	:global(html.has-open-dialog) { overflow: hidden; }
+
+	.panda-case {
+		--panda-coral: #f04d1a;
+		--panda-pink: #f5a7aa;
+		--panda-aqua: #d9f4f1;
+		--panda-cream: #fffaf3;
+		--panda-cacao: #40251f;
+		position: relative;
+		display: grid;
+		isolation: isolate;
+		gap: clamp(2rem, 5vw, 5rem);
+		padding: clamp(2rem, 5vw, 4.5rem);
+		overflow: hidden;
+		border: 1px solid rgb(255 255 255 / 0.85);
+		border-radius: clamp(1.5rem, 3vw, 2.75rem);
+		background:
+			radial-gradient(circle at 82% 14%, rgb(245 167 170 / 0.42), transparent 24%),
+			radial-gradient(circle at 22% 92%, rgb(172 231 220 / 0.5), transparent 31%),
+			linear-gradient(135deg, rgb(255 255 255 / 0.94), rgb(239 250 248 / 0.92));
+		box-shadow: 0 1.5rem 4rem rgb(59 88 83 / 0.12), inset 0 1px 0 rgb(255 255 255 / 0.96);
+	}
+
+	.panda-case::after {
+		position: absolute;
+		right: -8rem;
+		bottom: -10rem;
+		z-index: -1;
+		width: 24rem;
+		aspect-ratio: 1;
+		border-radius: 50%;
+		background: rgb(255 193 69 / 0.2);
+		content: "";
+	}
+
+	.panda-case__copy {
+		align-self: center;
+		max-width: 37rem;
+	}
+
+	.panda-case__number {
+		margin: 0 0 1rem;
+		color: var(--panda-coral);
+		font-size: 0.72rem;
+		font-weight: 800;
+		letter-spacing: 0.12em;
+		line-height: 1.2;
+	}
+
+	.panda-case h3 {
+		max-width: none;
+		margin: 0 0 var(--space-1);
+		color: var(--panda-cacao);
+		font-family: var(--font-sans);
+		font-size: clamp(1.65rem, 3vw, 2.7rem);
+		font-weight: 800;
+		letter-spacing: -0.025em;
+		line-height: 1.08;
+		text-transform: uppercase;
+	}
+
+	.panda-case__discipline {
+		margin: 0 0 var(--space-1);
+		color: #7d3a2b;
+		font-size: var(--step--1);
+		font-weight: 700;
+		letter-spacing: normal;
+		line-height: inherit;
+		text-transform: none;
+	}
+
+	.panda-case__description {
+		max-width: var(--measure);
+		margin: 0;
+		color: #5f504c;
+		font-size: clamp(1rem, 1.25vw, 1.12rem);
+		line-height: 1.6;
+	}
+
+	.panda-case__cta {
+		display: inline-block;
+		margin-block-start: clamp(1rem, 2vw, 1.75rem);
+		padding: 0;
+		border: 0;
+		background: transparent;
+		color: var(--panda-cacao);
+		font: inherit;
+		font-size: var(--step--1);
+		font-weight: 700;
+		line-height: 1.2;
+		cursor: pointer;
+		transition: color 0.25s ease, transform 0.25s ease;
+	}
+
+	.panda-case__cta span { display: inline-block; margin-left: 0.35rem; transition: transform 0.25s ease; }
+	.panda-case__cta:hover { color: var(--panda-coral); }
+	.panda-case__cta:hover span { transform: translateX(0.25rem); }
+	.panda-case__cta:active { transform: translateY(1px); }
+
+	.panda-preview {
+		position: relative;
+		min-width: 0;
+		min-height: clamp(27rem, 52vw, 42rem);
+		padding: 0;
+		border: 0;
+		background: transparent;
+		cursor: zoom-in;
+		perspective: 100rem;
+	}
+
+	.panda-preview__glow {
+		position: absolute;
+		inset: 13% 4% 7% 8%;
+		border-radius: 50%;
+		background: rgb(117 211 199 / 0.32);
+		filter: blur(3.5rem);
+	}
+
+	.panda-preview__spread,
+	.panda-preview__cover {
+		position: absolute;
+		display: block;
+		overflow: hidden;
+		border-radius: clamp(0.5rem, 1vw, 0.9rem);
+		box-shadow: 0 1.5rem 3.6rem rgb(60 74 70 / 0.22);
+		transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.65s ease;
+	}
+
+	.panda-preview__spread img,
+	.panda-preview__cover img { width: 100%; height: 100%; object-fit: cover; }
+
+	.panda-preview__spread--back {
+		top: 4%;
+		right: 0;
+		width: 66%;
+		aspect-ratio: 1600 / 1130;
+		transform: rotate(5deg) translateZ(-2rem);
+	}
+
+	.panda-preview__spread--front {
+		top: 12%;
+		left: 1%;
+		width: 68%;
+		aspect-ratio: 1600 / 1130;
+		transform: rotate(-6deg) translateZ(-1rem);
+	}
+
+	.panda-preview__cover {
+		right: -2%;
+		bottom: -3%;
+		z-index: 3;
+		width: 94%;
+		aspect-ratio: 1448 / 1086;
+		overflow: visible;
+		border-radius: 0;
+		background: transparent;
+		box-shadow: none;
+		transform: rotate(-1.8deg) translateZ(1rem);
+	}
+
+	.panda-preview__cover img {
+		object-fit: contain;
+		filter: drop-shadow(0 1.8rem 1.8rem rgb(50 65 61 / 0.2));
+	}
+
+	@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+		.panda-preview:hover .panda-preview__spread--back { transform: rotate(7deg) translate(0.5rem, -0.55rem) translateZ(-2rem); }
+		.panda-preview:hover .panda-preview__spread--front { transform: rotate(-8deg) translate(-0.75rem, -0.35rem) translateZ(-1rem); }
+		.panda-preview:hover .panda-preview__cover { transform: rotate(-0.6deg) translate(0.25rem, -0.7rem) translateZ(1rem); }
+	}
+
+	.panda-viewer {
+		width: 100vw;
+		max-width: none;
+		height: 100dvh;
+		max-height: none;
+		margin: 0;
+		padding: 0;
+		border: 0;
+		border-radius: 0;
+		background: #eef8f6;
+		color: var(--panda-cacao);
+		box-shadow: none;
+	}
+
+	.panda-viewer::backdrop {
+		background: rgb(26 35 33 / 0.72);
+		-webkit-backdrop-filter: blur(0.6rem);
+		backdrop-filter: blur(0.6rem);
+	}
+
+	.panda-viewer__shell {
+		position: relative;
+		height: 100%;
+		padding: 0;
+	}
+
+	.panda-viewer__header,
+	.panda-viewer__controls {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+	}
+
+	.panda-viewer__header {
+		position: absolute;
+		top: clamp(1rem, 2.2vw, 2rem);
+		right: clamp(1rem, 2.2vw, 2rem);
+		left: clamp(1rem, 2.2vw, 2rem);
+		z-index: 20;
+		pointer-events: none;
+	}
+	.panda-viewer__header > * { pointer-events: auto; }
+	.panda-viewer__header p { margin: 0 0 0.1rem; color: #7d635c; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; }
+	.panda-viewer__header h3 { max-width: none; margin: 0; font-family: var(--font-sans); font-size: clamp(1.2rem, 2vw, 1.7rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1; }
+
+	.panda-viewer__close,
+	.panda-viewer__controls button {
+		border: 1px solid rgb(64 37 31 / 0.2);
+		background: rgb(255 255 255 / 0.84);
+		color: var(--panda-cacao);
+		font-size: 0.88rem;
+		font-weight: 700;
+		cursor: pointer;
+		transition: background 0.2s ease, transform 0.2s ease;
+		-webkit-backdrop-filter: blur(0.8rem);
+		backdrop-filter: blur(0.8rem);
+	}
+
+	.panda-viewer__close { display: flex; align-items: center; gap: 0.65rem; padding: 0.5rem 0.75rem 0.5rem 0.9rem; border-radius: 999px; }
+	.panda-viewer__close b { font-size: 1.4rem; font-weight: 400; line-height: 0.8; }
+	.panda-viewer__close:hover,
+	.panda-viewer__controls button:hover { background: #fff; }
+	.panda-viewer__close:active,
+	.panda-viewer__controls button:active { transform: translateY(1px); }
+
+	.panda-book-stage {
+		position: relative;
+		display: grid;
+		width: 100%;
+		height: 100%;
+		min-height: 0;
+		place-items: center;
+		overflow: hidden;
+		background:
+			radial-gradient(ellipse 55% 62% at 50% 45%, rgb(255 255 255 / 0.98), transparent 72%),
+			radial-gradient(circle at 86% 14%, rgb(245 167 170 / 0.22), transparent 25%),
+			linear-gradient(145deg, #e7f5f3, #cce8e3);
+		perspective: 120rem;
+	}
+
+	.panda-book {
+		--page-from: url("/images/projects/panda-cha/page-1.webp");
+		--page-to: url("/images/projects/panda-cha/page-2.webp");
+		position: relative;
+		width: min(86%, 76rem);
+		aspect-ratio: 1600 / 1130;
+		transform-style: preserve-3d;
+		transform: rotateX(1.2deg);
+		filter: drop-shadow(0 2.2rem 2.4rem rgb(43 68 63 / 0.24));
+	}
+
+	.panda-book::before {
+		position: absolute;
+		inset: -0.4% -0.5% -0.7%;
+		z-index: 2;
+		border: 1px solid rgb(255 255 255 / 0.72);
+		border-radius: 0.5rem;
+		box-shadow: inset 0 0 0 1px rgb(93 62 54 / 0.07);
+		content: "";
+		pointer-events: none;
+		transform: translateZ(0.08rem);
+	}
+
+	.panda-book__base {
+		position: absolute;
+		inset: -0.7% -0.9% -2.1%;
+		border-radius: 0.6rem;
+		background-color: #f5f0e9;
+		background-image: linear-gradient(
+			90deg,
+			transparent 24%,
+			rgb(206 197 187 / 0.72) 24.15%,
+			transparent 24.3%,
+			transparent 49.85%,
+			rgb(206 197 187 / 0.72) 50%,
+			transparent 50.15%,
+			transparent 74.7%,
+			rgb(206 197 187 / 0.72) 74.85%,
+			transparent 75%
+		);
+		box-shadow:
+			0 0.5rem 0 #eee8df,
+			0 0.76rem 0 #d68e8b,
+			0 1.4rem 2.2rem rgb(46 65 61 / 0.2);
+		transform: translateZ(-0.5rem);
+	}
+
+	.panda-book__spread,
+	.panda-book__cover {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		border-radius: 0.35rem;
+		object-fit: cover;
+		background: var(--panda-cream);
+		box-shadow: inset 0 0 0 1px rgb(75 48 41 / 0.05);
+	}
+
+	.panda-book__cover {
+		z-index: 5;
+		overflow: hidden;
+		transform-origin: left center;
+		transition: transform 0.82s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.32s 0.48s ease;
+	}
+
+	.panda-book__cover img { width: 100%; height: 100%; object-fit: cover; }
+	[data-state="opening"] .panda-book__cover,
+	[data-state="open"] .panda-book__cover { opacity: 0; transform: rotateY(-112deg); pointer-events: none; }
+
+	.panda-book__spine {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 50%;
+		z-index: 7;
+		width: 1.15%;
+		background: linear-gradient(90deg, rgb(72 52 47 / 0.12), rgb(255 255 255 / 0.52), rgb(72 52 47 / 0.14));
+		box-shadow: 0 0 1.2rem rgb(73 52 47 / 0.16);
+		transform: translateX(-50%) translateZ(0.2rem);
+		pointer-events: none;
+	}
+
+	.panda-book__old-half,
+	.panda-book__turn {
+		position: absolute;
+		top: 0;
+		z-index: 4;
+		display: none;
+		width: 50%;
+		height: 100%;
+	}
+
+	.panda-book__turn { z-index: 6; transform-style: preserve-3d; will-change: transform; contain: paint; }
+	.panda-book__turn-face { position: absolute; inset: 0; overflow: hidden; border-radius: 0.25rem; background-repeat: no-repeat; background-size: 200% 100%; backface-visibility: hidden; }
+	.panda-book__turn-face::after { position: absolute; inset: 0; background: linear-gradient(90deg, rgb(64 40 34 / 0.2), transparent 18%, transparent 78%, rgb(255 255 255 / 0.24)); content: ""; opacity: 0.42; }
+	.panda-book__turn-face--back { transform: rotateY(180deg); }
+
+	.panda-book[data-direction="next"].is-turning .panda-book__old-half { left: 0; display: block; background: var(--page-from) left center / 200% 100% no-repeat; }
+	.panda-book[data-direction="next"].is-turning .panda-book__turn { right: 0; display: block; transform-origin: left center; animation: panda-page-next 0.72s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
+	.panda-book[data-direction="next"].is-turning .panda-book__turn-face--front { background-image: var(--page-from); background-position: right center; box-shadow: inset 1rem 0 1.8rem rgb(52 37 32 / 0.08); }
+	.panda-book[data-direction="next"].is-turning .panda-book__turn-face--back { background-image: var(--page-to); background-position: left center; box-shadow: inset -1rem 0 1.8rem rgb(52 37 32 / 0.08); }
+
+	.panda-book[data-direction="previous"].is-turning .panda-book__old-half { right: 0; display: block; background: var(--page-from) right center / 200% 100% no-repeat; }
+	.panda-book[data-direction="previous"].is-turning .panda-book__turn { left: 0; display: block; transform-origin: right center; animation: panda-page-previous 0.72s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
+	.panda-book[data-direction="previous"].is-turning .panda-book__turn-face--front { background-image: var(--page-from); background-position: left center; box-shadow: inset -1rem 0 1.8rem rgb(52 37 32 / 0.08); }
+	.panda-book[data-direction="previous"].is-turning .panda-book__turn-face--back { background-image: var(--page-to); background-position: right center; box-shadow: inset 1rem 0 1.8rem rgb(52 37 32 / 0.08); }
+
+	@keyframes panda-page-next {
+		from { transform: translateZ(0.08rem) rotateY(0deg); }
+		to { transform: translateZ(0.08rem) rotateY(-180deg); }
+	}
+
+	@keyframes panda-page-previous {
+		from { transform: translateZ(0.08rem) rotateY(0deg); }
+		to { transform: translateZ(0.08rem) rotateY(180deg); }
+	}
+
+	.panda-book__status { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+
+	.panda-viewer__controls {
+		position: absolute;
+		right: clamp(1rem, 2.2vw, 2rem);
+		bottom: clamp(0.8rem, 1.8vw, 1.5rem);
+		left: clamp(1rem, 2.2vw, 2rem);
+		z-index: 20;
+		pointer-events: none;
+	}
+	.panda-viewer__controls > * { pointer-events: auto; }
+	.panda-viewer__controls button { min-width: 7.2rem; padding: 0.65rem 1rem; border-radius: 999px; }
+	.panda-viewer__controls button:disabled { cursor: not-allowed; opacity: 0.38; }
+	.panda-viewer__controls p { display: flex; gap: 0.25rem; margin: 0; color: #6c5953; font-size: 0.8rem; font-variant-numeric: tabular-nums; }
+
+	.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+
+	@media (min-width: 64rem) {
+		.panda-case { grid-template-columns: minmax(22rem, 0.84fr) minmax(0, 1.5fr); align-items: center; }
+		.panda-case__copy { padding-left: clamp(0rem, 1.5vw, 1.25rem); }
+	}
+
+	@media (max-width: 63.99rem) {
+		.panda-case { grid-template-columns: 1fr; }
+		.panda-case__copy { max-width: 38rem; }
+		.panda-preview { min-height: clamp(25rem, 73vw, 42rem); }
+	}
+
+	@media (max-width: 40rem) {
+		.panda-case { padding: 1.4rem; gap: 1.5rem; }
+		.panda-case h3 { font-size: clamp(1.65rem, 3vw, 2.7rem); }
+		.panda-case__discipline { text-transform: none; }
+		.panda-preview { min-height: clamp(20rem, 93vw, 29rem); }
+		.panda-preview__spread--back { top: 2%; width: 72%; }
+		.panda-preview__spread--front { top: 13%; width: 73%; }
+		.panda-preview__cover { right: -4%; bottom: -5%; width: 100%; }
+
+		.panda-viewer__header { top: 0.75rem; right: 0.75rem; left: 0.75rem; justify-content: flex-end; }
+		.panda-viewer__header > div { display: none; }
+		.panda-viewer__close span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); }
+		.panda-viewer__close { width: 2.65rem; height: 2.65rem; justify-content: center; padding: 0; }
+		.panda-book__base { box-shadow: 0 0.35rem 0 #d68e8b, 0 0.9rem 1.4rem rgb(46 65 61 / 0.15); }
+		.panda-viewer__controls { right: 0.75rem; bottom: 0.65rem; left: 0.75rem; }
+		.panda-viewer__controls button { min-width: 0; padding: 0.55rem 0.78rem; }
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.panda-preview__spread,
+		.panda-preview__cover,
+		.panda-book__cover { transition: none; }
+	}
+</style>

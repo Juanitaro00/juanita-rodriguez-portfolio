@@ -1,0 +1,300 @@
+---
+import type { CollectionEntry } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+interface Props { project: CollectionEntry<"projects">["data"]; }
+const { project } = Astro.props;
+const phases = ["Empatizar", "Definir", "Idear", "Prototipar", "Validar"];
+const phaseIds = ["empatizar", "definir", "idear", "prototipar", "validar"];
+---
+
+<BaseLayout title={`Tailor's Shop — Juanita Rodríguez`} description={project.summary} hideFooter hideHeader headerTheme="tailors">
+	<article class="ts" data-case-study>
+		<header class="ts-hero">
+			<div class="ts-wrap">
+				<a class="ts-back" href="/#proyectos">← Proyectos seleccionados</a>
+				<div class="ts-hero__grid">
+					<div class="ts-hero__content">
+						<p class="ts-label">Caso de estudio · UX/UI</p>
+						<h1>Tailor’s Shop</h1>
+						<p class="ts-hero__type">Sistema digital para un taller de alta costura</p>
+						<p class="ts-hero__summary">Tailor’s Shop es un taller de alta costura en Bogotá que destaca por sus técnicas tradicionales de confección y por atraer a una clientela exigente. A través de una investigación etnográfica, quise comprender cómo se entrelazan las dinámicas sociales entre costureros y clientes, así como la apreciación por la moda y la búsqueda de la excelencia en la confección de prendas.</p>
+						<dl><div><dt>Rol</dt><dd>UX Research · Product Design · UI Design</dd></div><div><dt>Duración</dt><dd>2024–2025</dd></div><div><dt>Metodología</dt><dd>Design Thinking</dd></div><div><dt>Enfoque</dt><dd>Servicio · Producto · Sistema</dd></div></dl>
+					</div>
+					<figure class="ts-kiosk-device">
+						<div class="ts-kiosk-device__frame"><iframe src="../../projects/tailors-shop/prototipo.html" title="Prototipo interactivo completo de Tailor's Shop" loading="eager"></iframe></div>
+						<figcaption>Kiosco asistido · Prototipo funcional e interactivo</figcaption>
+					</figure>
+				</div>
+			</div>
+		</header>
+
+		<div class="ts-phase-shell">
+			<nav class="ts-phase-nav" aria-label="Fases del caso de estudio">
+				<div class="ts-wrap ts-phase-nav__scroll" role="tablist" aria-label="Recorrer el proceso">
+					{phases.map((phase, index) => <button type="button" role="tab" id={`tab-${phaseIds[index]}`} aria-controls={`panel-${phaseIds[index]}`} aria-selected={index === 0 ? "true" : "false"} tabindex={index === 0 ? "0" : "-1"} data-phase-tab={phaseIds[index]}>{phase}</button>)}
+				</div>
+			</nav>
+
+			<div class="ts-wrap ts-phase-panels">
+				<section class="ts-panel" id="panel-empatizar" role="tabpanel" aria-labelledby="tab-empatizar" data-phase-panel="empatizar">
+					<div class="ts-panel__heading"><p class="ts-label">01 · Empatizar</p><h2>Entender el taller antes de diseñar para él.</h2><p>La investigación comenzó dentro del taller, observando cómo interactuaban clientes, operarios y administración durante el servicio. El objetivo era comprender no solo lo que ocurría, sino también las tensiones, necesidades y comportamientos detrás de cada arreglo.</p></div>
+					<div class="ts-tools"><p class="ts-section-label">Herramientas</p><div class="ts-methods"><span>Observación directa</span><span>Etnografía</span><span>Entrevistas en profundidad</span><span>Encuestas</span><span>Mapas de empatía</span></div></div>
+					<p class="ts-section-label">Hallazgos</p>
+					<div class="ts-findings"><div><span>01</span><h3>Valor del oficio</h3><p>El conocimiento técnico y artesanal detrás de cada arreglo no siempre era reconocido ni valorado por el cliente.</p></div><div><span>02</span><h3>Regateo y precio</h3><p>La negociación afectaba la percepción del valor del trabajo y la estabilidad del negocio.</p></div><div><span>03</span><h3>Procesos internos poco estandarizados</h3><p>Precios, políticas y procesos dependían de acuerdos informales y de quién atendiera cada situación.</p></div><div><span>04</span><h3>Comunicación fragmentada</h3><p>La información poco estructurada generaba confusión y dificultaba coordinar el servicio.</p></div></div>
+					<p class="ts-insight-conclusion">En conjunto, los hallazgos mostraron que el problema no era únicamente operativo: también afectaba la percepción de valor, la confianza entre los actores y la sostenibilidad del servicio.</p>
+				</section>
+
+				<section class="ts-panel" id="panel-definir" role="tabpanel" aria-labelledby="tab-definir" data-phase-panel="definir" hidden>
+					<div class="ts-panel__heading"><p class="ts-label">02 · Definir</p><h2>Convertir los hallazgos en un problema de diseño.</h2><p>La investigación permitió ampliar la hipótesis inicial. La desvalorización del trabajo artesanal estaba relacionada con la falta de criterios compartidos para precios, procesos internos, comunicación y organización del servicio.</p></div>
+					<div class="ts-definition-pair">
+						<div class="ts-highlight"><p class="ts-section-label">Hipótesis</p><p>Aunque Tailor’s Shop opera en un contexto de alta costura y atiende a una clientela exigente, la falta de reconocimiento del trabajo artesanal y de procesos organizacionales consistentes genera tensiones entre clientes, operarios y administración, afectando la percepción de valor, la comunicación y la experiencia del servicio.</p></div>
+						<div class="ts-hmw"><span>¿Cómo podríamos...?</span><p>¿Cómo podríamos organizar y hacer más transparente el servicio de Tailor’s Shop, aumentando la percepción de valor del trabajo artesanal y mejorando la relación entre clientes, operarios y administración?</p></div>
+					</div>
+					<div class="ts-tools"><p class="ts-section-label">Herramientas</p><div class="ts-methods"><span>Mapa de empatía</span><span>Journey Map</span><span>Point of View (POV)</span><span>Síntesis de insights</span><span>How Might We</span></div></div>
+				</section>
+
+				<section class="ts-panel" id="panel-idear" role="tabpanel" aria-labelledby="tab-idear" data-phase-panel="idear" hidden>
+					<div class="ts-ideation-grid">
+						<div class="ts-panel__heading"><p class="ts-label">03 · Idear</p><h2>Explorar distintas formas de transformar el servicio.</h2><p>A partir del problema definido se exploraron alternativas para mejorar la organización, la comunicación, la experiencia del cliente y el reconocimiento del oficio, sin asumir que la solución debía ser únicamente una aplicación.</p></div>
+						<div class="ts-idea-map" aria-label="Ideas exploradas"><span>Plataforma digital</span><span>Comunicación interna</span><span>Reconocimiento del oficio</span><span>Sistema de fidelización</span><span>Organización de procesos</span><span>Experiencia del taller</span></div>
+					</div>
+					<div class="ts-tools"><p class="ts-section-label">Herramientas</p><div class="ts-methods"><span>Brainstorming</span><span>Mind Mapping</span></div></div>
+					<div class="ts-direction"><p class="ts-section-label">Dirección seleccionada</p><h3>Un kiosco digital como punto central del servicio.</h3><p>La propuesta incorpora tecnología a un negocio tradicional para hacer más consistentes los precios, la atención y el seguimiento. El kiosco organiza y hace visible el servicio sin reemplazar el acompañamiento humano ni el conocimiento artesanal.</p></div>
+				</section>
+
+				<section class="ts-panel" id="panel-prototipar" role="tabpanel" aria-labelledby="tab-prototipar" data-phase-panel="prototipar" hidden>
+					<div class="ts-panel__heading"><p class="ts-label">04 · Prototipar</p><h2>Convertir el sistema en una experiencia tangible.</h2><p>La dirección seleccionada se convirtió en un prototipo interactivo para representar cómo clientes, operarios y administración podían relacionarse dentro de un mismo sistema y comprobar su lógica antes de llegar a la propuesta final.</p></div>
+					<div class="ts-tools"><p class="ts-section-label">Herramientas</p><div class="ts-methods"><span>User Flows</span><span>Arquitectura de Información</span><span>Wireframes</span><span>Prototipo interactivo</span><span>Figma</span></div></div>
+					<figure class="ts-prototype-preview"><div class="ts-prototype-preview__screen"><iframe src="../../projects/tailors-shop/prototipo.html?view=kiosco" title="Primer prototipo interactivo del kiosco" loading="lazy"></iframe></div><figcaption>Primera versión del flujo principal del kiosco</figcaption></figure>
+					<div class="ts-first-validation"><p class="ts-section-label">Primera validación</p><p>El primer prototipo mostró que algunos procesos se estaban digitalizando demasiado y que el diagnóstico de una prenda necesitaba conservar el contacto presencial y el criterio técnico del operario.</p></div>
+				</section>
+
+				<section class="ts-panel" id="panel-validar" role="tabpanel" aria-labelledby="tab-validar" data-phase-panel="validar" hidden>
+					<div class="ts-panel__heading ts-panel__heading--compact"><p class="ts-label">05 · Validar</p><h2>La validación cambió la solución.</h2></div>
+					<div class="ts-validation" aria-label="Evolución de la solución después de validar"><div><span>Primera propuesta</span><h3>Mayor autonomía digital y procesos fuera del taller.</h3></div><b aria-hidden="true">→</b><div><span>Hallazgo con usuarios</span><h3>El diagnóstico dependía de observar la prenda y del criterio técnico.</h3></div><b aria-hidden="true">→</b><div><span>Iteración</span><h3>La tecnología pasó a organizar la información y el seguimiento alrededor del encuentro presencial.</h3></div></div>
+					<div class="ts-tools"><p class="ts-section-label">Herramientas de validación</p><div class="ts-methods"><span>Prueba de prototipo</span><span>Entrevistas y feedback</span><span>Observación</span><span>Iteración</span></div></div>
+
+					<section class="ts-final-prototype" aria-labelledby="final-prototype-title"><p class="ts-section-label">Prototipo final</p><h3 id="final-prototype-title">Un sistema conectado para quienes hacen posible el servicio.</h3><div class="ts-final-kiosk"><iframe src="../../projects/tailors-shop/prototipo.html?view=kiosco" title="Prototipo final funcional del kiosco" loading="lazy"></iframe></div><div class="ts-phone-grid"><article class="ts-phone"><div class="ts-phone__frame"><iframe src="../../projects/tailors-shop/prototipo.html?view=operario" title="Prototipo funcional para el operario" loading="lazy"></iframe></div><h4>Operario</h4><p>Organiza prendas, tareas, tiempos y seguimiento del trabajo asignado.</p></article><article class="ts-phone"><div class="ts-phone__frame"><iframe src="../../projects/tailors-shop/prototipo.html?view=cliente" title="Prototipo funcional para el cliente" loading="lazy"></iframe></div><h4>Cliente</h4><p>Permite consultar el estado del servicio y mantener una comunicación más clara.</p></article><article class="ts-phone"><div class="ts-phone__frame"><iframe src="../../projects/tailors-shop/prototipo.html?view=admin" title="Prototipo funcional para administración" loading="lazy"></iframe></div><h4>Administración</h4><p>Centraliza pedidos, clientes, capacidad y coordinación general del servicio.</p></article></div></section>
+
+					<section class="ts-evidence" aria-labelledby="evidence-title"><p class="ts-section-label" id="evidence-title">Decisiones basadas en evidencia</p><div class="ts-evidence__grid"><article><span>01</span><p><strong>Hallazgo</strong>El precio generaba negociación e incertidumbre.</p><i aria-hidden="true">→</i><p><strong>Decisión</strong>Establecer criterios más consistentes para precios y procesos.</p></article><article><span>02</span><p><strong>Hallazgo</strong>La información estaba fragmentada entre los actores.</p><i aria-hidden="true">→</i><p><strong>Decisión</strong>Conectarlos alrededor de un mismo flujo de información.</p></article><article><span>03</span><p><strong>Hallazgo</strong>El diagnóstico dependía del conocimiento técnico y de observar la prenda.</p><i aria-hidden="true">→</i><p><strong>Decisión</strong>Mantener el acompañamiento presencial y usar la tecnología como apoyo.</p></article></div></section>
+				</section>
+			</div>
+		</div>
+
+		<footer class="ts-close"><div class="ts-wrap"><p>Construyamos algo que importe.</p></div></footer>
+	</article>
+</BaseLayout>
+
+<style>
+	@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
+	.ts { --wine:#2b2b7f; --rose:#7c4dff; --blush:#9bb8fb; --blue:#3b82f6; --paper:#f8f9ff; --warm:#eef1fa; --ink:#16163a; --muted:#4a4a70; --line:rgb(43 43 127 / .14); --glass:rgb(255 255 255 / .68); --gradient:linear-gradient(135deg,#3b82f6 0%,#7c4dff 100%); --brand-title:linear-gradient(105deg,#2b2b7f 0%,#2f5fd0 38%,#7fa8ff 54%,#2f5fd0 75%,#2b2b7f 100%); --shadow:0 1.5rem 4rem rgb(43 43 127 / .13); --font-case:"Poppins",sans-serif; overflow:clip; background:var(--paper); color:var(--ink); }
+	.ts * { min-width:0; }
+	.ts h1,.ts h2,.ts h3 { font-family:var(--font-case); }
+	.ts-wrap { width:min(calc(100% - 2rem),76rem); margin-inline:auto; }
+	.ts-label,.ts-section-label { margin:0; color:var(--rose); font-size:.68rem; font-weight:800; letter-spacing:.14em; text-transform:uppercase; }
+	.ts-hero { display:grid; align-items:center; min-height:min(48rem,calc(100svh - 5rem)); padding-block:clamp(2.5rem,5vw,4.5rem); background:radial-gradient(55rem 38rem at 82% 18%,rgb(124 77 255 / .2),transparent 65%),radial-gradient(42rem 34rem at 10% 12%,rgb(59 130 246 / .18),transparent 66%),linear-gradient(180deg,#fbfcff,#eef1fa); }
+	.ts-back { display:inline-block; margin-bottom:clamp(2rem,4vw,3.5rem); color:var(--muted); font-size:.72rem; font-weight:750; letter-spacing:.05em; text-decoration:none; text-transform:uppercase; }
+	.ts-hero__grid { display:grid; gap:clamp(2.5rem,5vw,5rem); align-items:center; }
+	.ts-hero__content { display:grid; align-content:center; }
+	.ts-hero h1 { max-width:9ch; margin:.8rem 0 0; background:var(--brand-title); background-clip:text; color:transparent; font-size:clamp(3.25rem,5.8vw,5.75rem); font-weight:800; line-height:.91; letter-spacing:-.055em; text-transform:uppercase; -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+	.ts-hero__type { max-width:24ch; margin:1.15rem 0 0; color:var(--wine); font-family:var(--font-case); font-size:clamp(1.15rem,1.9vw,1.65rem); font-weight:600; line-height:1.18; }
+	.ts-hero__summary { max-width:58ch; margin:1.35rem 0 0; color:var(--muted); font-size:clamp(.88rem,1vw,.98rem); line-height:1.58; }
+	.ts-hero dl { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.9rem 1.5rem; margin:clamp(1.5rem,3vw,2.2rem) 0 0; padding-top:1rem; border-top:1px solid var(--line); }
+	.ts-hero dl div { display:grid; gap:.2rem; }
+	.ts-hero dt,.ts-context-visual dt { color:var(--rose); font-size:.62rem; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
+	.ts-hero dd { margin:0; color:var(--wine); font-size:.78rem; font-weight:650; }
+	.ts-kiosk-device { width:min(100%,34rem); margin-inline:auto; }
+	.ts-kiosk-device__frame { position:relative; height:clamp(38rem,50vw,44rem); overflow:hidden; padding:2.55rem .85rem .85rem; border:1px solid rgb(255 255 255 / .24); border-radius:2.35rem; background:linear-gradient(145deg,#171735,#25255d); box-shadow:0 1.8rem 4.5rem rgb(43 43 127 / .22); }
+	.ts-kiosk-device__frame::before { position:absolute; top:1rem; left:50%; width:.55rem; aspect-ratio:1; border-radius:50%; background:#4a4a70; box-shadow:0 0 0 .2rem rgb(155 184 251 / .08); content:""; transform:translateX(-50%); }
+	.ts-kiosk-device iframe,.ts-live-screen iframe { width:100%; height:100%; border:0; background:#f4f1ec; }
+	.ts-kiosk-device iframe { display:block; border-radius:1.15rem; }
+	.ts-kiosk-device figcaption { margin-top:.8rem; color:var(--muted); font-size:.65rem; text-align:center; }
+	.ts-phase-shell { min-height:0; background:radial-gradient(48rem 34rem at 8% 22%,rgb(59 130 246 / .1),transparent 68%),radial-gradient(46rem 36rem at 92% 78%,rgb(124 77 255 / .11),transparent 70%),var(--paper); }
+	.ts-phase-nav { position:sticky; top:0; z-index:20; border-block:1px solid var(--line); background:rgb(248 249 255 / .82); box-shadow:0 .65rem 2rem rgb(43 43 127 / .06); backdrop-filter:saturate(150%) blur(1rem); }
+	.ts-phase-nav__scroll { display:flex; overflow-x:auto; scrollbar-width:none; }
+	.ts-phase-nav__scroll::-webkit-scrollbar { display:none; }
+	.ts-phase-nav button { position:relative; flex:1 0 auto; display:flex; gap:.55rem; justify-content:center; padding:1rem .8rem; border:0; background:transparent; color:#4a4a70; font:inherit; font-size:.7rem; font-weight:750; cursor:pointer; }
+	.ts-phase-nav button::after { position:absolute; right:.7rem; bottom:-1px; left:.7rem; height:2px; background:var(--gradient); content:""; transform:scaleX(0); transition:transform .25s ease; }
+	.ts-phase-nav button[aria-selected="true"] { color:var(--wine); }
+	.ts-phase-nav button[aria-selected="true"]::after { transform:scaleX(1); }
+	.ts-phase-panels { padding-block:clamp(3rem,6vw,5rem); }
+	.ts-panel[hidden],.ts-product__panel[hidden] { display:none; }
+	.ts-panel { animation:ts-panel-in .45s cubic-bezier(.22,1,.36,1) both; }
+	.ts-panel__heading { display:grid; gap:1rem; max-width:64rem; margin-bottom:clamp(2rem,4vw,3.25rem); }
+	.ts-panel__heading--compact { margin-bottom:clamp(1.75rem,3vw,2.5rem); }
+	.ts-panel__heading h2,.ts-design-turn h2 { max-width:24ch; margin:0; color:var(--wine); font-size:clamp(1.85rem,3.1vw,3rem); font-weight:650; line-height:1.04; letter-spacing:-.04em; }
+	.ts-panel__heading > p:last-child,.ts-design-turn > p { max-width:72ch; margin:0; color:var(--muted); font-size:.96rem; line-height:1.65; }
+	#panel-definir .ts-panel__heading > p:last-child { max-width:none; }
+	#panel-prototipar .ts-panel__heading > p:last-child { max-width:none; }
+	.ts-context-visual { display:grid; min-height:14rem; overflow:hidden; border:1px solid rgb(255 255 255 / .76); border-radius:1.5rem; background:var(--glass); box-shadow:var(--shadow); backdrop-filter:blur(1.1rem); }
+	.ts-context-word { position:relative; overflow:hidden; padding:clamp(1.25rem,3vw,2.25rem); background:linear-gradient(145deg,#1b1b45 0%,#2b2b7f 58%,#4337a3 100%); color:white; }
+	.ts-context-word span { display:block; color:var(--blush); font-size:.7rem; font-weight:750; letter-spacing:.12em; text-transform:uppercase; }
+	.ts-context-word strong { position:relative; z-index:1; display:block; margin-top:.55rem; font-family:var(--font-case); font-size:clamp(2.5rem,4.1vw,3.8rem); font-weight:650; line-height:.84; letter-spacing:-.055em; }
+	.ts-context-stitch { position:absolute; right:clamp(1rem,3vw,2.5rem); bottom:clamp(.4rem,1.5vw,1rem); width:min(48%,18rem); overflow:visible; fill:none; stroke:var(--blush); stroke-width:2; stroke-linecap:round; stroke-linejoin:round; opacity:0; animation:ts-stitch-exit 7s cubic-bezier(.45,0,.2,1) infinite; }
+	.ts-context-stitch path,.ts-context-stitch circle { stroke-dasharray:1; stroke-dashoffset:1; animation:ts-stitch-draw 7s cubic-bezier(.45,0,.2,1) infinite; }
+	.ts-context-visual dl { display:grid; align-content:center; gap:.55rem; margin:0; padding:clamp(1.25rem,2.5vw,2rem); background:linear-gradient(145deg,rgb(255 255 255 / .76),rgb(238 241 250 / .72)); }
+	.ts-context-visual dl div { padding-bottom:.45rem; border-bottom:1px solid var(--line); }
+	.ts-context-visual dd { margin:.2rem 0 0; color:var(--wine); font-size:clamp(.92rem,1.35vw,1.12rem); font-weight:650; }
+	.ts-methods { display:flex; flex-wrap:wrap; gap:.5rem; margin-top:.3rem; }
+	.ts-methods span { padding:.5rem .75rem; border:1px solid rgb(124 77 255 / .18); border-radius:999px; background:rgb(255 255 255 / .58); color:var(--wine); font-size:.7rem; font-weight:700; box-shadow:inset 0 1px 0 rgb(255 255 255 / .8); }
+	.ts-section-label { margin-bottom:1rem; }
+	.ts-findings { display:grid; border-block:1px solid var(--line); }
+	.ts-findings > div { padding:1.35rem 0; border-bottom:1px solid var(--line); }
+	.ts-findings > div:last-child { border-bottom:0; }
+	.ts-findings span { color:var(--rose); font-size:.66rem; font-weight:800; }
+	.ts-findings h3 { margin:.8rem 0 .35rem; color:var(--wine); font-size:.96rem; text-transform:uppercase; }
+	.ts-findings p { max-width:31ch; margin:0; color:var(--muted); font-size:.84rem; line-height:1.55; }
+	.ts-stakeholders { display:grid; grid-template-columns:1fr auto 1fr auto 1fr; gap:clamp(.5rem,2vw,1.5rem); align-items:center; margin-bottom:clamp(2rem,4vw,3rem); }
+	.ts-stakeholders div { display:grid; place-items:center; aspect-ratio:1; max-width:12rem; border:1px solid rgb(124 77 255 / .28); border-radius:50%; background:radial-gradient(circle at 32% 25%,#fff 0 12%,#e8eaff 48%,#cfd8ff 100%); color:var(--wine); font-family:var(--font-case); font-size:clamp(.72rem,1.4vw,1rem); font-weight:650; text-align:center; text-transform:uppercase; box-shadow:inset -.8rem -1rem 2rem rgb(43 43 127 / .08),0 1rem 2.5rem rgb(43 43 127 / .1); }
+	.ts-stakeholders i { width:clamp(1rem,4vw,4rem); height:1px; background:var(--rose); }
+	.ts-definition-grid { display:grid; gap:1rem; background:transparent; }
+	.ts-definition-grid > div { padding:clamp(1.5rem,3.5vw,2.75rem); border:1px solid rgb(255 255 255 / .74); border-radius:1.25rem; background:var(--glass); box-shadow:0 1.2rem 3rem rgb(43 43 127 / .08); backdrop-filter:blur(1rem); }
+	.ts-definition-grid p:last-child { margin:0; color:var(--wine); font-family:var(--font-case); font-size:clamp(1.05rem,1.8vw,1.42rem); line-height:1.45; }
+	.ts-design-turn { display:grid; gap:1rem; max-width:66rem; margin-bottom:clamp(2.5rem,5vw,4rem); }
+	.ts-design-turn strong { display:block; max-width:44ch; padding-left:1rem; border-left:3px solid var(--rose); color:var(--wine); font-family:var(--font-case); font-size:clamp(1.15rem,2.2vw,1.7rem); line-height:1.3; }
+	.ts-product-heading { display:grid; gap:.6rem; margin-bottom:1.25rem; }
+	.ts-product-heading h3 { margin:0; color:var(--wine); font-size:clamp(1.7rem,3vw,2.7rem); font-weight:650; letter-spacing:-.035em; text-transform:uppercase; }
+	.ts-product { overflow:hidden; border:1px solid rgb(255 255 255 / .78); border-radius:1.6rem; background:rgb(238 241 250 / .68); box-shadow:var(--shadow); backdrop-filter:blur(1.1rem); }
+	.ts-product__tabs { display:flex; overflow-x:auto; border-bottom:1px solid var(--line); background:rgb(255 255 255 / .62); scrollbar-width:none; }
+	.ts-product__tabs button { flex:1 0 auto; padding:1rem; border:0; border-right:1px solid var(--line); background:transparent; color:#77779b; font:inherit; font-size:.72rem; font-weight:750; cursor:pointer; transition:background .2s ease,color .2s ease; }
+	.ts-product__tabs button[aria-selected="true"] { background:var(--gradient); color:white; box-shadow:0 .45rem 1.5rem rgb(124 77 255 / .24); }
+	.ts-product__panel { display:grid; gap:2rem; align-items:center; min-height:32rem; padding:clamp(1.25rem,4vw,3rem); animation:ts-panel-in .4s ease both; }
+	.ts-product__copy > span { color:var(--rose); font-size:.67rem; font-weight:800; letter-spacing:.11em; text-transform:uppercase; }
+	.ts-product__copy h3 { max-width:17ch; margin:.9rem 0; color:var(--wine); font-size:clamp(1.8rem,3.4vw,3.1rem); font-weight:650; line-height:1; letter-spacing:-.04em; }
+	.ts-product__copy p { max-width:38ch; margin:0; color:var(--muted); }
+	.ts-product__copy ul { display:grid; gap:.5rem; margin:1.3rem 0 0; padding:0; list-style:none; color:var(--wine); font-size:.78rem; font-weight:700; }
+	.ts-product__copy li::before { margin-right:.5rem; color:var(--rose); content:"—"; }
+	.ts-live-screen { height:30rem; overflow:hidden; padding:.5rem; border:1px solid rgb(255 255 255 / .26); border-radius:1rem; background:linear-gradient(145deg,#171735,#25255d); box-shadow:0 1.6rem 3.5rem rgb(43 43 127 / .2); }
+	.ts-live-screen iframe { border-radius:.6rem; }
+	.ts-live-screen--phone { width:min(100%,26rem); margin-inline:auto; border-radius:1.5rem; }
+	.ts-tools { display:grid; gap:.65rem; margin:clamp(1.75rem,3vw,2.5rem) 0; }
+	.ts-tools .ts-section-label { margin:0; }
+	.ts-insight-conclusion { max-width:70ch; margin:clamp(1.5rem,3vw,2.5rem) 0 0; padding-left:1rem; border-left:3px solid var(--rose); color:var(--wine); font-family:var(--font-case); font-size:clamp(.95rem,1.4vw,1.15rem); font-weight:550; line-height:1.55; }
+	.ts-definition-pair { display:grid; gap:clamp(1rem,2vw,1.5rem); align-items:stretch; }
+	.ts-highlight { margin:0; padding:clamp(1.15rem,2vw,1.65rem); border:1px solid rgb(255 255 255 / .76); border-radius:1.25rem; background:var(--glass); box-shadow:0 1.2rem 3rem rgb(43 43 127 / .08); backdrop-filter:blur(1rem); }
+	.ts-highlight > p:last-child { max-width:72ch; margin:0; color:var(--wine); font-family:var(--font-case); font-size:clamp(1rem,1.65vw,1.3rem); line-height:1.55; }
+	.ts-hmw { margin:0; padding:clamp(1.15rem,2vw,1.65rem); border-radius:1.35rem; background:linear-gradient(135deg,#1b1b45,#2b2b7f 58%,#4438b8); color:white; box-shadow:var(--shadow); }
+	.ts-hmw span { display:block; margin-bottom:.75rem; color:#9bb8fb; font-size:.68rem; font-weight:800; letter-spacing:.14em; text-transform:uppercase; }
+	.ts-hmw p { max-width:64ch; margin:0; font-family:var(--font-case); font-size:clamp(1rem,1.55vw,1.3rem); font-weight:550; line-height:1.45; }
+	.ts-ideation-grid { display:grid; gap:clamp(1.25rem,3vw,2.5rem); align-items:start; }
+	.ts-ideation-grid .ts-panel__heading { margin-bottom:0; }
+	.ts-idea-map { display:grid; grid-template-columns:repeat(2,minmax(0,7rem)); justify-content:center; gap:.75rem; margin:0; }
+	.ts-idea-map span { --idea-offset:0rem; display:grid; place-items:center; aspect-ratio:1.12; padding:.7rem; border:1px solid rgb(124 77 255 / .2); border-radius:50%; background:radial-gradient(circle at 35% 25%,#fff,#e8eaff); color:var(--wine); font-family:var(--font-case); font-size:clamp(.62rem,.7vw,.7rem); font-weight:650; line-height:1.25; text-align:center; box-shadow:0 .6rem 1.5rem rgb(43 43 127 / .06); animation:ts-idea-float 5.2s ease-in-out infinite alternate; transition:box-shadow .35s ease; }
+	.ts-idea-map span:nth-child(2n) { animation-delay:-1.7s; animation-duration:5.8s; }
+	.ts-idea-map span:nth-child(3n) { animation-delay:-3.1s; animation-duration:6.3s; }
+	.ts-idea-map span:hover { box-shadow:0 1rem 2rem rgb(43 43 127 / .13); }
+	.ts-direction { margin-top:clamp(1.25rem,2.5vw,1.8rem); padding:clamp(.95rem,1.7vw,1.35rem); border:1px solid rgb(124 77 255 / .18); border-radius:1.25rem; background:linear-gradient(145deg,rgb(255 255 255 / .82),rgb(230 234 255 / .72)); box-shadow:0 .8rem 2rem rgb(43 43 127 / .07); }
+	.ts-direction .ts-section-label { margin-bottom:.45rem; }
+	.ts-direction h3 { max-width:none; margin:.35rem 0 .55rem; color:var(--wine); font-size:clamp(1.1rem,1.65vw,1.5rem); letter-spacing:-.025em; }
+	.ts-direction > p:last-child { max-width:none; margin:0; color:var(--muted); font-size:.82rem; line-height:1.5; }
+	.ts-prototype-preview { width:min(100%,58rem); margin:clamp(2rem,4vw,3.5rem) auto; }
+	.ts-prototype-preview__screen { height:clamp(26rem,48vw,38rem); overflow:hidden; padding:.65rem; border:1px solid rgb(255 255 255 / .28); border-radius:1.4rem; background:linear-gradient(145deg,#171735,#25255d); box-shadow:var(--shadow); }
+	.ts-prototype-preview iframe,.ts-final-kiosk iframe { width:100%; height:100%; border:0; border-radius:.85rem; background:var(--warm); }
+	.ts-prototype-preview figcaption { margin-top:.75rem; color:var(--muted); font-size:.7rem; text-align:center; }
+	.ts-first-validation { display:grid; gap:.7rem; width:100%; margin-top:clamp(1.5rem,3vw,2.25rem); padding:clamp(.85rem,1.5vw,1.15rem) clamp(1rem,2vw,1.5rem); border-left:3px solid var(--rose); background:rgb(255 255 255 / .5); }
+	.ts-first-validation p { margin:0; }
+	.ts-first-validation > p:last-child { max-width:none; color:var(--muted); font-size:.82rem; line-height:1.5; }
+	.ts-final-prototype { margin-top:clamp(3.5rem,7vw,6rem); padding-top:clamp(2.5rem,5vw,4rem); border-top:1px solid var(--line); }
+	.ts-final-prototype > h3 { max-width:25ch; margin:.7rem 0 clamp(2rem,4vw,3.5rem); color:var(--wine); font-size:clamp(1.8rem,3.4vw,3rem); letter-spacing:-.04em; }
+	.ts-final-kiosk { width:min(100%,62rem); height:clamp(30rem,55vw,44rem); margin-inline:auto; overflow:hidden; padding:.75rem; border:1px solid rgb(255 255 255 / .28); border-radius:1.55rem; background:linear-gradient(145deg,#171735,#25255d); box-shadow:var(--shadow); }
+	.ts-phone-grid { display:grid; gap:clamp(2rem,4vw,3rem); margin-top:clamp(3rem,6vw,5rem); }
+	.ts-phone { text-align:center; }
+	.ts-phone__frame { position:relative; width:min(100%,18rem); aspect-ratio:9 / 17.5; margin-inline:auto; overflow:hidden; padding:1.7rem .55rem .65rem; border:1px solid rgb(255 255 255 / .24); border-radius:2.2rem; background:linear-gradient(145deg,#171735,#25255d); box-shadow:0 1.5rem 3.5rem rgb(43 43 127 / .18); }
+	.ts-phone__frame::before { position:absolute; top:.7rem; left:50%; width:2.4rem; height:.32rem; border-radius:999px; background:#4a4a70; content:""; transform:translateX(-50%); }
+	.ts-phone iframe { display:block; width:165%; max-width:none; height:165%; border:0; border-radius:1.35rem; background:var(--warm); transform:scale(.606); transform-origin:top left; }
+	.ts-phone h4 { margin:1.25rem 0 .5rem; color:var(--wine); font-family:var(--font-case); font-size:.82rem; letter-spacing:.08em; text-transform:uppercase; }
+	.ts-phone p { max-width:32ch; margin:0 auto; color:var(--muted); font-size:.8rem; line-height:1.55; }
+	.ts-evidence { margin-top:clamp(3.5rem,7vw,6rem); padding-top:clamp(2.5rem,5vw,4rem); border-top:1px solid var(--line); }
+	.ts-evidence__grid { display:grid; gap:1rem; }
+	.ts-evidence article { display:grid; gap:.9rem; padding:clamp(1.3rem,2.5vw,2rem); border:1px solid rgb(255 255 255 / .74); border-radius:1.1rem; background:var(--glass); box-shadow:0 1rem 2.5rem rgb(43 43 127 / .07); }
+	.ts-evidence article > span { color:var(--rose); font-size:.68rem; font-weight:800; }
+	.ts-evidence article p { margin:0; color:var(--muted); font-size:.84rem; line-height:1.55; }
+	.ts-evidence article strong { display:block; margin-bottom:.3rem; color:var(--wine); font-size:.64rem; letter-spacing:.1em; text-transform:uppercase; }
+	.ts-evidence article i { color:var(--rose); font-style:normal; }
+	.ts-validation { display:grid; gap:.75rem; align-items:stretch; width:min(100%,60rem); margin-inline:auto; }
+	.ts-validation > div { display:grid; align-content:center; padding:clamp(.9rem,1.7vw,1.25rem); border:1px solid rgb(255 255 255 / .74); border-radius:1rem; background:var(--glass); text-align:center; box-shadow:0 .75rem 2rem rgb(43 43 127 / .065); backdrop-filter:blur(.9rem); }
+	.ts-validation span { color:var(--rose); font-size:.65rem; font-weight:800; letter-spacing:.11em; text-transform:uppercase; }
+	.ts-validation h3 { margin:.45rem 0 0; color:var(--wine); font-size:clamp(.88rem,1.15vw,1.05rem); font-weight:600; line-height:1.35; }
+	.ts-validation > b { align-self:center; color:var(--rose); font-size:1.35rem; font-weight:400; text-align:center; }
+	.ts-learnings { display:grid; gap:1rem; margin:0; padding:0; list-style:none; }
+	.ts-learnings li { display:grid; grid-template-columns:2.5rem 1fr; gap:.8rem; padding:1.35rem; border:1px solid rgb(255 255 255 / .74); border-radius:1.1rem; background:var(--glass); box-shadow:0 1rem 2.5rem rgb(43 43 127 / .07); }
+	.ts-learnings li > span { color:var(--rose); font-size:.67rem; font-weight:800; }
+	.ts-learnings h3 { margin:0 0 .3rem; color:var(--wine); font-size:clamp(.95rem,1.6vw,1.2rem); text-transform:uppercase; }
+	.ts-learnings p { margin:0; color:var(--muted); font-size:.86rem; }
+	.ts-close { padding-block:clamp(2.5rem,5vw,4.5rem); background:linear-gradient(135deg,#1b1b45 0%,#2b2b7f 58%,#4337a3 100%); color:white; }
+	.ts-close .ts-wrap { display:flex; flex-wrap:wrap; justify-content:space-between; gap:1.5rem; align-items:flex-end; }
+	.ts-close p { margin:0; font-family:var(--font-case); font-size:clamp(1.45rem,3.3vw,3.2rem); font-weight:650; line-height:1; letter-spacing:-.045em; white-space:nowrap; }
+	.ts-close a { color:#bfcfff; font-size:.78rem; font-weight:750; letter-spacing:.04em; text-transform:uppercase; }
+	@keyframes ts-panel-in { from { opacity:0; transform:translateY(.6rem); } to { opacity:1; transform:none; } }
+	@keyframes ts-idea-float { from { transform:translateY(-.18rem); } to { transform:translateY(.28rem); } }
+	@keyframes ts-stitch-draw { 0%,12% { stroke-dashoffset:1; } 54%,82% { stroke-dashoffset:0; } 100% { stroke-dashoffset:0; } }
+	@keyframes ts-stitch-exit { 0%,10% { opacity:0; transform:translateX(-1rem); } 18%,72% { opacity:.72; transform:translateX(0); } 88%,100% { opacity:0; transform:translateX(4rem); } }
+	@media (min-width:48rem) {
+		.ts-hero__grid { grid-template-columns:minmax(22rem,.9fr) minmax(30rem,1.1fr); }
+		.ts-context-visual { grid-template-columns:1.18fr .82fr; }
+		.ts-findings { grid-template-columns:repeat(4,1fr); }
+		.ts-findings > div { min-height:13rem; padding:1.35rem; border-right:1px solid var(--line); border-bottom:0; }
+		.ts-findings > div:first-child { padding-left:0; }
+		.ts-findings > div:last-child { padding-right:0; border-right:0; }
+		.ts-definition-grid { grid-template-columns:1fr 1fr; }
+		.ts-definition-pair { grid-template-columns:1fr 1fr; }
+		.ts-ideation-grid { grid-template-columns:minmax(0,1.35fr) minmax(22rem,.65fr); }
+		.ts-idea-map { grid-template-columns:repeat(3,minmax(0,7rem)); justify-content:end; padding-top:.5rem; }
+		.ts-first-validation { grid-template-columns:auto minmax(0,1fr); gap:1.25rem; align-items:center; }
+		.ts-first-validation .ts-section-label { white-space:nowrap; }
+		.ts-product__panel { grid-template-columns:minmax(15rem,.7fr) minmax(0,1.3fr); gap:clamp(2rem,6vw,6rem); }
+		.ts-validation { grid-template-columns:1fr auto 1fr auto 1fr; }
+		.ts-phone-grid,.ts-evidence__grid { grid-template-columns:repeat(3,minmax(0,1fr)); }
+		.ts-learnings { grid-template-columns:repeat(3,1fr); }
+		.ts-learnings li { grid-template-columns:2rem 1fr; padding:1.5rem; }
+	}
+	@media (max-width:47.99rem) {
+		.ts-wrap { width:calc(100% - 2rem); }
+		.ts-hero__grid,.ts-hero__content,.ts-kiosk-device { width:100%; max-width:100%; }
+		.ts-hero h1 { font-size:clamp(3rem,14vw,4.5rem); overflow-wrap:anywhere; }
+		.ts-hero__summary { max-width:100%; overflow-wrap:anywhere; }
+		.ts-kiosk-device__frame { height:42rem; }
+		.ts-kiosk-device iframe { display:block; max-width:100%; }
+		.ts-phase-nav button { justify-content:flex-start; }
+		.ts-panel__heading h2 { overflow-wrap:anywhere; }
+		.ts-stakeholders { grid-template-columns:1fr; justify-items:center; }
+		.ts-stakeholders div { width:8.5rem; }
+		.ts-stakeholders i { width:1px; height:1.25rem; }
+		.ts-live-screen { height:29rem; }
+		.ts-validation > b { transform:rotate(90deg); }
+		.ts-final-kiosk { height:28rem; }
+	}
+	@media (prefers-reduced-motion:reduce) { .ts-panel,.ts-product__panel,.ts-context-stitch,.ts-context-stitch path,.ts-context-stitch circle,.ts-idea-map span { animation:none; } .ts-context-stitch { opacity:.45; transform:none; } .ts-context-stitch path,.ts-context-stitch circle { stroke-dashoffset:0; } .ts-phase-nav button::after,.ts-idea-map span { transition:none; } }
+</style>
+
+<script>
+	const caseStudy = document.querySelector<HTMLElement>("[data-case-study]");
+	const activateTabs = (root: HTMLElement, tabSelector: string, panelSelector: string, tabKey: string, panelKey: string, onChange?: (id: string) => void) => {
+		const tabs = [...root.querySelectorAll<HTMLButtonElement>(tabSelector)];
+		const panels = [...root.querySelectorAll<HTMLElement>(panelSelector)];
+		if (!tabs.length || !panels.length) return;
+		const select = (id: string, focus = false) => {
+			tabs.forEach((tab) => { const active = tab.dataset[tabKey] === id; tab.setAttribute("aria-selected", String(active)); tab.tabIndex = active ? 0 : -1; if (active && focus) tab.focus(); });
+			panels.forEach((panel) => panel.hidden = panel.dataset[panelKey] !== id);
+			onChange?.(id);
+		};
+		tabs.forEach((tab, index) => {
+			tab.addEventListener("click", () => select(tab.dataset[tabKey] ?? ""));
+			tab.addEventListener("keydown", (event) => {
+				if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) return;
+				event.preventDefault();
+				let next = event.key === "Home" ? 0 : event.key === "End" ? tabs.length - 1 : index + (event.key === "ArrowRight" ? 1 : -1);
+				next = (next + tabs.length) % tabs.length;
+				select(tabs[next].dataset[tabKey] ?? "", true);
+			});
+		});
+		return select;
+	};
+	if (caseStudy) {
+		const selectPhase = activateTabs(caseStudy, "[data-phase-tab]", "[data-phase-panel]", "phaseTab", "phasePanel", (id) => history.replaceState(null, "", `#${id}`));
+		activateTabs(caseStudy, "[data-product-tab]", "[data-product-panel]", "productTab", "productPanel");
+		const requested = location.hash.slice(1);
+		if (selectPhase && ["empatizar", "definir", "idear", "prototipar", "validar"].includes(requested)) selectPhase(requested);
+	}
+</script>

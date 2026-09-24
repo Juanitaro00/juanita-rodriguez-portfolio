@@ -1,0 +1,979 @@
+[
+  {
+    "route": "/",
+    "viewport": "desktop",
+    "title": "Juanita Rodríguez — UX/UI Digital Design",
+    "lang": "es",
+    "description": "Portafolio de Juanita Rodríguez: UX/UI, identidad visual, front-end e inteligencia artificial generativa.",
+    "horizontalOverflow": false,
+    "scrollWidth": 1440,
+    "clientWidth": 1440,
+    "overflowElements": [
+      {
+        "tag": "FIGURE",
+        "className": "generative-media generative-media--carousel generative-media--horizontal-carousel",
+        "left": 1103,
+        "right": 1460,
+        "width": 358
+      },
+      {
+        "tag": "DIV",
+        "className": "generative-media__device generative-media__device--horizontal",
+        "left": 1103,
+        "right": 1460,
+        "width": 358
+      },
+      {
+        "tag": "SPAN",
+        "className": "generative-media__screen",
+        "left": 1109,
+        "right": 1454,
+        "width": 344
+      },
+      {
+        "tag": "VIDEO",
+        "className": "",
+        "left": 1109,
+        "right": 1454,
+        "width": 344
+      },
+      {
+        "tag": "BUTTON",
+        "className": "generative-media__select",
+        "left": 1103,
+        "right": 1460,
+        "width": 358
+      },
+      {
+        "tag": "FIGCAPTION",
+        "className": "",
+        "left": 1103,
+        "right": 1460,
+        "width": 358
+      },
+      {
+        "tag": "STRONG",
+        "className": "",
+        "left": 1116,
+        "right": 1449,
+        "width": 333
+      },
+      {
+        "tag": "P",
+        "className": "",
+        "left": 1116,
+        "right": 1449,
+        "width": 333
+      },
+      {
+        "tag": "FIGURE",
+        "className": "generative-media generative-media--carousel generative-media--horizontal-carousel",
+        "left": 1103,
+        "right": 1460,
+        "width": 358
+      },
+      {
+        "tag": "DIV",
+        "className": "generative-media__device generative-media__device--horizontal",
+        "left": 1103,
+        "right": 1460,
+        "width": 358
+      },
+      {
+        "tag": "SPAN",
+        "className": "generative-media__screen",
+        "left": 1109,
+        "right": 1454,
+        "width": 344
+      },
+      {
+        "tag": "VIDEO",
+        "className": "",
+        "left": 1109,
+        "right": 1454,
+        "width": 344
+      },
+      {
+        "tag": "BUTTON",
+        "className": "generative-media__select",
+        "left": 1103,
+        "right": 1460,
+        "width": 358
+      },
+      {
+        "tag": "FIGCAPTION",
+        "className": "",
+        "left": 1103,
+        "right": 1460,
+        "width": 358
+      },
+      {
+        "tag": "STRONG",
+        "className": "",
+        "left": 1116,
+        "right": 1449,
+        "width": 333
+      },
+      {
+        "tag": "P",
+        "className": "",
+        "left": 1116,
+        "right": 1449,
+        "width": 333
+      },
+      {
+        "tag": "FIGURE",
+        "className": "generative-media generative-media--carousel generative-media--horizontal-carousel",
+        "left": 1103,
+        "right": 1460,
+        "width": 358
+      },
+      {
+        "tag": "DIV",
+        "className": "generative-media__device generative-media__device--horizontal",
+        "left": 1103,
+        "right": 1460,
+        "width": 358
+      },
+      {
+        "tag": "SPAN",
+        "className": "generative-media__screen",
+        "left": 1109,
+        "right": 1454,
+        "width": 344
+      },
+      {
+        "tag": "VIDEO",
+        "className": "",
+        "left": 1109,
+        "right": 1454,
+        "width": 344
+      }
+    ],
+    "brokenImages": [],
+    "brokenVideos": [],
+    "emptyInternalLinks": [],
+    "iframes": [
+      {
+        "src": "./projects/tailors-shop/prototipo.html?preview=portfolio",
+        "loaded": true,
+        "sameOriginTitle": "Tailor's Shop — Sistema de taller"
+      }
+    ],
+    "consoleErrors": [],
+    "failedRequests": [],
+    "badResponses": []
+  },
+  {
+    "route": "/proyectos/",
+    "viewport": "desktop",
+    "title": "Proyectos — Juanita Rodríguez",
+    "lang": "es",
+    "description": "Selección de proyectos de UX/UI, diseño visual y front-end.",
+    "horizontalOverflow": false,
+    "scrollWidth": 1440,
+    "clientWidth": 1440,
+    "overflowElements": [],
+    "brokenImages": [],
+    "brokenVideos": [],
+    "emptyInternalLinks": [],
+    "iframes": [],
+    "consoleErrors": [],
+    "failedRequests": [],
+    "badResponses": []
+  },
+  {
+    "route": "/proyectos/tailors-shop/",
+    "viewport": "desktop",
+    "title": "Tailor's Shop — Juanita Rodríguez",
+    "lang": "es",
+    "description": "Un sistema digital que hace visible el trabajo detrás de cada prenda.",
+    "horizontalOverflow": false,
+    "scrollWidth": 1440,
+    "clientWidth": 1440,
+    "overflowElements": [],
+    "brokenImages": [],
+    "brokenVideos": [],
+    "emptyInternalLinks": [],
+    "iframes": [
+      {
+        "src": "../../projects/tailors-shop/prototipo.html",
+        "loaded": true,
+        "sameOriginTitle": "Tailor's Shop — Sistema de taller"
+      },
+      {
+        "src": "../../projects/tailors-shop/prototipo.html?view=kiosco",
+        "loaded": true,
+        "sameOriginTitle": ""
+      },
+      {
+        "src": "../../projects/tailors-shop/prototipo.html?view=kiosco",
+        "loaded": true,
+        "sameOriginTitle": ""
+      },
+      {
+        "src": "../../projects/tailors-shop/prototipo.html?view=operario",
+        "loaded": true,
+        "sameOriginTitle": ""
+      },
+      {
+        "src": "../../projects/tailors-shop/prototipo.html?view=cliente",
+        "loaded": true,
+        "sameOriginTitle": ""
+      },
+      {
+        "src": "../../projects/tailors-shop/prototipo.html?view=admin",
+        "loaded": true,
+        "sameOriginTitle": ""
+      }
+    ],
+    "consoleErrors": [],
+    "failedRequests": [],
+    "badResponses": []
+  },
+  {
+    "route": "/proyectos/regioo/",
+    "viewport": "desktop",
+    "title": "Regioo — Juanita Rodríguez",
+    "lang": "es",
+    "description": "App móvil de estilo personal impulsada por IA.",
+    "horizontalOverflow": false,
+    "scrollWidth": 1440,
+    "clientWidth": 1440,
+    "overflowElements": [],
+    "brokenImages": [],
+    "brokenVideos": [],
+    "emptyInternalLinks": [],
+    "iframes": [
+      {
+        "src": "https://embed.figma.com/proto/Uvb4D0xiLBQ5HKZU6VnAQQ/Regio?node-id=69-251&p=f&scaling=scale-down&content-scaling=fixed&page-id=64%3A4&starting-point-node-id=69%3A251&embed-host=share",
+        "loaded": true,
+        "sameOriginTitle": ""
+      }
+    ],
+    "consoleErrors": [],
+    "failedRequests": [],
+    "badResponses": []
+  },
+  {
+    "route": "/proyectos/421-co/",
+    "viewport": "desktop",
+    "title": "421 Co. — Juanita Rodríguez",
+    "lang": "es",
+    "description": "Sitio web responsive para una marca de café artesanal.",
+    "horizontalOverflow": false,
+    "scrollWidth": 1440,
+    "clientWidth": 1440,
+    "overflowElements": [],
+    "brokenImages": [],
+    "brokenVideos": [],
+    "emptyInternalLinks": [],
+    "iframes": [
+      {
+        "src": "/projects/421-co/index.html",
+        "loaded": true,
+        "sameOriginTitle": "421 Co."
+      }
+    ],
+    "consoleErrors": [],
+    "failedRequests": [],
+    "badResponses": []
+  },
+  {
+    "route": "/sobre-mi/",
+    "viewport": "desktop",
+    "title": "Sobre mí — Juanita Rodríguez",
+    "lang": "es",
+    "description": "Trayectoria y enfoque de Juanita Rodríguez, diseñadora digital especializada en experiencias de producto.",
+    "horizontalOverflow": false,
+    "scrollWidth": 1440,
+    "clientWidth": 1440,
+    "overflowElements": [],
+    "brokenImages": [],
+    "brokenVideos": [],
+    "emptyInternalLinks": [],
+    "iframes": [],
+    "consoleErrors": [],
+    "failedRequests": [],
+    "badResponses": []
+  },
+  {
+    "route": "/404.html",
+    "viewport": "desktop",
+    "title": "Página no encontrada — Juanita Rodríguez",
+    "lang": "es",
+    "description": "La página solicitada no existe.",
+    "horizontalOverflow": false,
+    "scrollWidth": 1440,
+    "clientWidth": 1440,
+    "overflowElements": [],
+    "brokenImages": [],
+    "brokenVideos": [],
+    "emptyInternalLinks": [],
+    "iframes": [],
+    "consoleErrors": [],
+    "failedRequests": [],
+    "badResponses": []
+  },
+  {
+    "route": "/",
+    "viewport": "tablet",
+    "title": "Juanita Rodríguez — UX/UI Digital Design",
+    "lang": "es",
+    "description": "Portafolio de Juanita Rodríguez: UX/UI, identidad visual, front-end e inteligencia artificial generativa.",
+    "horizontalOverflow": false,
+    "scrollWidth": 768,
+    "clientWidth": 768,
+    "overflowElements": [
+      {
+        "tag": "DIV",
+        "className": "about-resume__halo",
+        "left": 462,
+        "right": 809,
+        "width": 347
+      },
+      {
+        "tag": "FIGURE",
+        "className": "generative-media generative-media--carousel",
+        "left": 665,
+        "right": 807,
+        "width": 141
+      },
+      {
+        "tag": "DIV",
+        "className": "generative-media__device generative-media__device--vertical",
+        "left": 665,
+        "right": 807,
+        "width": 141
+      },
+      {
+        "tag": "SPAN",
+        "className": "generative-media__screen",
+        "left": 671,
+        "right": 801,
+        "width": 131
+      },
+      {
+        "tag": "VIDEO",
+        "className": "",
+        "left": 671,
+        "right": 801,
+        "width": 131
+      },
+      {
+        "tag": "BUTTON",
+        "className": "generative-media__select",
+        "left": 665,
+        "right": 807,
+        "width": 141
+      },
+      {
+        "tag": "FIGCAPTION",
+        "className": "",
+        "left": 665,
+        "right": 807,
+        "width": 141
+      },
+      {
+        "tag": "STRONG",
+        "className": "",
+        "left": 679,
+        "right": 795,
+        "width": 116
+      },
+      {
+        "tag": "P",
+        "className": "",
+        "left": 679,
+        "right": 795,
+        "width": 116
+      },
+      {
+        "tag": "FIGURE",
+        "className": "generative-media generative-media--carousel",
+        "left": 665,
+        "right": 807,
+        "width": 141
+      },
+      {
+        "tag": "DIV",
+        "className": "generative-media__device generative-media__device--vertical",
+        "left": 665,
+        "right": 807,
+        "width": 141
+      },
+      {
+        "tag": "SPAN",
+        "className": "generative-media__screen",
+        "left": 671,
+        "right": 801,
+        "width": 131
+      },
+      {
+        "tag": "VIDEO",
+        "className": "",
+        "left": 671,
+        "right": 801,
+        "width": 131
+      },
+      {
+        "tag": "BUTTON",
+        "className": "generative-media__select",
+        "left": 665,
+        "right": 807,
+        "width": 141
+      },
+      {
+        "tag": "FIGCAPTION",
+        "className": "",
+        "left": 665,
+        "right": 807,
+        "width": 141
+      },
+      {
+        "tag": "STRONG",
+        "className": "",
+        "left": 679,
+        "right": 795,
+        "width": 116
+      },
+      {
+        "tag": "P",
+        "className": "",
+        "left": 679,
+        "right": 795,
+        "width": 116
+      },
+      {
+        "tag": "FIGURE",
+        "className": "generative-media generative-media--carousel generative-media--horizontal-carousel",
+        "left": 649,
+        "right": 887,
+        "width": 238
+      },
+      {
+        "tag": "DIV",
+        "className": "generative-media__device generative-media__device--horizontal",
+        "left": 649,
+        "right": 887,
+        "width": 238
+      },
+      {
+        "tag": "SPAN",
+        "className": "generative-media__screen",
+        "left": 654,
+        "right": 882,
+        "width": 228
+      }
+    ],
+    "brokenImages": [],
+    "brokenVideos": [],
+    "emptyInternalLinks": [],
+    "iframes": [
+      {
+        "src": "./projects/tailors-shop/prototipo.html?preview=portfolio",
+        "loaded": true,
+        "sameOriginTitle": "Tailor's Shop — Sistema de taller"
+      }
+    ],
+    "consoleErrors": [],
+    "failedRequests": [],
+    "badResponses": []
+  },
+  {
+    "route": "/proyectos/",
+    "viewport": "tablet",
+    "title": "Proyectos — Juanita Rodríguez",
+    "lang": "es",
+    "description": "Selección de proyectos de UX/UI, diseño visual y front-end.",
+    "horizontalOverflow": false,
+    "scrollWidth": 768,
+    "clientWidth": 768,
+    "overflowElements": [],
+    "brokenImages": [],
+    "brokenVideos": [],
+    "emptyInternalLinks": [],
+    "iframes": [],
+    "consoleErrors": [],
+    "failedRequests": [],
+    "badResponses": []
+  },
+  {
+    "route": "/proyectos/tailors-shop/",
+    "viewport": "tablet",
+    "title": "Tailor's Shop — Juanita Rodríguez",
+    "lang": "es",
+    "description": "Un sistema digital que hace visible el trabajo detrás de cada prenda.",
+    "horizontalOverflow": false,
+    "scrollWidth": 768,
+    "clientWidth": 768,
+    "overflowElements": [
+      {
+        "tag": "FIGURE",
+        "className": "ts-kiosk-device",
+        "left": 408,
+        "right": 888,
+        "width": 480
+      },
+      {
+        "tag": "DIV",
+        "className": "ts-kiosk-device__frame",
+        "left": 408,
+        "right": 888,
+        "width": 480
+      },
+      {
+        "tag": "IFRAME",
+        "className": "",
+        "left": 423,
+        "right": 873,
+        "width": 451
+      },
+      {
+        "tag": "FIGCAPTION",
+        "className": "",
+        "left": 408,
+        "right": 888,
+        "width": 480
+      }
+    ],
+    "brokenImages": [],
+    "brokenVideos": [],
+    "emptyInternalLinks": [],
+    "iframes": [
+      {
+        "src": "../../projects/tailors-shop/prototipo.html",
+        "loaded": true,
+        "sameOriginTitle": "Tailor's Shop — Sistema de taller"
+      },
+      {
+        "src": "../../projects/tailors-shop/prototipo.html?view=kiosco",
+        "loaded": true,
+        "sameOriginTitle": ""
+      },
+      {
+        "src": "../../projects/tailors-shop/prototipo.html?view=kiosco",
+        "loaded": true,
+        "sameOriginTitle": ""
+      },
+      {
+        "src": "../../projects/tailors-shop/prototipo.html?view=operario",
+        "loaded": true,
+        "sameOriginTitle": ""
+      },
+      {
+        "src": "../../projects/tailors-shop/prototipo.html?view=cliente",
+        "loaded": true,
+        "sameOriginTitle": ""
+      },
+      {
+        "src": "../../projects/tailors-shop/prototipo.html?view=admin",
+        "loaded": true,
+        "sameOriginTitle": ""
+      }
+    ],
+    "consoleErrors": [],
+    "failedRequests": [],
+    "badResponses": []
+  },
+  {
+    "route": "/proyectos/regioo/",
+    "viewport": "tablet",
+    "title": "Regioo — Juanita Rodríguez",
+    "lang": "es",
+    "description": "App móvil de estilo personal impulsada por IA.",
+    "horizontalOverflow": false,
+    "scrollWidth": 768,
+    "clientWidth": 768,
+    "overflowElements": [],
+    "brokenImages": [],
+    "brokenVideos": [],
+    "emptyInternalLinks": [],
+    "iframes": [
+      {
+        "src": "https://embed.figma.com/proto/Uvb4D0xiLBQ5HKZU6VnAQQ/Regio?node-id=69-251&p=f&scaling=scale-down&content-scaling=fixed&page-id=64%3A4&starting-point-node-id=69%3A251&embed-host=share",
+        "loaded": true,
+        "sameOriginTitle": ""
+      }
+    ],
+    "consoleErrors": [],
+    "failedRequests": [],
+    "badResponses": []
+  },
+  {
+    "route": "/proyectos/421-co/",
+    "viewport": "tablet",
+    "title": "421 Co. — Juanita Rodríguez",
+    "lang": "es",
+    "description": "Sitio web responsive para una marca de café artesanal.",
+    "horizontalOverflow": false,
+    "scrollWidth": 768,
+    "clientWidth": 768,
+    "overflowElements": [],
+    "brokenImages": [],
+    "brokenVideos": [],
+    "emptyInternalLinks": [],
+    "iframes": [
+      {
+        "src": "/projects/421-co/index.html",
+        "loaded": true,
+        "sameOriginTitle": "421 Co."
+      }
+    ],
+    "consoleErrors": [],
+    "failedRequests": [],
+    "badResponses": []
+  },
+  {
+    "route": "/sobre-mi/",
+    "viewport": "tablet",
+    "title": "Sobre mí — Juanita Rodríguez",
+    "lang": "es",
+    "description": "Trayectoria y enfoque de Juanita Rodríguez, diseñadora digital especializada en experiencias de producto.",
+    "horizontalOverflow": false,
+    "scrollWidth": 768,
+    "clientWidth": 768,
+    "overflowElements": [],
+    "brokenImages": [],
+    "brokenVideos": [],
+    "emptyInternalLinks": [],
+    "iframes": [],
+    "consoleErrors": [],
+    "failedRequests": [],
+    "badResponses": []
+  },
+  {
+    "route": "/404.html",
+    "viewport": "tablet",
+    "title": "Página no encontrada — Juanita Rodríguez",
+    "lang": "es",
+    "description": "La página solicitada no existe.",
+    "horizontalOverflow": false,
+    "scrollWidth": 768,
+    "clientWidth": 768,
+    "overflowElements": [],
+    "brokenImages": [],
+    "brokenVideos": [],
+    "emptyInternalLinks": [],
+    "iframes": [],
+    "consoleErrors": [],
+    "failedRequests": [],
+    "badResponses": []
+  },
+  {
+    "route": "/",
+    "viewport": "mobile",
+    "title": "Juanita Rodríguez — UX/UI Digital Design",
+    "lang": "es",
+    "description": "Portafolio de Juanita Rodríguez: UX/UI, identidad visual, front-end e inteligencia artificial generativa.",
+    "horizontalOverflow": false,
+    "scrollWidth": 390,
+    "clientWidth": 390,
+    "overflowElements": [
+      {
+        "tag": "FIGURE",
+        "className": "generative-media generative-media--carousel",
+        "left": 326,
+        "right": 517,
+        "width": 191
+      },
+      {
+        "tag": "DIV",
+        "className": "generative-media__device generative-media__device--vertical",
+        "left": 326,
+        "right": 517,
+        "width": 191
+      },
+      {
+        "tag": "SPAN",
+        "className": "generative-media__screen",
+        "left": 331,
+        "right": 511,
+        "width": 180
+      },
+      {
+        "tag": "VIDEO",
+        "className": "is-contained",
+        "left": 331,
+        "right": 511,
+        "width": 180
+      },
+      {
+        "tag": "BUTTON",
+        "className": "generative-media__select",
+        "left": 326,
+        "right": 517,
+        "width": 191
+      },
+      {
+        "tag": "FIGCAPTION",
+        "className": "",
+        "left": 326,
+        "right": 517,
+        "width": 191
+      },
+      {
+        "tag": "STRONG",
+        "className": "",
+        "left": 339,
+        "right": 505,
+        "width": 165
+      },
+      {
+        "tag": "P",
+        "className": "",
+        "left": 339,
+        "right": 505,
+        "width": 165
+      },
+      {
+        "tag": "FIGURE",
+        "className": "generative-media generative-media--carousel",
+        "left": 452,
+        "right": 642,
+        "width": 191
+      },
+      {
+        "tag": "DIV",
+        "className": "generative-media__device generative-media__device--vertical",
+        "left": 452,
+        "right": 642,
+        "width": 191
+      },
+      {
+        "tag": "SPAN",
+        "className": "generative-media__screen",
+        "left": 457,
+        "right": 637,
+        "width": 180
+      },
+      {
+        "tag": "VIDEO",
+        "className": "",
+        "left": 457,
+        "right": 637,
+        "width": 180
+      },
+      {
+        "tag": "BUTTON",
+        "className": "generative-media__select",
+        "left": 452,
+        "right": 642,
+        "width": 191
+      },
+      {
+        "tag": "FIGCAPTION",
+        "className": "",
+        "left": 452,
+        "right": 642,
+        "width": 191
+      },
+      {
+        "tag": "STRONG",
+        "className": "",
+        "left": 465,
+        "right": 630,
+        "width": 165
+      },
+      {
+        "tag": "P",
+        "className": "",
+        "left": 465,
+        "right": 630,
+        "width": 165
+      },
+      {
+        "tag": "FIGURE",
+        "className": "generative-media generative-media--carousel",
+        "left": 452,
+        "right": 642,
+        "width": 191
+      },
+      {
+        "tag": "DIV",
+        "className": "generative-media__device generative-media__device--vertical",
+        "left": 452,
+        "right": 642,
+        "width": 191
+      },
+      {
+        "tag": "SPAN",
+        "className": "generative-media__screen",
+        "left": 457,
+        "right": 637,
+        "width": 180
+      },
+      {
+        "tag": "VIDEO",
+        "className": "",
+        "left": 457,
+        "right": 637,
+        "width": 180
+      }
+    ],
+    "brokenImages": [],
+    "brokenVideos": [],
+    "emptyInternalLinks": [],
+    "iframes": [
+      {
+        "src": "./projects/tailors-shop/prototipo.html?preview=portfolio",
+        "loaded": true,
+        "sameOriginTitle": "Tailor's Shop — Sistema de taller"
+      }
+    ],
+    "consoleErrors": [],
+    "failedRequests": [],
+    "badResponses": []
+  },
+  {
+    "route": "/proyectos/",
+    "viewport": "mobile",
+    "title": "Proyectos — Juanita Rodríguez",
+    "lang": "es",
+    "description": "Selección de proyectos de UX/UI, diseño visual y front-end.",
+    "horizontalOverflow": false,
+    "scrollWidth": 390,
+    "clientWidth": 390,
+    "overflowElements": [],
+    "brokenImages": [],
+    "brokenVideos": [],
+    "emptyInternalLinks": [],
+    "iframes": [],
+    "consoleErrors": [],
+    "failedRequests": [],
+    "badResponses": []
+  },
+  {
+    "route": "/proyectos/tailors-shop/",
+    "viewport": "mobile",
+    "title": "Tailor's Shop — Juanita Rodríguez",
+    "lang": "es",
+    "description": "Un sistema digital que hace visible el trabajo detrás de cada prenda.",
+    "horizontalOverflow": false,
+    "scrollWidth": 390,
+    "clientWidth": 390,
+    "overflowElements": [],
+    "brokenImages": [],
+    "brokenVideos": [],
+    "emptyInternalLinks": [],
+    "iframes": [
+      {
+        "src": "../../projects/tailors-shop/prototipo.html",
+        "loaded": true,
+        "sameOriginTitle": "Tailor's Shop — Sistema de taller"
+      },
+      {
+        "src": "../../projects/tailors-shop/prototipo.html?view=kiosco",
+        "loaded": true,
+        "sameOriginTitle": ""
+      },
+      {
+        "src": "../../projects/tailors-shop/prototipo.html?view=kiosco",
+        "loaded": true,
+        "sameOriginTitle": ""
+      },
+      {
+        "src": "../../projects/tailors-shop/prototipo.html?view=operario",
+        "loaded": true,
+        "sameOriginTitle": ""
+      },
+      {
+        "src": "../../projects/tailors-shop/prototipo.html?view=cliente",
+        "loaded": true,
+        "sameOriginTitle": ""
+      },
+      {
+        "src": "../../projects/tailors-shop/prototipo.html?view=admin",
+        "loaded": true,
+        "sameOriginTitle": ""
+      }
+    ],
+    "consoleErrors": [],
+    "failedRequests": [],
+    "badResponses": []
+  },
+  {
+    "route": "/proyectos/regioo/",
+    "viewport": "mobile",
+    "title": "Regioo — Juanita Rodríguez",
+    "lang": "es",
+    "description": "App móvil de estilo personal impulsada por IA.",
+    "horizontalOverflow": false,
+    "scrollWidth": 390,
+    "clientWidth": 390,
+    "overflowElements": [],
+    "brokenImages": [],
+    "brokenVideos": [],
+    "emptyInternalLinks": [],
+    "iframes": [
+      {
+        "src": "https://embed.figma.com/proto/Uvb4D0xiLBQ5HKZU6VnAQQ/Regio?node-id=69-251&p=f&scaling=scale-down&content-scaling=fixed&page-id=64%3A4&starting-point-node-id=69%3A251&embed-host=share",
+        "loaded": true,
+        "sameOriginTitle": ""
+      }
+    ],
+    "consoleErrors": [],
+    "failedRequests": [],
+    "badResponses": []
+  },
+  {
+    "route": "/proyectos/421-co/",
+    "viewport": "mobile",
+    "title": "421 Co. — Juanita Rodríguez",
+    "lang": "es",
+    "description": "Sitio web responsive para una marca de café artesanal.",
+    "horizontalOverflow": false,
+    "scrollWidth": 390,
+    "clientWidth": 390,
+    "overflowElements": [],
+    "brokenImages": [],
+    "brokenVideos": [],
+    "emptyInternalLinks": [],
+    "iframes": [
+      {
+        "src": "/projects/421-co/index.html",
+        "loaded": true,
+        "sameOriginTitle": "421 Co."
+      }
+    ],
+    "consoleErrors": [],
+    "failedRequests": [],
+    "badResponses": []
+  },
+  {
+    "route": "/sobre-mi/",
+    "viewport": "mobile",
+    "title": "Sobre mí — Juanita Rodríguez",
+    "lang": "es",
+    "description": "Trayectoria y enfoque de Juanita Rodríguez, diseñadora digital especializada en experiencias de producto.",
+    "horizontalOverflow": false,
+    "scrollWidth": 390,
+    "clientWidth": 390,
+    "overflowElements": [],
+    "brokenImages": [],
+    "brokenVideos": [],
+    "emptyInternalLinks": [],
+    "iframes": [],
+    "consoleErrors": [],
+    "failedRequests": [],
+    "badResponses": []
+  },
+  {
+    "route": "/404.html",
+    "viewport": "mobile",
+    "title": "Página no encontrada — Juanita Rodríguez",
+    "lang": "es",
+    "description": "La página solicitada no existe.",
+    "horizontalOverflow": false,
+    "scrollWidth": 390,
+    "clientWidth": 390,
+    "overflowElements": [],
+    "brokenImages": [],
+    "brokenVideos": [],
+    "emptyInternalLinks": [],
+    "iframes": [],
+    "consoleErrors": [],
+    "failedRequests": [],
+    "badResponses": []
+  }
+]

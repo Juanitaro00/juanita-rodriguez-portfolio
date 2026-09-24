@@ -1,0 +1,37 @@
+---
+import SiteFooter from "../components/global/SiteFooter.astro";
+import SiteHeader from "../components/global/SiteHeader.astro";
+import "../styles/global.css";
+
+interface Props {
+	title: string;
+	description: string;
+	hideFooter?: boolean;
+	hideHeader?: boolean;
+	headerTheme?: "default" | "regioo" | "tailors" | "four-twenty-one";
+}
+
+const { title, description, hideFooter = false, hideHeader = false, headerTheme = "default" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content" />
+		<meta name="theme-color" content="#fffafb" />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content={description} />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<title>{title}</title>
+	</head>
+	<body>
+		<a class="skip-link" href="#contenido">Saltar al contenido</a>
+		{!hideHeader && <SiteHeader theme={headerTheme} />}
+		<main id="contenido">
+			<slot />
+		</main>
+		{!hideFooter && <SiteFooter />}
+	</body>
+</html>

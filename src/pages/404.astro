@@ -1,0 +1,14 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Página no encontrada — Juanita Rodríguez" description="La página solicitada no existe.">
+	<section class="not-found container"><p class="eyebrow">Error 404</p><h1>Esta página tomó otro camino.</h1><p>El enlace puede estar desactualizado o la dirección puede contener un error.</p><a href="/">Volver al inicio →</a></section>
+</BaseLayout>
+
+<style>
+	.not-found { display: grid; align-content: center; min-height: 70vh; padding-block: var(--space-6); }
+	h1 { max-width: 13ch; margin-block-end: var(--space-2); font-family: var(--font-display); font-size: var(--step-3); font-weight: 500; letter-spacing: -0.04em; }
+	.not-found > p:not(.eyebrow) { max-width: 34rem; color: var(--color-muted); }
+	a { width: fit-content; font-weight: 700; }
+</style>

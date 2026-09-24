@@ -1,0 +1,431 @@
+<section class="brand-hero" aria-labelledby="brand-hero-title" data-brand-hero>
+	<div class="brand-hero__wash brand-hero__wash--one" aria-hidden="true"></div>
+	<div class="brand-hero__wash brand-hero__wash--two" aria-hidden="true"></div>
+	<div class="brand-hero__line brand-hero__line--one" aria-hidden="true"></div>
+	<div class="brand-hero__line brand-hero__line--two" aria-hidden="true"></div>
+
+	<div class="brand-hero__meta">
+		<p class="brand-hero__name">Juanita Rodríguez</p>
+		<p class="brand-hero__role">UX/UI Digital Design</p>
+	</div>
+
+	<h1 class="brand-hero__title" id="brand-hero-title">
+		<span class="brand-hero__title-word brand-hero__title-word--porta">Port<span class="brand-hero__porta-a">a</span></span>
+		<span class="brand-hero__title-word brand-hero__title-word--folio">Foli<span class="brand-hero__quiet-o">o</span></span>
+	</h1>
+
+	<div class="brand-hero__stage" aria-hidden="true">
+		<div class="brand-hero__character" data-hero-character>
+			<div class="brand-hero__character-shadow"></div>
+			<img
+				class="brand-hero__character-image"
+				src="/images/hero/juanita-personaje-original.png"
+				srcset="/images/hero/juanita-personaje-original.png 1024w"
+				sizes="(max-width: 28rem) 78vw, (max-width: 48rem) 22rem, (max-width: 64rem) 28rem, 32rem"
+				width="1024"
+				height="1536"
+				alt=""
+				decoding="sync"
+				fetchpriority="high"
+			/>
+		</div>
+
+		<div class="brand-hero__butterfly" data-hero-butterfly>
+			<svg class="brand-hero__butterfly-asset" viewBox="0 0 941 1193" focusable="false">
+				<defs>
+					<mask id="hero-butterfly-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="941" height="1193" style="mask-type: luminance">
+						<image href="/images/hero/juanita-mariposa-mask.png" width="941" height="1193" />
+					</mask>
+				</defs>
+				<image href="/images/hero/juanita-mariposa-color.png" width="941" height="1193" mask="url(#hero-butterfly-mask)" />
+			</svg>
+		</div>
+	</div>
+
+	<p class="brand-hero__statement">Diseño experiencias digitales claras, humanas y con intención.</p>
+	<a class="brand-hero__scroll" href="#proyectos">
+		<span>Ver proyectos</span>
+		<span aria-hidden="true">↓</span>
+	</a>
+</section>
+
+<script is:inline>
+	(() => {
+		const hero = document.querySelector("[data-brand-hero]");
+		const character = hero?.querySelector("[data-hero-character]");
+		const butterfly = hero?.querySelector("[data-hero-butterfly]");
+		if (!hero || !character || !butterfly) return;
+
+		const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+		const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
+		if (reducedMotion.matches) return;
+
+		let pointerX = 0;
+		let pointerY = 0;
+		let targetX = 0;
+		let targetY = 0;
+		let velocityX = 0;
+		let velocityY = 0;
+		let visible = true;
+		let frame;
+		const startedAt = performance.now();
+
+		const clamp = (minimum, value, maximum) => Math.min(maximum, Math.max(minimum, value));
+
+		const handlePointer = (event) => {
+			if (!finePointer.matches) return;
+			const bounds = hero.getBoundingClientRect();
+			targetX = clamp(-1, ((event.clientX - bounds.left) / bounds.width - 0.5) * 2, 1);
+			targetY = clamp(-1, ((event.clientY - bounds.top) / bounds.height - 0.5) * 2, 1);
+		};
+
+		const resetPointer = () => {
+			targetX = 0;
+			targetY = 0;
+		};
+
+		const render = (time) => {
+			if (!visible || document.hidden) {
+				frame = undefined;
+				return;
+			}
+
+			velocityX = (velocityX + (targetX - pointerX) * 0.045) * 0.82;
+			velocityY = (velocityY + (targetY - pointerY) * 0.045) * 0.82;
+			pointerX += velocityX;
+			pointerY += velocityY;
+
+			hero.style.setProperty("--character-x", `${(pointerX * 16).toFixed(2)}px`);
+			hero.style.setProperty("--character-y", `${(pointerY * 9).toFixed(2)}px`);
+			hero.style.setProperty("--character-rotate-x", `${(-pointerY * 1.7).toFixed(2)}deg`);
+			hero.style.setProperty("--character-rotate-y", `${(pointerX * 2.4).toFixed(2)}deg`);
+			hero.style.setProperty("--far-x", `${(-pointerX * 4).toFixed(2)}px`);
+			hero.style.setProperty("--far-y", `${(-pointerY * 3).toFixed(2)}px`);
+
+			const heroBounds = hero.getBoundingClientRect();
+			const characterBounds = character.getBoundingClientRect();
+			const elapsed = time - startedAt;
+			const angle = (elapsed / 18000) * Math.PI * 2 + Math.PI * 1.25;
+			const centerX = characterBounds.left - heroBounds.left + characterBounds.width * 0.56;
+			const centerY = characterBounds.top - heroBounds.top + characterBounds.height * 0.29;
+			const radiusX = characterBounds.width * 0.33;
+			const radiusY = characterBounds.height * 0.16;
+			let butterflyX = centerX + Math.cos(angle) * radiusX + Math.sin(angle * 2.1) * characterBounds.width * 0.025;
+			let butterflyY = centerY + Math.sin(angle) * radiusY + Math.sin(angle * 1.7) * 4;
+
+			const faceX = characterBounds.left - heroBounds.left + characterBounds.width * 0.56;
+			const faceY = characterBounds.top - heroBounds.top + characterBounds.height * 0.14;
+			const safeX = characterBounds.width * 0.2;
+			const safeY = characterBounds.height * 0.105;
+			const distanceX = butterflyX - faceX;
+			const distanceY = butterflyY - faceY;
+			const faceDistance = (distanceX * distanceX) / (safeX * safeX) + (distanceY * distanceY) / (safeY * safeY);
+
+			if (faceDistance < 1) {
+				const side = distanceX < 0 ? -1 : 1;
+				const verticalRatio = clamp(-0.98, distanceY / safeY, 0.98);
+				butterflyX = faceX + side * safeX * Math.sqrt(1 - verticalRatio * verticalRatio);
+			}
+
+			butterflyX += pointerX * 3;
+			butterflyY += pointerY * 2;
+			const rotation = Math.sin(angle * 1.4) * 4;
+
+			hero.style.setProperty("--butterfly-x", `${butterflyX.toFixed(2)}px`);
+			hero.style.setProperty("--butterfly-y", `${butterflyY.toFixed(2)}px`);
+			hero.style.setProperty("--butterfly-rotate", `${rotation.toFixed(2)}deg`);
+
+			frame = requestAnimationFrame(render);
+		};
+
+		const observer = new IntersectionObserver(([entry]) => {
+			visible = entry.isIntersecting;
+			if (visible && !frame) frame = requestAnimationFrame(render);
+		}, { threshold: 0.02 });
+
+		hero.addEventListener("pointermove", handlePointer, { passive: true });
+		hero.addEventListener("pointerleave", resetPointer, { passive: true });
+		document.addEventListener("visibilitychange", () => {
+			if (!document.hidden && visible && !frame) frame = requestAnimationFrame(render);
+		});
+		observer.observe(hero);
+		frame = requestAnimationFrame(render);
+	})();
+</script>
+
+<style>
+	@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@900&display=swap");
+
+	.brand-hero {
+		--brand-burgundy: #600822;
+		--brand-dusty-pink: #d58a9c;
+		--brand-pastel-pink: #deadb9;
+		--brand-soft-white: #fdfdfe;
+		--character-x: 0px;
+		--character-y: 0px;
+		--character-rotate-x: 0deg;
+		--character-rotate-y: 0deg;
+		--far-x: 0px;
+		--far-y: 0px;
+		--butterfly-x: 38%;
+		--butterfly-y: 22%;
+		--butterfly-rotate: 0deg;
+		position: relative;
+		isolation: isolate;
+		min-height: clamp(43rem, calc(100svh - 5rem), 59rem);
+		overflow: hidden;
+		background: var(--brand-soft-white);
+		color: var(--brand-burgundy);
+	}
+
+	.brand-hero__wash {
+		position: absolute;
+		z-index: -2;
+		border-radius: 50%;
+		filter: blur(0.2rem);
+		transform: translate3d(var(--far-x), var(--far-y), 0);
+		transition: transform 220ms ease-out;
+	}
+
+	.brand-hero__wash--one {
+		top: -9%;
+		left: 16%;
+		width: min(42rem, 54vw);
+		aspect-ratio: 1.2;
+		background: radial-gradient(circle, rgb(222 173 185 / 0.38), transparent 68%);
+	}
+
+	.brand-hero__wash--two {
+		right: 14%;
+		bottom: -19%;
+		width: min(43rem, 56vw);
+		aspect-ratio: 1.15;
+		background: radial-gradient(circle, rgb(213 138 156 / 0.25), transparent 68%);
+	}
+
+	.brand-hero__line {
+		position: absolute;
+		z-index: -1;
+		width: clamp(10rem, 21vw, 20rem);
+		aspect-ratio: 1;
+		border: 1px solid rgb(96 8 34 / 0.13);
+		border-radius: 50%;
+		transform: translate3d(var(--far-x), var(--far-y), 0);
+	}
+
+	.brand-hero__line--one { top: 13%; left: 7%; }
+	.brand-hero__line--two { right: 7%; bottom: 9%; border-color: rgb(213 138 156 / 0.3); }
+
+	.brand-hero__meta {
+		position: absolute;
+		top: clamp(1.5rem, 4vw, 3rem);
+		left: max(1rem, calc(50% - 50rem));
+		z-index: 6;
+	}
+
+	.brand-hero__meta p { margin: 0; }
+	.brand-hero__name { font-size: var(--step-1); font-weight: 850; letter-spacing: -0.03em; }
+	.brand-hero__role { color: #8e5264; font-size: var(--step--1); font-weight: 650; letter-spacing: 0.04em; }
+
+	.brand-hero__title {
+		position: absolute;
+		top: 49%;
+		left: 50%;
+		z-index: 1;
+		display: grid;
+		grid-template-columns: 1fr clamp(12rem, 18vw, 19rem) 1fr;
+		align-items: center;
+		width: min(calc(100% - 2rem), 112rem);
+		margin: 0;
+		transform: translate(-50%, -50%);
+		font-family: "Poppins", var(--font-sans);
+		font-size: clamp(5rem, 12vw, 13rem);
+		font-weight: 900;
+		line-height: 0.76;
+		letter-spacing: -0.009em;
+		text-transform: uppercase;
+	}
+
+	.brand-hero__title-word { display: inline-block; opacity: 0; animation: hero-word-enter 760ms cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+	.brand-hero__title-word--porta { --word-nudge: clamp(2.4rem, 3.4vw, 4.15rem); grid-column: 1; text-align: right; white-space: nowrap; animation-delay: 70ms; }
+	.brand-hero__porta-a { display: inline-block; margin-left: -0.065em; }
+	.brand-hero__title-word--folio { --word-nudge: clamp(-1.3rem, -1.15vw, -.65rem); grid-column: 3; text-align: left; animation-delay: 130ms; }
+	.brand-hero__quiet-o { display: inline-block; transform-origin: 50% 62%; animation: hero-quiet-o 19s ease-in-out 4.5s infinite; }
+
+	.brand-hero__stage { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
+
+	.brand-hero__character {
+		position: absolute;
+		bottom: 1.65rem;
+		left: 50.65%;
+		z-index: 2;
+		width: auto;
+		height: min(52rem, calc(100% - 6.25rem));
+		aspect-ratio: 2 / 3;
+		isolation: isolate;
+		opacity: 0;
+		transform: perspective(75rem) translate3d(calc(-50% + var(--character-x)), var(--character-y), 0) rotateX(var(--character-rotate-x)) rotateY(var(--character-rotate-y));
+		transform-origin: 50% 76%;
+		animation: hero-character-enter 720ms ease-out 120ms forwards;
+	}
+
+	.brand-hero__character-image {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+		-webkit-mask-image: radial-gradient(ellipse 8.5% 6.5% at 29.5% 8.5%, transparent 72%, #000 100%);
+		mask-image: radial-gradient(ellipse 8.5% 6.5% at 29.5% 8.5%, transparent 72%, #000 100%);
+		image-rendering: auto;
+		filter: none;
+	}
+
+	.brand-hero__character-shadow {
+		position: absolute;
+		z-index: -1;
+		right: 2%;
+		bottom: -3.5%;
+		left: 1%;
+		height: 11%;
+		border-radius: 50%;
+		background: radial-gradient(
+			ellipse at 50% 35%,
+			rgb(213 138 156 / 0.3) 0%,
+			rgb(222 173 185 / 0.18) 42%,
+			transparent 76%
+		);
+		filter: blur(1.25rem);
+		transform: translate3d(calc(var(--character-x) * -0.45), calc(var(--character-y) * -0.3), 0);
+	}
+
+	.brand-hero__butterfly {
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 3;
+		width: clamp(2.35rem, 3.2vw, 3rem);
+		opacity: 1;
+		transform: translate3d(var(--butterfly-x), var(--butterfly-y), 0) translate(-50%, -50%) rotate(var(--butterfly-rotate));
+		transform-origin: center;
+		will-change: transform;
+		filter: drop-shadow(0 0.45rem 0.5rem rgb(96 8 34 / 0.14));
+	}
+
+	.brand-hero__butterfly-asset { display: block; width: 100%; height: auto; }
+
+	.brand-hero__statement {
+		position: absolute;
+		bottom: clamp(1.5rem, 4vw, 3rem);
+		left: max(1rem, calc(50% - 50rem));
+		z-index: 6;
+		max-width: none;
+		margin: 0;
+		color: #7e4053;
+		font-size: var(--step--1);
+		white-space: nowrap;
+	}
+
+	.brand-hero__scroll {
+		position: absolute;
+		right: max(1rem, calc(50% - 34rem));
+		bottom: clamp(1.5rem, 4vw, 3rem);
+		z-index: 6;
+		display: flex;
+		gap: 0.7rem;
+		color: var(--brand-burgundy);
+		font-size: var(--step--1);
+		font-weight: 800;
+		text-decoration: none;
+	}
+
+	.brand-hero__scroll span:last-child { animation: hero-scroll-cue 3.2s ease-in-out infinite; }
+
+	@keyframes hero-word-enter {
+		from { opacity: 0; transform: translate3d(var(--word-nudge), -0.7rem, 0); }
+		to { opacity: 1; transform: translate3d(var(--word-nudge), 0, 0); }
+	}
+
+	@keyframes hero-character-enter {
+		from { opacity: 0; }
+		to { opacity: 1; }
+	}
+
+	@keyframes hero-quiet-o {
+		0%, 88%, 100% { transform: rotate(0deg); }
+		91% { transform: rotate(-0.65deg); }
+		94% { transform: rotate(0.45deg); }
+		97% { transform: rotate(0deg); }
+	}
+
+	@keyframes hero-scroll-cue {
+		0%, 100% { transform: translateY(0); }
+		50% { transform: translateY(0.22rem); }
+	}
+
+	@media (max-width: 64rem) {
+		.brand-hero { min-height: clamp(43rem, calc(100svh - 5rem), 49rem); }
+		.brand-hero__title { grid-template-columns: 1fr clamp(9.5rem, 17vw, 13rem) 1fr; width: calc(100% - 2rem); font-size: clamp(3.6rem, 8.2vw, 5.65rem); }
+		.brand-hero__title-word--porta { --word-nudge: clamp(0.8rem, 1.5vw, 1.5rem); }
+		.brand-hero__title-word--folio { --word-nudge: -0.35rem; }
+		.brand-hero__character { height: min(39rem, calc(100% - 7rem)); }
+	}
+
+	@media (max-width: 47.99rem) {
+		.brand-hero { min-height: max(43rem, calc(100svh - 5rem)); }
+		.brand-hero__meta { top: 1.1rem; left: 1rem; width: auto; transform: none; text-align: left; }
+		.brand-hero__title {
+			top: 49%;
+			display: grid;
+			grid-template-columns: minmax(0, 1fr) clamp(7.5rem, 20vw, 10rem) minmax(0, 1fr);
+			width: calc(100% - 1rem);
+			height: auto;
+			font-size: clamp(2.65rem, 8vw, 4.25rem);
+			white-space: nowrap;
+		}
+		.brand-hero__title-word { position: static; top: auto; }
+		.brand-hero__title-word--porta { right: auto; --word-nudge: 0.25rem; }
+		.brand-hero__title-word--folio { left: auto; --word-nudge: -0.65rem; }
+		.brand-hero__character {
+			bottom: 3.4rem;
+			left: 50.5%;
+			width: auto;
+			height: min(72svh, 37rem, calc(100% - 7rem));
+		}
+		.brand-hero__line--one { top: 28%; }
+		.brand-hero__statement {
+			display: block;
+			bottom: 1rem;
+			left: 1rem;
+			max-width: 58%;
+			font-size: clamp(0.7rem, 2vw, 0.88rem);
+			line-height: 1.35;
+			white-space: normal;
+		}
+		.brand-hero__scroll { right: 1rem; bottom: 1rem; width: max-content; max-width: none; }
+	}
+
+	@media (max-width: 28rem) {
+		.brand-hero { min-height: max(41rem, calc(100svh - 5rem)); }
+		.brand-hero__title {
+			grid-template-columns: minmax(0, 1fr) clamp(5.5rem, 25vw, 7rem) minmax(0, 1fr);
+			font-size: clamp(1.95rem, 7.8vw, 2.35rem);
+		}
+		.brand-hero__title-word--folio { --word-nudge: -1rem; }
+		.brand-hero__character { bottom: 3.5rem; height: min(69svh, 29.5rem, calc(100% - 7rem)); }
+		.brand-hero__statement { max-width: 54%; font-size: 0.68rem; }
+		.brand-hero__scroll { justify-content: flex-end; font-size: 0.72rem; white-space: nowrap; }
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.brand-hero__wash,
+		.brand-hero__line,
+		.brand-hero__character { transform: none; }
+		.brand-hero__title-word,
+		.brand-hero__quiet-o,
+		.brand-hero__character,
+		.brand-hero__scroll span:last-child { animation: none; opacity: 1; scale: 1; }
+		.brand-hero__title-word--folio { transform: translateX(var(--word-nudge)); }
+		.brand-hero__character { transform: translateX(-50%); }
+		.brand-hero__butterfly { top: 21%; left: 35%; transform: rotate(-4deg); }
+	}
+</style>

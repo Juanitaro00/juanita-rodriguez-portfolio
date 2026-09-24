@@ -1,0 +1,394 @@
+.fixed {
+  box-sizing: border-box;
+}
+
+.texto-recomendacion h1 {
+  width: fit-content;
+}
+
+.menu-toggle,
+.cart-toggle,
+.accessibility-toggle,
+.olvidar {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  color: inherit;
+  cursor: pointer;
+}
+
+.cart-toggle {
+  position: relative;
+}
+
+.cart-toggle[data-count]:not([data-count="0"])::after {
+  content: attr(data-count);
+  position: absolute;
+  right: -8px;
+  top: -8px;
+  display: grid;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 5px;
+  place-items: center;
+  border-radius: 999px;
+  background: #18275c;
+  color: #fff;
+  font: 12px/1 'rubik-bold', sans-serif;
+}
+
+.cart-panel {
+  position: fixed;
+  z-index: 5000;
+  top: 0;
+  right: 0;
+  width: min(390px, 92vw);
+  height: 100dvh;
+  padding: 28px;
+  overflow-y: auto;
+  background: #fdfdfd;
+  color: #18275c;
+  box-shadow: -14px 0 45px rgb(24 39 92 / 18%);
+  font-family: 'rubik-regular', sans-serif;
+  transform: translateX(105%);
+  transition: transform 280ms ease;
+}
+
+.cart-panel.is-open { transform: translateX(0); }
+.cart-panel__head,
+.cart-item { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.cart-panel__head { padding-bottom: 20px; border-bottom: 1px solid #c7bedc; }
+.cart-panel__head h2 { font-family: 'rubik-bold', sans-serif; }
+.cart-close,
+.cart-item button { border: 0; background: transparent; color: inherit; font-size: 30px; cursor: pointer; }
+.cart-item { padding: 18px 0; border-bottom: 1px solid #e8e3f2; }
+.cart-item span { display: block; margin-top: 6px; color: #59637f; }
+.cart-total { margin-top: 24px; font-family: 'rubik-bold', sans-serif; font-size: 20px; }
+.cart-empty { padding: 28px 0; }
+
+.site-toast {
+  position: fixed;
+  z-index: 6000;
+  left: 50%;
+  bottom: 28px;
+  max-width: min(520px, calc(100vw - 32px));
+  padding: 14px 20px;
+  border-radius: 10px;
+  background: #18275c;
+  color: #fff;
+  box-shadow: 0 12px 32px rgb(24 39 92 / 24%);
+  font: 15px/1.4 'rubik-regular', sans-serif;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 12px);
+  transition: opacity 200ms ease, transform 200ms ease;
+}
+
+.site-toast.is-visible { opacity: 1; transform: translate(-50%, 0); }
+.form-status { margin-top: 12px; color: #18275c; font: 14px/1.45 'rubik-regular', sans-serif; }
+.form-status.is-error { color: #9b1c31; }
+[hidden] { display: none !important; }
+
+.boton-productos {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.boton-productos button {
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.MiniaturaCoraje { cursor: pointer; }
+.MiniaturaCoraje:focus-visible,
+.menu-toggle:focus-visible,
+.cart-toggle:focus-visible,
+.accessibility-toggle:focus-visible,
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 5px #18275c;
+}
+
+.accessibility-mode { filter: contrast(1.16); }
+.accessibility-mode p,
+.accessibility-mode a,
+.accessibility-mode input,
+.accessibility-mode textarea { font-size: max(1em, 18px); }
+
+/* Responsive polish shared by every page. */
+.menu-toggle,
+.cart-toggle,
+.accessibility-toggle,
+.whatsapp-fija,
+.whatsapp-fija-c,
+.spotify-flotante {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.menu-toggle,
+.cart-toggle,
+.accessibility-toggle {
+  min-width: 44px;
+  min-height: 44px;
+}
+
+.whatsapp-fija,
+.whatsapp-fija-c,
+.spotify-flotante,
+.menu-accesibilidad {
+  transition: transform 180ms ease, background-color 180ms ease, box-shadow 180ms ease;
+}
+
+.whatsapp-fija:hover,
+.whatsapp-fija-c:hover,
+.spotify-flotante:hover,
+.menu-accesibilidad:hover {
+  transform: translateY(-2px);
+}
+
+@media (max-width: 1100px) {
+  .fixed {
+    height: 90px;
+    padding: 12px 18px;
+  }
+
+  .respmenu .menu {
+    margin: 0;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .respmenu .cont-center,
+  .respmenu .logo-perfil {
+    display: none;
+  }
+
+  .respmenu .menu .icon-menu {
+    display: block;
+    margin: 0;
+    color: #18275c;
+    font-size: 34px;
+    cursor: pointer;
+  }
+
+  body:has(.formulario-contacto) .respmenu .menu .icon-menu {
+    color: #fff;
+  }
+
+  .respmenu .logo-421 {
+    width: 108px;
+    max-width: 24vw;
+    height: auto;
+  }
+
+  .respmenu .iconos-nav {
+    gap: 0;
+  }
+
+  .respmenu .logo-carrito {
+    width: 40px;
+    margin: 0;
+  }
+
+  .respmenu.is-open .cont-center {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: flex;
+    width: 100%;
+    height: auto;
+    padding: 18px 24px 24px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+    background: inherit;
+    box-shadow: 0 16px 28px rgb(24 39 92 / 16%);
+  }
+  .respmenu.is-open .item { width: 100%; text-align: left; }
+  .respmenu.is-open .item a { display: block; padding: 10px 4px; }
+
+  .menu-accesibilidad,
+  .spotify-flotante,
+  .whatsapp-fija,
+  .whatsapp-fija-c {
+    position: fixed;
+    left: auto;
+    right: max(16px, env(safe-area-inset-right));
+    top: auto;
+    width: 52px;
+    height: 52px;
+    margin: 0;
+    border-radius: 50%;
+    box-shadow: 0 5px 16px rgb(24 39 92 / 18%);
+  }
+
+  .whatsapp-fija,
+  .whatsapp-fija-c {
+    bottom: max(16px, env(safe-area-inset-bottom));
+  }
+
+  .spotify-flotante {
+    display: block;
+    bottom: calc(max(16px, env(safe-area-inset-bottom)) + 62px);
+  }
+
+  .menu-accesibilidad {
+    bottom: calc(max(16px, env(safe-area-inset-bottom)) + 124px);
+  }
+
+  .canal-whatsapp,
+  .canal-wha-fija,
+  .spotifyflotante-tablet,
+  .accesibilidad {
+    position: absolute;
+    inset: 12%;
+    width: 76%;
+    height: 76%;
+    object-fit: contain;
+  }
+
+  .formulario-contacto input,
+  .formulario-contacto textarea,
+  .formulario-contacto button,
+  .iniciar-sesion input,
+  .registrar input,
+  .boton-iniciar,
+  .boton-registrar {
+    min-height: 44px;
+  }
+}
+
+@media (min-width: 745px) and (max-width: 1100px) {
+  .seccion2-producto {
+    margin-top: 140px;
+  }
+
+  .contenedor-CoRAJE {
+    width: min(90vw, 900px);
+    margin-inline: auto;
+  }
+
+  .corajecafe-producto {
+    left: 58%;
+    width: 36%;
+  }
+
+  .contenedor-miniaturas {
+    left: 58%;
+    gap: 10px;
+  }
+
+  .MiniaturaCoraje {
+    width: clamp(64px, 8vw, 86px);
+  }
+
+  .texto-CoRAJE p {
+    max-width: 48%;
+  }
+}
+
+@media (min-width: 745px) and (max-width: 960px) {
+  .contenedor-principal-fondo {
+    box-sizing: border-box;
+    min-height: 100dvh;
+    width: 100%;
+    margin-top: 0;
+    padding: 120px 24px 48px;
+  }
+
+  .iniciar-sesion,
+  .registrar {
+    box-sizing: border-box;
+    width: min(620px, 100%);
+    margin: 0;
+    padding: clamp(32px, 6vw, 52px);
+    border-radius: 12px;
+  }
+
+  .mumecos,
+  .mumecos-reg {
+    display: none;
+  }
+
+  .iniciar-sesion a.volver {
+    display: none;
+  }
+
+  .iniciar-sesion a.equis,
+  .registrar a.equis {
+    display: flex;
+    position: absolute;
+    right: 32px;
+    left: auto;
+  }
+
+  .textoreg,
+  .textoin {
+    gap: 40px;
+  }
+}
+
+@media (max-width: 520px) {
+  .fixed {
+    height: 76px;
+    padding: 8px 12px;
+  }
+
+  .respmenu .menu .icon-menu {
+    font-size: 25px;
+  }
+
+  .respmenu .logo-421 {
+    width: 94px;
+  }
+
+  .respmenu .logo-carrito {
+    width: 34px;
+  }
+
+  .menu-accesibilidad,
+  .spotify-flotante,
+  .whatsapp-fija,
+  .whatsapp-fija-c {
+    right: max(10px, env(safe-area-inset-right));
+    width: 44px;
+    height: 44px;
+  }
+
+  .whatsapp-fija,
+  .whatsapp-fija-c {
+    bottom: max(12px, env(safe-area-inset-bottom));
+  }
+
+  .spotify-flotante {
+    bottom: calc(max(12px, env(safe-area-inset-bottom)) + 52px);
+  }
+
+  .menu-accesibilidad {
+    bottom: calc(max(12px, env(safe-area-inset-bottom)) + 104px);
+  }
+
+  .cart-panel {
+    width: calc(100vw - 16px);
+    padding: 20px 18px;
+  }
+
+  .cart-panel__head,
+  .cart-item {
+    gap: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
+}

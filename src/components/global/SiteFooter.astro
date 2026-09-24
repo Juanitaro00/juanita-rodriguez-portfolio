@@ -1,0 +1,111 @@
+<footer class="site-footer" data-site-footer>
+	<div class="container footer-grid">
+		<div>
+			<p class="footer-title"><span>Juanita</span> <span>Rodríguez</span></p>
+			<p class="footer-description">Diseñadora digital · Diseño UX/UI · Identidad visual · Experiencias digitales</p>
+		</div>
+
+		<div class="footer-meta">
+			<p>Bogotá, Colombia</p>
+			<p>© {new Date().getFullYear()} Juanita Rodríguez</p>
+		</div>
+	</div>
+</footer>
+
+<style>
+	@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap");
+
+	.site-footer {
+		padding-block: clamp(1.4rem, 2.6vw, 2.25rem);
+		border-top: 1px solid rgb(96 8 34 / 0.16);
+		background: #f8eef1;
+		color: #600822;
+	}
+
+	.footer-grid {
+		display: grid;
+		gap: var(--space-4);
+	}
+
+	.footer-title {
+		margin-block-end: 0.2rem;
+		color: #600822;
+		font-family: "Poppins", var(--font-sans);
+		font-size: clamp(1rem, 1.5vw, 1.3rem);
+		font-weight: 700;
+		line-height: 1.15;
+		letter-spacing: -0.025em;
+	}
+
+	.footer-title span {
+		display: inline-block;
+	}
+
+	p {
+		margin-block-end: 0.2rem;
+		color: #8e5264;
+		font-size: clamp(0.75rem, 0.9vw, 0.86rem);
+	}
+
+	.footer-meta {
+		display: grid;
+		align-content: end;
+		justify-items: start;
+	}
+
+	@media (prefers-reduced-motion: no-preference) {
+		.site-footer.is-motion-ready .footer-title span,
+		.site-footer.is-motion-ready .footer-description {
+			opacity: 0;
+			transform: translateY(0.85rem);
+		}
+
+		.site-footer.is-visible .footer-title span {
+			animation: footer-copy-in 720ms cubic-bezier(0.23, 1, 0.32, 1) forwards;
+		}
+
+		.site-footer.is-visible .footer-title span:nth-child(2) {
+			animation-delay: 70ms;
+		}
+
+		.site-footer.is-visible .footer-description {
+			animation: footer-copy-in 720ms 150ms cubic-bezier(0.23, 1, 0.32, 1) forwards;
+		}
+	}
+
+	@keyframes footer-copy-in {
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	@media (min-width: 48rem) {
+		.footer-grid {
+			grid-template-columns: 2fr 1fr;
+			align-items: end;
+		}
+
+		.footer-meta {
+			justify-items: end;
+			text-align: right;
+		}
+	}
+</style>
+
+<script>
+	document.querySelectorAll<HTMLElement>("[data-site-footer]").forEach((footer) => {
+		if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+		footer.classList.add("is-motion-ready");
+		const observer = new IntersectionObserver(
+			([entry]) => {
+				if (!entry?.isIntersecting) return;
+				footer.classList.add("is-visible");
+				observer.disconnect();
+			},
+			{ threshold: 0.35 },
+		);
+		observer.observe(footer);
+	});
+</script>
