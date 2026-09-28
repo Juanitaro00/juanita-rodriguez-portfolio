@@ -77,6 +77,8 @@ const pages = Array.from({ length: 13 }, (_, index) => ({
 </article>
 
 <script>
+	import { registerProjectDeepLink } from "../../scripts/projectDeepLinks";
+
 	const pages = Array.from({ length: 13 }, (_, index) => ({
 		src: `/images/projects/clara-vision/page-${index + 1}.webp`,
 		alt: index === 0
@@ -189,6 +191,7 @@ const pages = Array.from({ length: 13 }, (_, index) => ({
 		};
 
 		const openBook = () => {
+			if (dialog.open) return;
 			lastFocused = document.activeElement instanceof HTMLElement ? document.activeElement : null;
 			dialog.showModal();
 			document.documentElement.classList.add("has-open-dialog");
@@ -215,16 +218,27 @@ const pages = Array.from({ length: 13 }, (_, index) => ({
 
 		const closeBook = () => {
 			window.clearTimeout(openingTimer);
-			dialog.close();
+			if (dialog.open) dialog.close();
 		};
 
-		openButtons.forEach((button) => button.addEventListener("click", openBook));
-		closeButton?.addEventListener("click", closeBook);
+		const projectDeepLink = registerProjectDeepLink("claravision", {
+			open: openBook,
+			close: closeBook,
+			isOpen: () => dialog.open,
+		});
+
+		openButtons.forEach((button) => button.addEventListener("click", projectDeepLink.openProject));
+		closeButton?.addEventListener("click", projectDeepLink.closeProject);
 		previousButton.addEventListener("click", () => showPage(currentIndex - 1, "previous"));
 		nextButton.addEventListener("click", () => showPage(currentIndex + 1, "next"));
 
 		dialog.addEventListener("click", (event) => {
-			if (event.target === dialog) closeBook();
+			if (event.target === dialog) projectDeepLink.closeProject();
+		});
+
+		dialog.addEventListener("cancel", (event) => {
+			event.preventDefault();
+			projectDeepLink.closeProject();
 		});
 
 		dialog.addEventListener("keydown", (event) => {

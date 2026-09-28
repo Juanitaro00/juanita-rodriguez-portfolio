@@ -2,6 +2,7 @@
 interface GenerativeVideo {
 	src: string;
 	poster?: string;
+	slug: string;
 	title: string;
 	description: string;
 	fit?: "cover" | "contain";
@@ -10,27 +11,32 @@ interface GenerativeVideo {
 const verticalVideos: GenerativeVideo[] = [
 	{
 		src: "/videos/generative-ai/vertical-illustration.mp4",
+		slug: "ilustracion-en-movimiento",
 		title: "Ilustración en movimiento",
 		description: "Animación generativa que transforma una ilustración estática en una secuencia de movimiento fluida.",
 	},
 	{
 		src: "/videos/generative-ai/juntos-podemos-construir.mov",
+		slug: "juntos-podemos-construir",
 		title: "Juntos podemos construir",
 		description: "Pieza publicitaria animada con una canción generada con inteligencia artificial para acompañar su mensaje colaborativo.",
 		fit: "contain",
 	},
 	{
 		src: "/videos/generative-ai/vertical-panda.mp4",
+		slug: "panda-cha-realidad-aumentada",
 		title: "Panda Cha en Realidad Aumentada",
 		description: "Experiencia de AR aplicada al empaque, donde el panda de la marca cobra vida sobre la lata mediante una animación interactiva. El personaje aparece bailando alrededor del producto, extendiendo la identidad de Panda Cha del mundo físico al digital.",
 	},
 	{
 		src: "/videos/generative-ai/vertical-butterfly.mp4",
+		slug: "saludo-con-mariposa",
 		title: "Saludo con una mariposa",
 		description: "Secuencia animada de un personaje saludando mientras una mariposa acompaña la escena.",
 	},
 	{
 		src: "/videos/generative-ai/vertical-clara-vision.mp4",
+		slug: "claravision-para-redes",
 		title: "ClaraVisión para redes",
 		description: "Pieza publicitaria vertical creada para las redes sociales de ClaraVisión, con una narrativa visual clara y cercana que comunica su propuesta médica en formato digital.",
 	},
@@ -38,36 +44,43 @@ const verticalVideos: GenerativeVideo[] = [
 const horizontalVideos: GenerativeVideo[] = [
 	{
 		src: "/videos/generative-ai/horizontal-dali.mp4",
+		slug: "persistencia-de-la-memoria",
 		title: "La persistencia de la memoria",
 		description: "Reinterpretación animada de la obra de Salvador Dalí mediante una secuencia audiovisual generada con inteligencia artificial.",
 	},
 	{
 		src: "/videos/generative-ai/horizontal-emotional-reflection.mp4",
+		slug: "escena-cinematografica-emocional",
 		title: "Escena cinematográfica emocional",
 		description: "Escena cinematográfica de un perro en estado de vulnerabilidad que refleja la tristeza del abandono. La pieza invita a reconocer nuestra responsabilidad de proteger, respetar y cuidar a todos los seres vivos.",
 	},
 	{
 		src: "/videos/generative-ai/horizontal-emotional.mp4",
+		slug: "cruz-roja-historia-que-ayudaste-a-cambiar",
 		title: "Cruz Roja: La historia que ayudaste a cambiar.",
 		description: "Pieza creada para una experiencia de mapping de la Cruz Roja. La escena muestra una situación de vulnerabilidad y revela al donante la historia que su aporte ayudó a transformar.",
 	},
 	{
 		src: "/videos/generative-ai/horizontal-hyperrealistic.mp4",
+		slug: "exploracion-hiperrealista",
 		title: "Exploración hiperrealista",
 		description: "Escena desarrollada para una experiencia de mapping de la Cruz Roja, donde una situación de la vida real hace visible cómo una donación puede proteger y cambiar una historia.",
 	},
 	{
 		src: "/videos/generative-ai/horizontal-ultra-realistic.mp4",
+		slug: "narrativa-ultrarrealista",
 		title: "Narrativa ultrarrealista",
 		description: "Pieza audiovisual creada para el mapping de una actividad de la Cruz Roja. Su narrativa habla directamente a los donantes y revela las historias que ayudaron a cambiar sin haberlas visto.",
 	},
 	{
 		src: "/videos/generative-ai/horizontal-panda-tea.mp4",
+		slug: "panda-presenta-la-marca",
 		title: "Panda presenta la marca",
 		description: "Pieza generativa en la que un panda introduce una marca de té mediante una breve secuencia publicitaria.",
 	},
 	{
 		src: "/videos/generative-ai/horizontal-presentacion-personal.mp4",
+		slug: "hacer-visible-lo-que-otros-no-ven",
 		title: "Hacer visible lo que otros no ven",
 		description: "Presentación personal construida a través de un personaje y una narrativa audiovisual que representan mi manera de observar, conectar y crear desde lo humano y la tecnología.",
 	},
@@ -83,12 +96,13 @@ const hasVideos = verticalVideos.length > 0 || horizontalVideos.length > 0;
 	{hasVideos && (
 		<div class="generative-gallery__collections">
 			{verticalVideos.length > 0 && (
-				<section class="generative-gallery__collection" aria-labelledby="generative-vertical-title">
+				<section id="formato-vertical" class="generative-gallery__collection" aria-labelledby="generative-vertical-title">
 					<h5 id="generative-vertical-title" data-generative-heading>Formato vertical</h5>
 					<div class="generative-carousel" data-generative-carousel>
 						<div class="generative-carousel__stage">
 						{verticalVideos.map((video, index) => (
 							<figure
+								id={`video-${video.slug}`}
 								class="generative-media generative-media--carousel"
 								data-generative-card
 								data-position={index === 0 ? "center" : index === 1 ? "right" : index === verticalVideos.length - 1 ? "left" : "far"}
@@ -130,12 +144,13 @@ const hasVideos = verticalVideos.length > 0 || horizontalVideos.length > 0;
 			)}
 
 			{horizontalVideos.length > 0 && (
-				<section class="generative-gallery__collection" aria-labelledby="generative-horizontal-title">
+				<section id="formato-horizontal" class="generative-gallery__collection" aria-labelledby="generative-horizontal-title">
 					<h5 id="generative-horizontal-title" data-generative-heading>Formato horizontal</h5>
 					<div class="generative-carousel generative-carousel--horizontal" data-generative-carousel>
 						<div class="generative-carousel__stage">
 						{horizontalVideos.map((video, index) => (
 							<figure
+								id={`video-${video.slug}`}
 								class="generative-media generative-media--carousel generative-media--horizontal-carousel"
 								data-generative-card
 								data-position={index === 0 ? "center" : index === 1 ? "right" : index === 2 ? "far" : index === horizontalVideos.length - 1 ? "left" : "far"}
@@ -667,13 +682,22 @@ const hasVideos = verticalVideos.length > 0 || horizontalVideos.length > 0;
 			const status = carousel.querySelector<HTMLElement>("[data-generative-status]");
 			if (!cards.length || !previousButton || !nextButton || !status) return;
 
-			let activeIndex = 0;
+			const linkedCardIndex = cards.findIndex((card) => `#${card.id}` === window.location.hash);
+			let activeIndex = linkedCardIndex >= 0 ? linkedCardIndex : 0;
 			let rotationTimer = 0;
 			let activationTimer = 0;
 			let isVisible = false;
 			const transitionDuration = reducedMotion.matches ? 0 : 900;
 
 			const activeVideo = () => cards[activeIndex]?.querySelector<HTMLVideoElement>("[data-generative-card-video]");
+			const scrollToCard = (card: HTMLElement) => {
+				window.requestAnimationFrame(() => {
+					window.requestAnimationFrame(() => {
+						const block = card.getBoundingClientRect().height > window.innerHeight ? "start" : "center";
+						card.scrollIntoView({ block, inline: "nearest" });
+					});
+				});
+			};
 
 			const clearRotation = () => window.clearTimeout(rotationTimer);
 
@@ -745,7 +769,15 @@ const hasVideos = verticalVideos.length > 0 || horizontalVideos.length > 0;
 				{ threshold: 0.25 },
 			);
 			observer.observe(carousel);
-			setActive(0, true);
+			setActive(activeIndex, true);
+			if (linkedCardIndex >= 0) scrollToCard(cards[linkedCardIndex]!);
+
+			window.addEventListener("hashchange", () => {
+				const targetIndex = cards.findIndex((card) => `#${card.id}` === window.location.hash);
+				if (targetIndex < 0) return;
+				setActive(targetIndex);
+				scrollToCard(cards[targetIndex]!);
+			});
 		});
 
 	});
