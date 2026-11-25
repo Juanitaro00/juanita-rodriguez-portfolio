@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Regioo — Juanita Rodríguez</title>
+<meta name="description" content="Regioo es una experiencia móvil pensada para ayudar a los hombres a construir su estilo con mayor intención y seguridad.">
+<link rel="preconnect" href="https://embed.figma.com"><link rel="preconnect" href="https://static.figma.com" crossorigin><link rel="dns-prefetch" href="https://www.figma.com"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;font-family:"Poppins",system-ui,sans-serif;background:#eef9fa;color:#17373b;-webkit-font-smoothing:antialiased}
+.rg{--teal:#087f8c;--teal-deep:#075d68;--teal-bright:#22a8b4;--aqua:#d9f1f4;--aqua-soft:#eef9fa;--paper:#fdfdfe;--ink:#17373b;--muted:#587176;--line:rgb(8 127 140/.16);overflow:clip}
+.rg *{min-width:0}
+.wrap{width:min(calc(100% - 2rem),76rem);margin-inline:auto}
+.label{margin:0;color:var(--teal);font:800 .68rem/1.2 "Poppins",sans-serif;letter-spacing:.14em;text-transform:uppercase}
+.back{display:inline-block;margin-bottom:clamp(2rem,4vw,3.5rem);color:var(--teal-deep);font:700 .72rem/1.2 "Poppins",sans-serif;letter-spacing:.05em;text-decoration:none;text-transform:uppercase}
+.hero{padding-block:clamp(2.5rem,5vw,5rem);background:radial-gradient(42rem 30rem at 84% 22%,rgb(34 168 180/.18),transparent 66%),radial-gradient(38rem 28rem at 12% 10%,rgb(217 241 244/.82),transparent 68%),#fdfdfe}
+.hero__grid{display:grid;gap:clamp(3rem,6vw,6rem);align-items:center}
+.hero h1{margin:.75rem 0 0;color:var(--teal);font-size:clamp(4rem,9vw,8rem);font-weight:700;line-height:.82;letter-spacing:-.065em;text-transform:uppercase}
+.hero__type{max-width:25ch;margin:1.25rem 0 0;color:var(--teal-deep);font:600 clamp(1.1rem,2vw,1.65rem)/1.25 "Poppins",sans-serif}
+.hero__summary{max-width:60ch;margin:1.35rem 0 0;color:var(--muted);font:.92rem/1.65 "Poppins",sans-serif}
+.hero dl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.9rem 1.5rem;margin:clamp(1.5rem,3vw,2.25rem) 0 0;padding-top:1rem;border-top:1px solid var(--line)}
+.hero dl div{display:grid;gap:.2rem}.hero dt{color:var(--teal-bright);font:800 .62rem/1.2 "Poppins",sans-serif;letter-spacing:.12em;text-transform:uppercase}
+.hero dd{margin:0;color:var(--teal-deep);font:600 .76rem/1.45 "Poppins",sans-serif}
+.hero__visual{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2.2rem}
+.phone{width:min(100%,26rem);height:clamp(36rem,52vw,46rem);overflow:hidden;border:.45rem solid #11131a;border-radius:2.2rem;background:#fff;box-shadow:0 1.6rem 3.5rem rgb(20 48 53/.2)}
+.phone{position:relative;background:#000}
+.phone iframe{position:relative;z-index:1;display:block;width:100%;height:100%;border:0;background:#000;opacity:0;transition:opacity .6s ease}
+.phone__poster{position:absolute;inset:0;z-index:2;width:100%;height:100%;object-fit:cover;object-position:top center;transition:opacity .6s ease}
+.phone__cargando{position:absolute;z-index:3;left:0;right:0;top:0;height:.22rem;overflow:hidden;font-size:0;background:rgb(255 255 255/.12);transition:opacity .4s ease}
+.phone__cargando::before{content:"";position:absolute;inset:0;width:40%;background:linear-gradient(90deg,transparent,#22a8b4,transparent);animation:phone-barra 1.2s ease-in-out infinite}
+@keyframes phone-barra{from{transform:translateX(-100%)}to{transform:translateX(260%)}}
+.phone.listo iframe{opacity:1}
+.phone.listo .phone__poster,.phone.listo .phone__cargando{opacity:0;pointer-events:none}
+@media (prefers-reduced-motion:reduce){.phone__cargando::before{animation:none}.phone iframe,.phone__poster{transition:none}}
+.pill{display:inline-flex;align-items:center;gap:.8rem;padding:1rem 1.8rem;border-radius:999px;background:var(--teal);color:#fff;font:700 .9rem/1.2 "Poppins",sans-serif;text-decoration:none;box-shadow:0 .9rem 1.8rem rgb(8 127 140/.28);transition:background .3s,transform .3s}
+.pill:hover{background:var(--teal-deep);transform:translateY(-.15rem)}
+.challenge{padding-block:clamp(3.5rem,7vw,6rem);border-block:1px solid var(--line);background:linear-gradient(110deg,#fff,rgb(217 241 244/.64))}
+.challenge__grid{display:grid;gap:1.5rem}
+h2{margin:0;max-width:24ch;color:var(--teal-deep);font:650 clamp(1.8rem,3.4vw,3.25rem)/1.04 "Poppins",sans-serif;letter-spacing:-.04em}
+.challenge p.t{max-width:68ch;margin:1rem 0 0;color:var(--muted);font:.94rem/1.65 "Poppins",sans-serif}
+.experience{padding-block:clamp(4rem,8vw,7rem);background:var(--paper)}
+.heading{display:grid;gap:.9rem;margin-bottom:clamp(2.5rem,5vw,4.5rem)}
+.exp{border-block:1px solid var(--line)}
+.exp article{display:grid;grid-template-columns:2.4rem 1fr;gap:1rem;padding:clamp(1.25rem,2.5vw,2rem) 0;border-bottom:1px solid var(--line)}
+.exp article:last-child{border-bottom:0}
+.exp span{color:var(--teal-bright);font:800 .68rem/1.4 "Poppins",sans-serif}
+.exp h3{margin:0 0 .35rem;color:var(--teal);font:700 clamp(1.1rem,1.8vw,1.4rem)/1.2 "Poppins",sans-serif;text-transform:uppercase}
+.exp strong{color:var(--teal-deep);font:600 .8rem/1.4 "Poppins",sans-serif}
+.exp p{max-width:52ch;margin:.55rem 0 0;color:var(--muted);font:.82rem/1.55 "Poppins",sans-serif}
+.note{margin:clamp(2.5rem,4vw,3.25rem) 0 0;padding-left:1rem;border-left:2px solid rgb(8 127 140/.42);color:var(--teal);font:800 .78rem/1.55 "Poppins",sans-serif}
+
+/* Sistema de diseño */
+.ds{padding-block:clamp(4rem,8vw,7rem);background:radial-gradient(40rem 30rem at 15% 72%,rgb(34 168 180/.18),transparent 66%),linear-gradient(180deg,#f7fcfd,#e7f6f8)}
+.ds__intro{max-width:46ch;margin:1rem 0 0;color:var(--muted);font:.98rem/1.7 "Poppins",sans-serif}
+.ds__base{display:grid;gap:1.2rem;margin-bottom:clamp(1.4rem,3vw,2.4rem)}
+.card{background:rgb(255 255 255/.85);border:1px solid rgb(8 127 140/.1);border-radius:1.8rem;padding:clamp(1.4rem,3vw,2.4rem);box-shadow:0 1rem 2.8rem rgb(8 127 140/.08)}
+.card h3{margin:.5rem 0 0;color:var(--teal-deep);font:650 1.35rem/1.2 "Poppins",sans-serif;letter-spacing:-.02em}
+.card > p{margin:.45rem 0 0;color:var(--muted);font:.86rem/1.6 "Poppins",sans-serif;max-width:40ch}
+.sw{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:.7rem;margin-top:1.6rem}
+.sw i{display:block;height:4.6rem;border-radius:1.1rem;border:1px solid rgb(8 127 140/.12)}
+.sw span{display:block;margin-top:.45rem;color:var(--muted);font:600 .64rem/1.3 "Poppins",sans-serif;letter-spacing:.04em}
+.type{margin-top:1.6rem;display:grid;gap:.4rem}.type b{color:var(--teal);font:700 3.4rem/1 "Poppins",sans-serif;letter-spacing:-.04em}
+.type span{color:var(--muted);font:500 .82rem/1.5 "Poppins",sans-serif}
+.ds__grid{display:grid;gap:clamp(1rem,2vw,1.4rem)}
+.demo{margin-top:1.6rem;display:grid;gap:1rem;justify-items:start}
+.btn{border:0;border-radius:999px;font:700 .85rem/1 "Poppins",sans-serif;background:var(--teal);color:#fff;padding:.95rem 2.2rem;box-shadow:0 .6rem 1.2rem rgb(8 127 140/.25)}
+.btn--m{padding:.75rem 1.7rem;font-size:.78rem}.btn--s{padding:.55rem 1.2rem;font-size:.7rem}
+.btn--line{background:#fff;color:var(--teal);box-shadow:inset 0 0 0 2px var(--teal)}
+.btn--off{background:#a9cfd4;box-shadow:none;color:#fff}
+.row{display:flex;flex-wrap:wrap;gap:.7rem;align-items:center}
+.row small{width:100%;color:var(--teal-bright);font:800 .6rem/1 "Poppins",sans-serif;letter-spacing:.12em;text-transform:uppercase}
+.ctl{display:flex;gap:2.2rem;flex-wrap:wrap;align-items:center}
+.ctl div{display:grid;gap:.7rem;justify-items:center;color:var(--muted);font:600 .72rem/1 "Poppins",sans-serif}
+.chk,.rad{display:grid;place-items:center;width:1.6rem;height:1.6rem;border:2px solid var(--teal);background:#fff;color:#fff}
+.chk{border-radius:.4rem}.rad{border-radius:50%}
+.chk.on{background:var(--teal)}.rad.on::after{content:"";width:.7rem;height:.7rem;border-radius:50%;background:var(--teal)}
+.sw2{width:3.2rem;height:1.8rem;border-radius:999px;background:#d3e2e4;position:relative}.sw2::after{content:"";position:absolute;left:.2rem;top:.2rem;width:1.4rem;height:1.4rem;border-radius:50%;background:#fff;box-shadow:0 .1rem .3rem rgb(0 0 0/.2)}
+.sw2.on{background:var(--teal)}.sw2.on::after{left:1.6rem}
+.nav{display:flex;justify-content:space-around;background:#fff;border-radius:1.8rem;padding:1rem .6rem;box-shadow:0 .8rem 2rem rgb(8 127 140/.14);width:100%;max-width:22rem}
+.nav a{display:grid;gap:.35rem;justify-items:center;color:var(--teal);font:600 .7rem/1 "Poppins",sans-serif;text-decoration:none}
+.nav svg{width:1.7rem;height:1.7rem;fill:none;stroke:var(--teal);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.nav a.off{color:#8aa8ac}.nav a.off svg{stroke:#8aa8ac}
+.pops{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;width:100%}
+.pop{width:11rem;background:#fff;border-radius:1.2rem;padding:1.1rem 1rem 1.2rem;text-align:center;box-shadow:0 .8rem 2rem rgb(8 127 140/.16)}
+.pop img{width:5rem;height:auto;display:block;margin:0 auto}
+.pop b{display:block;margin-top:.6rem;color:var(--teal);font:700 .95rem/1.2 "Poppins",sans-serif}
+.pop p{margin:.35rem 0 .8rem;color:var(--muted);font:.7rem/1.45 "Poppins",sans-serif}
+.close{padding-block:clamp(2.5rem,5vw,4rem);background:var(--teal-deep);color:#fff}
+.close .wrap{display:flex;flex-wrap:wrap;gap:1.25rem;justify-content:space-between;align-items:center}
+.close p{margin:0;font:650 clamp(1.35rem,3vw,2.5rem)/1 "Poppins",sans-serif;letter-spacing:-.04em}
+.close a{color:#bdecef;font:700 .75rem/1.2 "Poppins",sans-serif;text-decoration:none;text-transform:uppercase}
+@media(min-width:48rem){.hero__grid{grid-template-columns:minmax(0,.92fr) minmax(28rem,1.08fr)}.challenge__grid{grid-template-columns:.32fr 1fr}
+.exp{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.exp article{min-height:13rem;align-content:start}
+.exp article:nth-child(odd){padding-right:clamp(1.5rem,4vw,3.5rem);border-right:1px solid var(--line)}.exp article:nth-child(even){padding-left:clamp(1.5rem,4vw,3.5rem)}.exp article:nth-last-child(-n+2){border-bottom:0}
+.ds__base,.ds__grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:32rem){.hero dl{grid-template-columns:1fr}.sw{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
+/* Animaciones y luz que sigue al mouse (copiadas de BlurTitles de tu portafolio original) */
+bw-word{display:inline-block}
+@media(prefers-reduced-motion:no-preference){
+[data-blur-title].bw-ready bw-word,[data-blur-subtitle].bw-ready bw-word{opacity:0;filter:blur(10px);transform:translateY(.3em)}
+[data-blur-title].bw-in bw-word,[data-blur-subtitle].bw-in bw-word{animation:blur-word-in 1400ms cubic-bezier(.22,1,.36,1) both;animation-delay:calc(var(--bw-i,0)*140ms + var(--bw-delay,0ms))}
+[data-blur-subtitle].bw-in bw-word{animation-duration:800ms;animation-delay:calc(var(--bw-i,0)*50ms + 300ms)}
+[data-reveal-stack].rv-ready [data-reveal-piece]{opacity:0}
+[data-reveal-stack].rv-in [data-reveal-piece]{opacity:1;animation:piece-in 1400ms cubic-bezier(.22,1,.36,1) backwards;animation-delay:calc(var(--rp-i,0)*180ms)}}
+[data-cursor-glow]{position:relative;isolation:isolate;overflow:clip}
+.cursor-light{position:absolute;top:0;left:0;z-index:-1;width:38rem;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,var(--glow-a) 0%,color-mix(in srgb,var(--glow-b) 70%,transparent) 38%,transparent 68%);opacity:0;pointer-events:none;translate:calc(var(--cx,50%) - 50%) calc(var(--cy,50%) - 50%);transition:opacity .6s ease,translate .5s cubic-bezier(.22,1,.36,1);will-change:translate,opacity}
+.is-lit>.cursor-light{opacity:.9}
+@media(prefers-reduced-motion:reduce){.cursor-light{display:none}}
+@keyframes blur-word-in{from{opacity:0;filter:blur(10px);transform:translateY(.3em)}to{opacity:1;filter:blur(0);transform:none}}
+@keyframes piece-in{from{opacity:0;filter:blur(8px);translate:0 3rem;scale:.96}to{opacity:1;filter:blur(0);translate:0 0;scale:1}}
+/* Tableta: texto y prototipo uno encima del otro para que el título REGIOO no se corte */
+@media(min-width:48rem) and (max-width:63.99rem){.hero__grid{grid-template-columns:minmax(0,1fr)}}
+/* Hover */
+.back{transition:color .25s ease,translate .35s cubic-bezier(.22,1,.36,1)}
+.pill span{display:inline-block;transition:translate .35s cubic-bezier(.22,1,.36,1)}
+.exp article{background:linear-gradient(90deg,rgb(34 168 180/.1),rgb(34 168 180/0)) no-repeat 0 0/0% 100%;transition:background-size .6s cubic-bezier(.22,1,.36,1)}
+.exp span,.exp h3{transition:translate .45s cubic-bezier(.22,1,.36,1),color .3s ease}
+.card{transition:translate .45s cubic-bezier(.22,1,.36,1),box-shadow .45s ease}
+@media(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){
+.back:hover{color:var(--teal);translate:-.25rem 0}.pill:hover span{translate:.15rem -.15rem}
+.exp article:hover{background-size:100% 100%}.exp article:hover span{color:var(--teal);translate:.3rem 0}.exp article:hover h3{color:var(--teal-deep);translate:.3rem 0}
+.card:hover{translate:0 -.4rem;box-shadow:0 1.6rem 3.4rem rgb(8 127 140/.16)}}
+</style>
+</head>
+<body>
+<article class="rg">
+<header class="hero" data-cursor-glow style="--glow-a:#bdeef2;--glow-b:#e3f7f9"><div class="wrap">
+  <a class="back" href="../../../index.html#cat-ux">← Volver</a>
+  <div class="hero__grid">
+    <div>
+      <p class="label">Proyecto UX/UI · Mobile App</p>
+      <h1 data-blur-title>Regioo</h1>
+      <p class="hero__type" data-blur-subtitle>App móvil de estilo personal impulsada por IA</p>
+      <p class="hero__summary">Regioo es una experiencia móvil pensada para ayudar a los hombres a construir su estilo con mayor intención y seguridad. Combina inspiración visual, organización del clóset y recomendaciones personalizadas a través de Reggi, un asesor digital que acompaña sin imponer reglas. La propuesta parte de la idea de que vestir también es una forma de proyectar identidad.</p>
+      <dl data-reveal-stack><div data-reveal-piece><dt>Tipo</dt><dd>Mobile App</dd></div><div data-reveal-piece><dt>Rol</dt><dd>UX/UI Design · Interaction Design</dd></div><div data-reveal-piece><dt>Prototipo</dt><dd>Figma</dd></div><div data-reveal-piece><dt>Enfoque</dt><dd>Identidad · Personalización · IA</dd></div></dl>
+    </div>
+    <div class="hero__visual" aria-label="Prototipo interactivo de Regioo" data-reveal-stack>
+      <div class="phone" data-reveal-piece data-phone><img class="phone__poster" src="prototipo-inicio.webp" width="804" height="1300" alt="Pantalla inicial del prototipo de Regioo" fetchpriority="high" decoding="async"><span class="phone__cargando" role="status">Cargando prototipo…</span><iframe src="https://embed.figma.com/proto/Uvb4D0xiLBQ5HKZU6VnAQQ/Regio?node-id=69-251&amp;p=f&amp;scaling=scale-down&amp;content-scaling=fixed&amp;page-id=64%3A4&amp;starting-point-node-id=69%3A251&amp;embed-host=share" title="Prototipo interactivo de Regioo en Figma" allowfullscreen></iframe></div>
+      <a class="pill" data-reveal-piece href="https://www.figma.com/proto/Uvb4D0xiLBQ5HKZU6VnAQQ/Regio?node-id=69-251&amp;p=f&amp;t=6WFv1Kr2WzEX54pP-1&amp;scaling=scale-down&amp;content-scaling=fixed&amp;page-id=64%3A4&amp;starting-point-node-id=69%3A251" target="_blank" rel="noopener">Ver prototipo interactivo <span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+</div></header>
+
+<section class="challenge" data-cursor-glow style="--glow-a:#c9f0f3;--glow-b:#e8f8fa"><div class="wrap challenge__grid">
+  <p class="label">El reto</p>
+  <div><h2 data-blur-title>Vestirse con intención sin convertir el estilo en reglas.</h2><p class="t">Diseñar una experiencia que simplificara la decisión de qué vestir, ayudara a aprovechar mejor las prendas existentes y ofreciera orientación personalizada sin convertir la moda en un conjunto rígido de reglas.</p></div>
+</div></section>
+
+<section class="experience" aria-labelledby="exp-t"><div class="wrap">
+  <div class="heading"><p class="label">Experiencia</p><h2 id="exp-t" data-blur-title>Cuatro espacios para construir el estilo personal.</h2></div>
+  <div class="exp" data-reveal-stack>
+    <article data-reveal-piece><span>01</span><div><h3>Bitácora</h3><strong>Motor de inspiración visual.</strong><p>Permite explorar estilos, guardar referencias, organizar tableros y construir looks propios.</p></div></article>
+    <article data-reveal-piece><span>02</span><div><h3>Ropero inteligente</h3><strong>Tu clóset, pero optimizado.</strong><p>Permite registrar y clasificar prendas para crear combinaciones y aprovechar mejor lo que el usuario ya tiene.</p></div></article>
+    <article data-reveal-piece><span>03</span><div><h3>Reggi</h3><strong>Tu asesor digital impulsado por IA.</strong><p>Ofrece recomendaciones personalizadas considerando estilo, cuerpo, contexto y ocasión, acompañando al usuario sin imponer reglas.</p></div></article>
+    <article data-reveal-piece><span>04</span><div><h3>Perfil</h3><strong>Tu espacio para proyectar quién eres.</strong><p>Reúne looks, preferencias y evolución de estilo en un espacio orientado a construir identidad, no competencia.</p></div></article>
+  </div>
+  <p class="note">Una experiencia móvil para vestir con más claridad y confianza.</p>
+</div></section>
+
+<section class="ds" aria-labelledby="ds-t" data-cursor-glow style="--glow-a:#b6e9ee;--glow-b:#dcf4f7"><div class="wrap">
+  <div class="heading"><p class="label">Sistema de diseño</p><h2 id="ds-t" data-blur-title>Pocas piezas, claras y siempre iguales.</h2><p class="ds__intro">Un conjunto pequeño de colores, tipografía y componentes que hace que cada pantalla de Regioo se sienta tranquila y fácil de usar.</p></div>
+  <div class="ds__base">
+    <div class="card"><p class="label">Color</p><h3>Verde azulado y aire</h3><p>Un tono principal sereno, con claros suaves para dar espacio.</p>
+      <div class="sw"><div><i style="background:#087f8c"></i><span>#087F8C</span></div><div><i style="background:#075d68"></i><span>#075D68</span></div><div><i style="background:#22a8b4"></i><span>#22A8B4</span></div><div><i style="background:#d9f1f4"></i><span>#D9F1F4</span></div><div><i style="background:#eef9fa"></i><span>#EEF9FA</span></div></div></div>
+    <div class="card"><p class="label">Tipografía</p><h3>Poppins</h3><p>Redonda y amable, con pesos que ordenan títulos, subtítulos y texto.</p>
+      <div class="type"><b>Aa</b><span>Títulos en semibold · texto en regular</span></div></div>
+  </div>
+  <div class="ds__grid" data-reveal-stack>
+    <div class="card" data-reveal-piece><p class="label">01 · Botones</p><h3>Tres tamaños, tres estados</h3><p>Grande, mediano y pequeño. Activo, contorno y desactivado.</p>
+      <div class="demo"><div class="row"><small>Grande</small><button class="btn" type="button">Continuar</button><button class="btn btn--line" type="button">Omitir</button><button class="btn btn--off" type="button">Continuar</button></div>
+      <div class="row"><small>Mediano</small><button class="btn btn--m" type="button">Guardar</button><button class="btn btn--m btn--line" type="button">Omitir</button></div>
+      <div class="row"><small>Pequeño</small><button class="btn btn--s" type="button">Listo</button><button class="btn btn--s btn--off" type="button">Listo</button></div></div></div>
+    <div class="card" data-reveal-piece><p class="label">02 · Controles</p><h3>Elegir sin pensar</h3><p>Casillas, opciones y interruptores con estados claros.</p>
+      <div class="demo"><div class="ctl"><div><span class="chk"></span>Inactivo</div><div><span class="chk on"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span>Activo</div><div><span class="rad"></span>Opción</div><div><span class="rad on"></span>Elegida</div><div><span class="sw2"></span>Apagado</div><div><span class="sw2 on"></span>Encendido</div></div></div></div>
+    <div class="card" data-reveal-piece><p class="label">03 · Navegación</p><h3>Tres lugares, siempre a la mano</h3><p>Home, Ropero y Perfil en una barra fija abajo.</p>
+      <div class="demo"><nav class="nav" aria-label="Ejemplo de barra de navegación"><a href="#" onclick="return false"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8M5 10v10h5v-6h4v6h5V10"/></svg>Home</a><a class="off" href="#" onclick="return false"><svg viewBox="0 0 24 24"><path d="M12 7a2 2 0 1 0-2-2M12 7v3l9 6a1.4 1.4 0 0 1-.8 2.6H3.8A1.4 1.4 0 0 1 3 16l9-6"/></svg>Ropero</a><a class="off" href="#" onclick="return false"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg>Perfil</a></nav></div></div>
+    <div class="card" data-reveal-piece><p class="label">04 · Pop-ups</p><h3>Reggi te acompaña</h3><p>Mensajes cortos con el personaje, para celebrar o avisar con calma.</p>
+      <div class="demo"><div class="pops"><div class="pop"><img src="reggi.webp" alt="Reggi, el asesor de estilo de Regioo"><b>¡Woo hoo!</b><p>Tu look quedó guardado.</p><button class="btn btn--s" type="button">Continuar</button></div><div class="pop"><img src="reggi.webp" alt="Reggi, el asesor de estilo de Regioo"><b>Uh oh.</b><p>Falta un dato para seguir.</p><button class="btn btn--s" type="button">Continuar</button></div></div></div></div>
+  </div>
+</div></section>
+
+<footer class="close"><div class="wrap"><p data-blur-title>Construyamos algo que importe.</p><a href="../../../index.html#cat-ux">← Volver al portafolio</a></div></footer>
+</article>
+<script>
+(function(){
+  var reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var titles=document.querySelectorAll("[data-blur-title],[data-blur-subtitle]"), stacks=document.querySelectorAll("[data-reveal-stack]");
+  function split(root){var i=0;(function walk(n){Array.prototype.slice.call(n.childNodes).forEach(function(c){
+    if(c.nodeType===3){var t=c.textContent||"";if(!t.trim())return;var f=document.createDocumentFragment();
+      t.split(/(\s+)/).forEach(function(part){if(!part)return;if(/^\s+$/.test(part)){f.append(document.createTextNode(" "));return}
+        var w=document.createElement("bw-word");w.textContent=part;w.style.setProperty("--bw-i",String(i++));f.append(w)});c.replaceWith(f)}
+    else if(c.nodeType===1&&c.nodeName!=="BW-WORD"&&c.nodeName!=="BR")walk(c)})})(root)}
+  var watched=[];
+  function watch(els,ready,inn,th){
+    var enter=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)e.target.classList.add(inn)})},{threshold:th,rootMargin:"0px 0px -12% 0px"});
+    var exit=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)e.target.classList.remove(inn)})},{threshold:0});
+    els.forEach(function(el){el.classList.add(ready);enter.observe(el);exit.observe(el);watched.push([el,inn])})}
+  function revealAtEnd(){if(innerHeight+scrollY<document.documentElement.scrollHeight-4)return;
+    watched.forEach(function(w){var b=w[0].getBoundingClientRect();if(b.width&&b.top<innerHeight&&b.bottom>0)w[0].classList.add(w[1])})}
+  if(!reduce&&"IntersectionObserver" in window){
+    titles.forEach(split);watch(Array.prototype.slice.call(titles),"bw-ready","bw-in",.3);
+    stacks.forEach(function(s){s.querySelectorAll("[data-reveal-piece]").forEach(function(p,i){p.style.setProperty("--rp-i",String(i))})});
+    watch(Array.prototype.slice.call(stacks),"rv-ready","rv-in",.2);
+    addEventListener("scroll",revealAtEnd,{passive:true});addEventListener("resize",revealAtEnd,{passive:true});revealAtEnd();
+    if(matchMedia("(hover: hover) and (pointer: fine)").matches){
+      document.querySelectorAll("[data-cursor-glow]").forEach(function(g){
+        var l=document.createElement("span");l.className="cursor-light";l.setAttribute("aria-hidden","true");g.append(l);var fr=0;
+        g.addEventListener("pointermove",function(e){cancelAnimationFrame(fr);fr=requestAnimationFrame(function(){var b=g.getBoundingClientRect();g.style.setProperty("--cx",(e.clientX-b.left).toFixed(1)+"px");g.style.setProperty("--cy",(e.clientY-b.top).toFixed(1)+"px");g.classList.add("is-lit")})});
+        g.addEventListener("pointerleave",function(){cancelAnimationFrame(fr);g.classList.remove("is-lit")})})}}
+})();
+</script>
+<script>
+/* el prototipo de Figma empieza a cargar al instante; mientras tanto se ve su pantalla inicial */
+(function(){var ph=document.querySelector("[data-phone]");if(!ph)return;var f=ph.querySelector("iframe"),ok=false;
+function listo(){if(ok)return;ok=true;ph.classList.add("listo")}
+f.addEventListener("load",function(){setTimeout(listo,700)});
+setTimeout(listo,12000);})();
+</script>
+</body>
+</html>

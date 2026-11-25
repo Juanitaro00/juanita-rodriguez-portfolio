@@ -1,0 +1,553 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Entrecruzados</title>
+<meta name="description" content="Caso de estudio de Entrecruzados, stand inmersivo para la Cruz Roja Bogotá.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: campaña de evento. Póster en el hero, cinta de hashtag, historias 9:16 para el recorrido, feed cuadrado para el día del evento y créditos al cierre. */
+:root{
+  --cobalto:#1c56b8;
+  --noche:#0d2552;
+  --rojo:#d3242f;
+  --rojo-vivo:#ff3d4a;
+  --hielo:#eef3fb;
+  --celeste:#cddff6;
+  --rubor:#f6dbe3;
+  --blanco:#ffffff;
+  --tinta:#0f1d3a;
+  --tinta-suave:#4a5872;
+  --linea:#d6e0ef;
+  --display:"Bricolage Grotesque","Arial Narrow",Impact,sans-serif;
+  --texto:"Figtree","Helvetica Neue",Arial,sans-serif;
+  --mono:"DM Mono",ui-monospace,Menlo,monospace;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--hielo);color:var(--tinta);font-family:var(--texto);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:3px solid var(--rojo);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1180px;margin-inline:auto;padding-inline:clamp(16px,4vw,40px)}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+h1,h2,h3{font-family:var(--display);margin:0;text-wrap:balance}
+h2{font-size:clamp(34px,5.4vw,64px);line-height:.95;font-weight:800;font-stretch:80%;letter-spacing:-.01em;text-transform:uppercase}
+p{margin:0}
+.lead{font-size:clamp(18px,1.9vw,21px);line-height:1.55;max-width:60ch}
+section{padding-block:clamp(64px,9vw,112px)}
+.sec-head{display:flex;flex-wrap:wrap;gap:16px 40px;align-items:flex-end;justify-content:space-between;margin-bottom:40px}
+.sec-head .lead{color:var(--tinta-suave);max-width:46ch;font-size:17px}
+
+/* NAV */
+.top{background:var(--cobalto);color:var(--blanco)}
+.top .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between;align-items:center;padding-block:14px}
+.top a{text-decoration:none;font-weight:600;font-size:14px;padding-block:8px}
+
+/* HERO */
+.hero{background:var(--cobalto);color:var(--blanco);padding-block:clamp(32px,5vw,56px) 0;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(28px,4vw,56px);align-items:end}
+.hero-copy{display:flex;flex-direction:column;gap:22px;padding-bottom:clamp(32px,5vw,64px);min-width:0}
+.hero h1{font-size:clamp(56px,11vw,150px);line-height:.82;font-weight:800;font-stretch:75%;letter-spacing:-.02em;text-transform:uppercase}
+.hero h1 span{display:block}
+.hero h1 .cruz{color:var(--rubor);animation:latido 3.2s ease-in-out infinite}
+@keyframes latido{
+  0%,100%{color:var(--rubor)}
+  50%{color:var(--rojo-vivo)}
+}
+@media (prefers-reduced-motion:reduce){.hero h1 .cruz{animation:none}}
+.hero .tagline{font-family:var(--display);font-size:clamp(22px,2.6vw,30px);font-weight:500;font-stretch:90%;line-height:1.15}
+.hero .lead{color:var(--celeste)}
+.ticket{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));background:var(--blanco);color:var(--tinta);border-radius:14px;overflow:hidden;max-width:560px;position:relative}
+.ticket div{padding:14px 16px;display:flex;flex-direction:column;gap:2px;border-right:1.5px dashed var(--linea)}
+.ticket div:last-child{border-right:0}
+.ticket .mono{color:var(--tinta-suave);font-size:10.5px}
+.ticket strong{font-family:var(--display);font-size:17px;line-height:1.15;font-weight:700}
+.hero-media{position:relative;align-self:stretch;min-height:420px}
+.hero-media .foto{position:absolute;inset:0 0 0 0;border-radius:24px 24px 0 0;overflow:hidden}
+.hero-media .foto img{width:100%;height:100%;object-fit:cover}
+.sticker{position:absolute;font-family:var(--display);font-weight:800;font-stretch:85%;background:var(--rojo);color:var(--blanco);padding:10px 18px;border-radius:12px;font-size:clamp(20px,2.4vw,28px);box-shadow:0 12px 26px rgba(13,37,82,.35);transform:rotate(-7deg);top:22px;left:-18px;z-index:2}
+.sello{position:absolute;right:18px;bottom:18px;z-index:2;width:112px;height:112px;border-radius:50%;background:var(--blanco);color:var(--cobalto);display:grid;place-items:center;text-align:center;font-family:var(--display);font-weight:800;font-stretch:80%;line-height:1;font-size:15px;text-transform:uppercase;transform:rotate(9deg);box-shadow:0 10px 24px rgba(13,37,82,.3)}
+.sello b{display:block;font-size:38px;color:var(--rojo)}
+
+/* MARQUEE */
+.cinta{background:var(--rojo);color:var(--blanco);overflow:hidden;white-space:nowrap;border-block:2px solid var(--noche)}
+.cinta-track{display:inline-flex;gap:36px;padding-block:14px;animation:corre 32s linear infinite;font-family:var(--display);font-weight:700;font-stretch:80%;font-size:clamp(20px,2.4vw,28px);text-transform:uppercase}
+.cinta-track span{display:inline-flex;align-items:center;gap:36px}
+.cinta-track span::after{content:"";width:16px;height:16px;background:var(--blanco);clip-path:polygon(33% 0,67% 0,67% 33%,100% 33%,100% 67%,67% 67%,67% 100%,33% 100%,33% 67%,0 67%,0 33%,33% 33%)}
+@keyframes corre{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.cinta-track{animation:none}}
+
+/* BRIEF */
+h2.azul{color:var(--cobalto)}
+.brief-head{display:flex;flex-direction:column;gap:18px;margin-bottom:40px}
+.brief-head .lead{color:var(--tinta-suave);max-width:none;font-size:18px}
+.brief{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.brief article{background:var(--blanco);border-radius:20px;padding:30px 28px 32px;display:flex;flex-direction:column;gap:14px;min-width:0;box-shadow:0 2px 8px rgba(13,37,82,.05);transition:transform .25s ease,box-shadow .25s ease}
+.brief article:hover{transform:translateY(-6px);box-shadow:0 22px 44px rgba(13,37,82,.16)}
+.brief .mono{color:var(--rojo)}
+.brief h3{font-size:28px;line-height:1;min-height:2em;font-weight:800;font-stretch:80%;text-transform:uppercase;color:var(--cobalto);overflow-wrap:anywhere}
+.brief p{color:var(--tinta-suave);font-size:15.5px}
+@media (prefers-reduced-motion:reduce){.brief article{transition:none}.brief article:hover{transform:none}}
+
+/* STORIES */
+.historias{background:var(--noche);color:var(--blanco)}
+.historias .sec-head .lead{color:var(--celeste)}
+.leyenda{display:flex;flex-wrap:wrap;gap:8px}
+.zona{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:5px 10px;border-radius:999px;font-weight:500;white-space:nowrap}
+.z-caliente{background:var(--rojo);color:var(--blanco)}
+.z-fria{background:var(--celeste);color:var(--noche)}
+.z-trans{background:var(--blanco);color:var(--noche)}
+.carrusel{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 4px 22px;scrollbar-color:var(--cobalto) transparent}
+.story{flex:0 0 clamp(230px,24vw,270px);max-width:100%;border-radius:20px;overflow:hidden;scroll-snap-align:start;background:var(--blanco);color:var(--tinta);display:flex;flex-direction:column;box-shadow:0 18px 40px rgba(0,0,0,.3)}
+.story-img{position:relative;aspect-ratio:4/5;background:var(--celeste)}
+.story-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.story .barras{position:absolute;top:10px;left:10px;right:10px;display:flex;gap:4px;z-index:2}
+.story .barras i{flex:1;height:3px;border-radius:2px;background:rgba(255,255,255,.45);box-shadow:0 1px 3px rgba(0,0,0,.25)}
+.story .barras i.on{background:var(--blanco)}
+.story .pie{padding:18px 18px 22px;display:flex;flex-direction:column;gap:8px;flex:1}
+.story .num{font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--rojo);text-transform:uppercase}
+.story h3{font-size:24px;line-height:1;font-weight:800;font-stretch:80%;text-transform:uppercase;color:var(--cobalto)}
+.story p{font-size:14px;line-height:1.5;color:var(--tinta-suave)}
+.story.clima{box-shadow:0 0 0 4px var(--rojo),0 18px 40px rgba(0,0,0,.3)}
+
+/* MOMENTO */
+.momento{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,4vw,56px);align-items:center}
+.momento .cita{font-family:var(--display);font-size:clamp(36px,5vw,60px);line-height:.98;font-weight:800;font-stretch:80%;text-transform:uppercase;color:var(--cobalto)}
+.momento .cita em{font-style:normal;color:var(--rojo)}
+.momento-copy{display:flex;flex-direction:column;gap:22px;min-width:0}
+.momento-copy p{color:var(--tinta-suave)}
+.en-stand{margin:0;display:flex;flex-direction:column;gap:8px;min-width:0}
+.en-stand img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:18px}
+.videos{grid-column:1/-1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.videos figure{margin:0;display:flex;flex-direction:column;gap:10px;min-width:0}
+.video-box{position:relative;border-radius:18px;overflow:hidden;background:var(--noche);aspect-ratio:16/9;max-width:100%}
+.video-box video{display:block;width:100%;height:100%;object-fit:cover}
+.etq{position:absolute;top:12px;left:12px;z-index:2;font-family:var(--display);font-weight:800;font-stretch:85%;text-transform:uppercase;font-size:16px;background:var(--blanco);color:var(--noche);padding:5px 12px;border-radius:8px}
+.etq.rojo{background:var(--rojo);color:var(--blanco)}
+figcaption{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--tinta-suave)}
+
+/* PIEZAS */
+.piezas-sec{background:var(--blanco)}
+.piezas{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.pieza{display:flex;flex-direction:column;gap:12px;min-width:0}
+.pieza img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:16px;background:var(--hielo)}
+.pieza h3{font-size:22px;font-weight:800;font-stretch:85%;text-transform:uppercase;line-height:1}
+.pieza p{font-size:14.5px;color:var(--tinta-suave)}
+.pieza .mono{color:var(--rojo)}
+
+/* FEED */
+.feed-grid{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:clamp(24px,4vw,48px);align-items:stretch}
+.feed{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+.feed img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:6px}
+.post{background:var(--blanco);border-radius:22px;padding:22px;display:flex;flex-direction:column;gap:16px;min-width:0}
+.phone-wrap{position:relative;flex:1 1 0;min-height:240px}
+.phone-wrap img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 14px 24px rgba(13,37,82,.2))}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;text-align:center}
+.stats div{background:var(--hielo);border-radius:12px;padding:10px 6px}
+.stats strong{display:block;font-family:var(--display);font-size:28px;font-weight:800;color:var(--cobalto);font-variant-numeric:tabular-nums;line-height:1.1}
+.stats span{font-size:12px;color:var(--tinta-suave)}
+.nota{font-size:12px;color:var(--tinta-suave)}
+.montaje-sec{padding-bottom:clamp(48px,7vw,88px)}
+.montaje-head{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:flex-end;margin-bottom:32px}
+.flechas{display:flex;gap:10px}
+.flecha{display:grid;place-items:center;width:48px;height:48px;border-radius:50%;border:2px solid var(--cobalto);background:transparent;color:var(--cobalto);font-size:20px;cursor:pointer;transition:background .2s,color .2s}
+.flecha:hover{background:var(--cobalto);color:var(--blanco)}
+.galeria{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:max(16px,calc((100vw - 1180px)/2 + 40px));padding-inline:max(16px,calc((100vw - 1180px)/2 + 40px));padding-bottom:14px;scrollbar-color:var(--cobalto) transparent;scroll-behavior:smooth}
+.galeria img{height:clamp(300px,42vw,520px);width:auto;max-width:none;flex:none;border-radius:18px;scroll-snap-align:start;object-fit:cover}
+@media (prefers-reduced-motion:reduce){.galeria{scroll-behavior:auto}}
+@media (max-width:600px){.galeria img{height:auto;width:82vw;aspect-ratio:4/5}}
+.muro-head{margin-top:72px;margin-bottom:24px;display:flex;flex-wrap:wrap;gap:12px 40px;align-items:flex-end;justify-content:space-between}
+.muro-head h3{font-size:clamp(30px,4vw,48px);line-height:1;font-weight:800;font-stretch:80%;text-transform:uppercase;color:var(--rojo)}
+.muro-head h3 span{color:var(--cobalto)}
+.muro-head p{color:var(--tinta-suave);max-width:46ch}
+.muro{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:8px}
+.muro img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:10px;transition:transform .25s ease}
+.muro img:hover{transform:scale(1.04) rotate(-1.5deg)}
+@media (prefers-reduced-motion:reduce){.muro img{transition:none}.muro img:hover{transform:none}}
+
+/* RESULTADOS */
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.kpi{border-top:4px solid var(--cobalto);padding-top:14px;display:flex;flex-direction:column;gap:4px}
+.kpi strong{font-family:var(--display);font-size:clamp(44px,5vw,64px);line-height:1;font-weight:800;font-stretch:80%;color:var(--cobalto);font-variant-numeric:tabular-nums}
+.kpi span{color:var(--tinta-suave);font-size:15px}
+.kpi.real{border-top-color:var(--rojo)}
+.kpi.real strong{color:var(--rojo)}
+.aprendizaje{margin-top:48px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:24px 48px;align-items:start}
+.aprendizaje h3{font-size:30px;font-weight:800;font-stretch:85%;text-transform:uppercase}
+.aprendizaje p{color:var(--tinta-suave);max-width:62ch;font-size:17px}
+.aprendizaje-texto{display:flex;flex-direction:column;gap:16px;min-width:0}
+.lecciones{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.lecciones li{display:flex;flex-direction:column;gap:6px;padding-top:14px;border-top:3px solid var(--cobalto);min-width:0}
+.lecciones strong{font-family:var(--display);font-size:20px;line-height:1.1;font-weight:800;font-stretch:85%;color:var(--cobalto);text-transform:uppercase}
+.lecciones span{color:var(--tinta-suave);font-size:15px}
+.zoom{all:unset;display:block;box-sizing:border-box;position:relative;flex:1 1 0;min-height:240px;cursor:zoom-in;border-radius:12px}
+.zoom:focus-visible{outline:3px solid var(--rojo);outline-offset:3px}
+.zoom .lupa{position:absolute;right:8px;bottom:8px;width:38px;height:38px;border-radius:50%;background:var(--cobalto);color:var(--blanco);display:grid;place-items:center;box-shadow:0 6px 14px rgba(13,37,82,.3)}
+.visor{border:0;padding:0;background:transparent;max-width:none;max-height:none;width:100%;height:100%;overflow:hidden}
+.visor::backdrop{background:rgba(13,37,82,.85)}
+.visor[open]{display:grid;place-items:center}
+.visor img{max-width:min(92vw,560px);max-height:90vh;width:auto;height:auto;border-radius:18px;box-shadow:0 20px 60px rgba(0,0,0,.45)}
+.visor .cerrar{position:fixed;top:calc(env(safe-area-inset-top,0px) + 16px);right:16px;width:48px;height:48px;border-radius:50%;border:0;background:var(--blanco);color:var(--noche);font-size:26px;line-height:1;cursor:pointer;display:grid;place-items:center}
+.visor .cerrar:focus-visible{outline:3px solid var(--rojo);outline-offset:3px}
+
+/* CRÉDITOS */
+.creditos{background:var(--cobalto);color:var(--blanco)}
+.creditos-top{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr) minmax(0,1.3fr);gap:32px 48px}
+.creditos .mono{color:var(--celeste);display:block;margin-bottom:12px}
+.creditos p.grande{font-family:var(--display);font-size:clamp(20px,2vw,24px);line-height:1.1;font-weight:700;font-stretch:85%}
+.lista{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;font-size:16px}
+.lista strong{font-weight:700}
+.herramientas li{display:flex;flex-wrap:wrap;gap:2px 12px;align-items:baseline;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,.2)}
+.herramientas span{color:var(--celeste);font-size:14px}
+.equipo{margin-top:48px;padding-top:28px;border-top:1px solid rgba(255,255,255,.25)}
+.equipo-lista{list-style:none;margin:0;padding:0;columns:4;column-gap:32px;font-size:16px;line-height:2}
+.equipo-lista li{break-inside:avoid}
+.equipo-lista li:first-child{font-weight:700}
+.cierre{display:flex;flex-wrap:wrap;gap:12px;justify-content:flex-end;align-items:center;margin-top:56px;padding-top:24px;border-top:1px solid rgba(255,255,255,.25)}
+.cierre a{text-decoration:none;font-weight:600;padding:10px 0}
+.cierre a.sig{background:var(--blanco);color:var(--cobalto);padding:12px 20px;border-radius:999px}
+
+@media (max-width:900px){
+  .hero-grid,.momento,.feed-grid,.aprendizaje{grid-template-columns:minmax(0,1fr)}
+  .hero-media{min-height:320px;aspect-ratio:4/3}
+  .brief{grid-template-columns:minmax(0,1fr)}
+  .piezas,.kpis,.creditos-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .phone-wrap{flex:none;aspect-ratio:508/1100;width:min(280px,100%);margin-inline:auto;min-height:0}
+  .creditos-top{grid-template-columns:minmax(0,1fr)}
+  .equipo-lista{columns:2}
+  .muro{grid-template-columns:repeat(4,minmax(0,1fr))}
+}
+@media (max-width:600px){
+  .videos{grid-template-columns:minmax(0,1fr)}
+  .lecciones{grid-template-columns:minmax(0,1fr)}
+  .muro{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media (max-width:480px){
+  .ticket{grid-template-columns:minmax(0,1fr)}
+  .ticket div{border-right:0;border-bottom:1.5px dashed var(--linea)}
+  .ticket div:last-child{border-bottom:0}
+  .piezas{grid-template-columns:minmax(0,1fr)}
+  .sticker{left:8px}
+}
+</style>
+
+</head>
+<body>
+<nav class="top" aria-label="Portafolio">
+  <div class="wrap">
+    <a href="../../../index.html#cat-cont">← Volver</a>
+    <span class="mono">Caso de estudio · Montaje de escenario</span>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="mono" style="color:var(--celeste)">Cruz Roja Colombiana · Seccional Cundinamarca y Bogotá</span>
+      <h1><span>Entre</span><span class="cruz">cruza</span><span>dos</span></h1>
+      <p class="tagline">Estar en el lugar para ayudar</p>
+      <p class="lead">Un stand inmersivo de donación que convirtió a cada visitante en protagonista. Once estaciones, doce minutos y una moneda que transforma la realidad.</p>
+      <div class="ticket" role="list">
+        <div role="listitem"><span class="mono">Evento</span><strong>Código VIDA</strong></div>
+        <div role="listitem"><span class="mono">Lugar</span><strong>Universidad Sergio Arboleda</strong></div>
+        <div role="listitem"><span class="mono">Formato</span><strong>Stand 3 × 6 m</strong></div>
+      </div>
+    </div>
+    <div class="hero-media">
+      <div class="sticker">#TuAyudaSuma</div>
+      <div class="foto"><img src="img/aerea.jpg" alt="Vista aérea del stand Entrecruzados con el túnel azul y el público alrededor"></div>
+      <div class="sello"><span><b>11</b>estaciones</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="cinta" aria-hidden="true">
+  <div class="cinta-track">
+    <span>#TuAyudaSuma</span><span>Estar en el lugar para ayudar</span><span>Cruz Roja Bogotá</span><span>Siempre donde más se necesita</span><span>Código VIDA</span>
+    <span>#TuAyudaSuma</span><span>Estar en el lugar para ayudar</span><span>Cruz Roja Bogotá</span><span>Siempre donde más se necesita</span><span>Código VIDA</span>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="brief-head">
+      <h2 class="azul">Brief de campaña</h2>
+      <p class="lead">El proyecto se construyó entre cinco grupos de la carrera, de Diseño Interactivo, Videojuegos 2D y 3D, Comunicaciones y Diseño Sostenible. Nuestro grupo diseñó el recorrido completo.</p>
+    </div>
+    <div class="brief">
+      <article>
+        <span class="mono">El reto</span>
+        <h3>De espectador a protagonista</h3>
+        <p>Un stand de donación suele pedirle dinero a alguien que solo está mirando. La Cruz Roja necesitaba que la gente entendiera desde adentro lo que significa ayudar y que donar fuera el punto más alto de la experiencia.</p>
+      </article>
+      <article>
+        <span class="mono">El concepto</span>
+        <h3>Estar en el lugar para ayudar</h3>
+        <p>Más que imaginar la vida del otro, el visitante entra al stand y conoce historias reales que los donantes de la Cruz Roja ayudaron a cambiar con distintas formas de ayuda.</p>
+      </article>
+      <article>
+        <span class="mono">El mensaje</span>
+        <h3 style="text-transform:none">#TuAyudaSuma</h3>
+        <p>Un hashtag corto para carteles, fotos y redes, que repite la idea central en cada punto de contacto del stand.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="historias">
+  <div class="wrap">
+    <div class="sec-head">
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <span class="mono" style="color:var(--celeste)">Recorrido</span>
+        <h2>La experiencia<br>en historias</h2>
+      </div>
+      <p class="lead">Diseñamos un recorrido con sentido para que el visitante pase por distintas emociones. Primero se pone en contexto, luego conoce historias reales, juega y explora, y al final dona y se lleva un recuerdo de lo que vivió.</p>
+    </div>
+
+    <div class="carrusel" tabindex="0" aria-label="Estaciones del recorrido, desliza para ver más">
+      <article class="story">
+        <div class="story-img"><img src="img/botas.jpg" alt="Botas frente a la pantalla del video de bienvenida"><div class="barras"><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+        <div class="pie"><span class="num">Estación 01</span><h3>Botas y video</h3><p>El visitante se pone las botas y un video de 20 segundos lo pone en contexto.</p></div>
+      </article>
+      <article class="story">
+        <div class="story-img"><img src="img/tunel-fotocards.jpg" alt="Interior del túnel con fotocards y luces"><div class="barras"><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div></div>
+        <div class="pie"><span class="num">Estación 03</span><h3>Túnel de historias</h3><p>Un universo de historias reales que cambiaron gracias a los donantes de la Cruz Roja, contadas en fotocards entre luces cálidas.</p></div>
+      </article>
+      <article class="story">
+        <div class="story-img"><img src="img/videojuego.jpg" alt="Mesa del Mundo Virtual con el videojuego Wild Pulse y gafas de realidad virtual" style="object-position:62% 50%"><div class="barras"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i></div></div>
+        <div class="pie"><span class="num">Estaciones 05 y 06</span><h3>Mundo virtual</h3><p>Un runner en 2D, una aldea en 3D y un museo en realidad virtual.</p></div>
+      </article>
+      <article class="story clima">
+        <div class="story-img"><img src="img/alcancia.jpg" alt="Alcancía Dona Aquí junto al proyector"><div class="barras"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i></div></div>
+        <div class="pie"><span class="num">Estación 07 · Clímax</span><h3>Alcancía y mapping</h3><p>Una experiencia de mapping que cambia la historia proyectada cuando el visitante deposita su moneda. Su aporte, de forma simbólica, también cambia una historia real.</p></div>
+      </article>
+      <article class="story">
+        <div class="story-img"><img src="img/manilla.jpg" alt="Manilla roja con tarjeta de la Cruz Roja Bogotá"><div class="barras"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div></div>
+        <div class="pie"><span class="num">Estación 08</span><h3>La manilla</h3><p>Un recuerdo con mensajes distintos que le confirman al visitante que su ayuda cambia historias.</p></div>
+      </article>
+      <article class="story">
+        <div class="story-img"><img src="img/mural.jpg" alt="Mural del donante con fotos de los visitantes"><div class="barras"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div></div>
+        <div class="pie"><span class="num">Estación 09</span><h3>Mural del donante</h3><p>Su foto se queda en el mural como señal de que ahora hace parte de la comunidad de donantes y dejó su huella.</p></div>
+      </article>
+      <article class="story">
+        <div class="story-img"><img src="img/gachapon.jpg" alt="Gachapón de la Cruz Roja con cápsulas"><div class="barras"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div></div>
+        <div class="pie"><span class="num">Estación 11</span><h3>Gachapón y salida</h3><p>Cápsulas con figuras en realidad aumentada y una planta para sembrar, para que la ayuda siga creciendo después del stand.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap momento">
+    <div class="momento-copy">
+      <span class="mono" style="color:var(--rojo)">El momento clave · Video mapping</span>
+      <p class="cita">Una moneda que <em>transforma</em> la realidad</p>
+      <p>El visitante deposita su moneda en la alcancía y eso dispara un video mapping hecho en MadMapper. La proyección pasa de mostrar tres causas a mostrar su transformación, con música orquestal que entra un segundo después del sonido de la moneda.</p>
+      <p>Los videos se generaron con inteligencia artificial en Google Veo.</p>
+    </div>
+    <figure class="en-stand">
+      <img src="img/proyeccion.jpg" alt="Proyección sobre el muro con el texto Transforma la realidad">
+      <figcaption>La proyección en el stand</figcaption>
+    </figure>
+    <div class="videos">
+      <figure>
+        <div class="video-box"><span class="etq">Antes</span><video src="video/mapping-antes.mp4" poster="video/poster-antes.jpg" autoplay muted loop playsinline controls preload="metadata" aria-label="Video del mapping antes de la donación"></video></div>
+        <figcaption>Antes de la moneda. Las tres causas en loop.</figcaption>
+      </figure>
+      <figure>
+        <div class="video-box"><span class="etq rojo">Después</span><video src="video/mapping-despues.mp4" poster="video/poster-despues.jpg" autoplay muted loop playsinline controls preload="metadata" aria-label="Video del mapping después de la donación"></video></div>
+        <figcaption>Después de la moneda. La transformación.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="piezas-sec">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Piezas de<br>la campaña</h2>
+      <p class="lead">Cada objeto del stand lleva el mensaje. Son piezas pensadas para tocarse, llevarse a casa y fotografiarse.</p>
+    </div>
+    <div class="piezas">
+      <div class="pieza"><img src="img/manilla.jpg" alt="Manilla roja con tarjeta escrita a mano"><span class="mono">Souvenir</span><h3>Manilla</h3><p>Hilo rojo con cruz y una tarjeta escrita a mano.</p></div>
+      <div class="pieza"><img src="img/gachapon.jpg" alt="Gachapón con cápsulas de la Cruz Roja"><span class="mono">Activación</span><h3>Gachapón</h3><p>Cápsulas con figuras en realidad aumentada y una planta para sembrar.</p></div>
+      <div class="pieza"><img src="img/mural.jpg" alt="Mural del donante con fotos"><span class="mono">Contenido generado por el público</span><h3>Mural del donante</h3><p>Las fotos de los visitantes se vuelven parte del stand.</p></div>
+      <div class="pieza"><img src="img/huellas.jpg" alt="Huellas azules en el piso del stand"><span class="mono">Señalética</span><h3>Huellas y banner</h3><p>Huellas en el piso que marcan el camino de entrada a salida.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>El día<br>del evento</h2>
+      <p class="lead">Estudiantes, docentes y directivos recorrieron el stand durante Código VIDA, y la campaña siguió en redes.</p>
+    </div>
+    <div class="feed-grid">
+      <div class="feed">
+        <img src="img/visitantes.jpg" alt="Visitantes recorriendo el stand con el equipo">
+        <img src="img/concepto.jpg" alt="Visitante con el cartel #TuAyudaSuma">
+        <img src="img/publico.jpg" alt="Público en el recorrido">
+        <img src="img/mascota.jpg" alt="Mascota de la universidad con el cartel #TuAyudaSuma">
+        <img src="img/jugando.jpg" alt="Visitantes jugando en los computadores">
+        <img src="img/muro/p15.jpg" alt="Visitante con el cartel #TuAyudaSuma">
+        <img src="img/tunel-frontal.jpg" alt="Frente del túnel con mariposas y cruces">
+        <img src="img/detalle.jpg" alt="Panel con el letrero Entrecruzados">
+        <img src="img/equipo.jpg" alt="El equipo del stand">
+      </div>
+      <aside class="post">
+        <span class="mono" style="color:var(--rojo)">Difusión · @comunica_usa</span>
+        <button type="button" class="zoom phone-wrap" id="abrir-post" aria-label="Ampliar la publicación de Instagram"><img src="img/instagram.jpg" alt="Publicación de Comunicaciones USA en Instagram sobre Código VIDA"><span class="lupa" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="M15.5 15.5L21 21M10.5 7.5v6M7.5 10.5h6"></path></svg></span></button>
+        <div class="stats">
+          <div><strong>135</strong><span>me gusta</span></div>
+          <div><strong>5</strong><span>reposts</span></div>
+          <div><strong>15</strong><span>envíos</span></div>
+        </div>
+        <p class="nota">Comunicaciones de la Universidad Sergio Arboleda compartió el stand como parte de los primeros momentos de Código VIDA. Cifras al momento de la captura.</p>
+      </aside>
+    </div>
+
+    <div class="muro-head">
+      <h3><span>Muro</span> #TuAyudaSuma</h3>
+      <p>Estudiantes, docentes y directivos posaron con el cartel de la campaña a la salida del recorrido.</p>
+    </div>
+    <div class="muro">
+      <img src="img/muro/p01.jpg" alt="Visitante con el cartel #TuAyudaSuma" loading="lazy">
+      <img src="img/muro/p02.jpg" alt="Visitante con el cartel #TuAyudaSuma" loading="lazy">
+      <img src="img/muro/p03.jpg" alt="Visitante con el cartel #TuAyudaSuma" loading="lazy">
+      <img src="img/muro/p04.jpg" alt="Visitante con el cartel #TuAyudaSuma" loading="lazy">
+      <img src="img/muro/p05.jpg" alt="Visitante con el cartel #TuAyudaSuma" loading="lazy">
+      <img src="img/muro/p06.jpg" alt="Visitante con el cartel #TuAyudaSuma" loading="lazy">
+      <img src="img/muro/p07.jpg" alt="Visitante con el cartel #TuAyudaSuma" loading="lazy">
+      <img src="img/muro/p08.jpg" alt="Visitante con el cartel #TuAyudaSuma" loading="lazy">
+      <img src="img/muro/p09.jpg" alt="Visitante con el cartel #TuAyudaSuma" loading="lazy">
+      <img src="img/muro/p10.jpg" alt="Visitante con el cartel #TuAyudaSuma" loading="lazy">
+      <img src="img/muro/p11.jpg" alt="Visitante con el cartel #TuAyudaSuma" loading="lazy">
+      <img src="img/muro/p12.jpg" alt="Visitante con el cartel #TuAyudaSuma" loading="lazy">
+      <img src="img/muro/p13.jpg" alt="Visitante con el cartel #TuAyudaSuma" loading="lazy">
+      <img src="img/muro/p14.jpg" alt="Visitante con el cartel #TuAyudaSuma" loading="lazy">
+      <img src="img/muro/p15.jpg" alt="Visitante con el cartel #TuAyudaSuma" loading="lazy">
+      <img src="img/muro/p16.jpg" alt="Visitante con el cartel #TuAyudaSuma" loading="lazy">
+      <img src="img/muro/p17.jpg" alt="Visitante con el cartel #TuAyudaSuma" loading="lazy">
+      <img src="img/muro/p18.jpg" alt="Visitante con el cartel #TuAyudaSuma" loading="lazy">
+      <img src="img/muro/p19.jpg" alt="Visitante con el cartel #TuAyudaSuma" loading="lazy">
+      <img src="img/muro/p20.jpg" alt="Visitante con el cartel #TuAyudaSuma" loading="lazy">
+      <img src="img/muro/p21.jpg" alt="Visitante con el cartel #TuAyudaSuma" loading="lazy">
+      <img src="img/muro/p22.jpg" alt="Visitante con el cartel #TuAyudaSuma" loading="lazy">
+      <img src="img/muro/p23.jpg" alt="Visitante con el cartel #TuAyudaSuma" loading="lazy">
+      <img src="img/muro/p24.jpg" alt="Visitante con el cartel #TuAyudaSuma" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section class="montaje-sec">
+  <div class="wrap">
+    <div class="montaje-head">
+      <h2 class="azul">Montaje<br>del stand</h2>
+      <div class="flechas">
+        <button type="button" class="flecha" data-dir="-1" aria-label="Fotos anteriores"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"></path></svg></button>
+        <button type="button" class="flecha" data-dir="1" aria-label="Fotos siguientes"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></button>
+      </div>
+    </div>
+  </div>
+  <div class="galeria" id="galeria" tabindex="0" aria-label="Galería del montaje del stand, desliza para ver más">
+      <img src="img/montaje/m12.jpg" width="1050" height="1400" alt="Mascota de la universidad con el cartel #TuAyudaSuma frente al stand" loading="lazy">
+      <img src="img/montaje/m01.jpg" width="1400" height="933" alt="Vista aérea del stand con el túnel, el gachapón, el mural y la alcancía" loading="lazy">
+      <img src="img/montaje/m02.jpg" width="1280" height="854" alt="Túnel azul con el banner Entrecruzados y las huellas en el piso" loading="lazy">
+      <img src="img/montaje/m03.jpg" width="1050" height="1400" alt="Panel lateral del túnel con mariposas de papel, cruces y banner" loading="lazy">
+      <img src="img/montaje/m04.jpg" width="960" height="1280" alt="Gachapón de la Cruz Roja con cápsulas y tarjetas" loading="lazy">
+      <img src="img/montaje/m05.jpg" width="1050" height="1400" alt="Interior del túnel con photocards y luces" loading="lazy">
+      <img src="img/montaje/m06.jpg" width="1050" height="1400" alt="Alcancía Dona Aquí junto al proyector del mapping" loading="lazy">
+      <img src="img/montaje/m07.jpg" width="982" height="1400" alt="Manilla roja con tarjeta escrita a mano" loading="lazy">
+      <img src="img/montaje/m08.jpg" width="960" height="1280" alt="Mural del donante con las fotos de los visitantes" loading="lazy">
+      <img src="img/montaje/m09.jpg" width="1280" height="960" alt="Visitantes recorriendo el stand con el equipo" loading="lazy">
+      <img src="img/montaje/m10.jpg" width="1280" height="960" alt="Invitados revisando la caja de Objetivos de Desarrollo Sostenible" loading="lazy">
+      <img src="img/montaje/m11.jpg" width="1290" height="933" alt="Visitantes jugando Wild Pulse en el Mundo virtual" loading="lazy">
+  </div>
+</section>
+
+<section style="background:var(--blanco)">
+  <div class="wrap">
+    <div class="aprendizaje" style="margin-top:0">
+      <h3>Lo que aprendimos</h3>
+      <div class="aprendizaje-texto">
+        <p>Este proyecto nos dio experiencia real en desarrollar, gestionar y organizar un evento de principio a fin. Trabajamos en el montaje del stand, la planeación logística, la producción técnica y la coordinación de proveedores y de cinco equipos de trabajo hasta el día de la activación.</p>
+        <p>También aprendimos a diseñar recorridos interactivos y experiencias inmersivas que conectan al público con una marca, combinando escenografía, tecnología, contenido digital y piezas físicas en un mismo espacio.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="creditos">
+  <section class="wrap" style="padding-block:clamp(56px,8vw,96px)">
+    <div class="creditos-top">
+      <div><span class="mono">Cliente</span><p class="grande">Cruz Roja Colombiana Seccional Cundinamarca y Bogotá</p></div>
+      <div>
+        <span class="mono">Mi rol</span>
+        <ul class="lista">
+          <li><strong>Líder de diseño</strong></li>
+          <li><strong>Líder de diseño interactivo</strong></li>
+          <li>Video mapping</li>
+          <li>Diseño sonoro</li>
+          <li>Pruebas de usabilidad</li>
+        </ul>
+      </div>
+      <div>
+        <span class="mono">Herramientas</span>
+        <ul class="lista herramientas">
+          <li><strong>MadMapper</strong><span>Video mapping</span></li>
+          <li><strong>Google Veo</strong><span>Videos con IA</span></li>
+          <li><strong>Unity</strong><span>Videojuegos y realidad virtual</span></li>
+          <li><strong>Adobe</strong><span>Gráficos, pósters y diseño de la alcancía</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="equipo">
+      <span class="mono">Equipo</span>
+      <ul class="equipo-lista">
+        <li>Juanita Rodríguez</li>
+        <li>Angela Devia</li>
+        <li>Sofía Buitrago</li>
+        <li>Tatiana Chaves</li>
+        <li>Ángel Ariza</li>
+        <li>Hanna Sosa</li>
+        <li>Valentina Rey</li>
+        <li>Daniela Vargas</li>
+        <li>Mónica Barbosa</li>
+        <li>María del Mar Herrera</li>
+        <li>Gabriela Garzón</li>
+        <li>Julián Sanabria</li>
+        <li>Nicolás Ibáñez</li>
+        <li>Valeria Hernández</li>
+        <li>Nicolás Ángel Bautista</li>
+        <li>María Fernanda López</li>
+      </ul>
+    </div>
+  </section>
+</footer>
+
+<dialog class="visor" id="visor" aria-label="Publicación de Instagram ampliada">
+  <button type="button" class="cerrar" id="cerrar-visor" aria-label="Cerrar">×</button>
+  <img src="img/instagram.jpg" alt="Publicación de Comunicaciones USA en Instagram sobre Código VIDA, ampliada">
+</dialog>
+
+<script>
+(function(){
+  var g=document.getElementById('galeria');
+  document.querySelectorAll('.flecha').forEach(function(b){b.addEventListener('click',function(){ if(g) g.scrollBy({left:Number(b.dataset.dir)*g.clientWidth*0.8}); });});
+  var visor=document.getElementById('visor');
+  var abrir=document.getElementById('abrir-post');
+  var cerrar=document.getElementById('cerrar-visor');
+  if(!visor||!abrir) return;
+  abrir.addEventListener('click',function(){ if(visor.showModal){visor.showModal();}else{visor.setAttribute('open','');} });
+  cerrar.addEventListener('click',function(){ visor.close ? visor.close() : visor.removeAttribute('open'); });
+  visor.addEventListener('click',function(e){ if(e.target===visor){ visor.close(); } });
+})();
+</script>
+
+</body>
+</html>

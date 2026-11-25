@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Arepa Mía · Manual de marca</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=DM+Mono:wght@400;500&family=Poppins:wght@500;600&display=swap">
+<style>
+:root{
+  --ink:#c2410c; --ink-soft:#b9774f; --accent:#c2410c; --cover:#c2410c;
+  --bg-a:#fff3e8; --bg-b:#ffe6d1; --pill:#fff; --pill-ink:#c2410c; --pill-line:rgba(0,0,0,.08);
+  --pill-shadow:0 6px 18px -8px rgba(0,0,0,.35); --paper:#fbfafe; --paper-edge:#e6e1f3;
+  --book-shadow:0 40px 70px -30px rgba(0,0,0,.45),0 12px 24px -12px rgba(0,0,0,.25);
+  --focus:#c2410c; --ar:3.5587; --edge2:#f0c9b0;
+  --f-display:"Bricolage Grotesque","Poppins",system-ui,sans-serif;
+  --f-ui:"Poppins",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"DM Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{background:var(--bg-a);background-image:radial-gradient(120% 90% at 0% 0%,var(--bg-a) 0%,var(--bg-a) 35%,var(--bg-b) 100%);color:var(--ink);font-family:var(--f-ui);overflow:hidden}
+.viewer{height:100%;padding-inline:clamp(12px,2vw,32px);padding-block:clamp(14px,2.6vh,32px);display:grid;grid-template-columns:1fr auto 1fr;grid-template-rows:auto 1fr auto;grid-template-areas:"title . close" "stage stage stage" "prev count next";row-gap:clamp(8px,1.6vh,16px)}
+.title{grid-area:title;display:grid;gap:4px;align-content:start}
+.eyebrow{font-family:var(--f-mono);font-weight:500;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft)}
+.title h1{margin:0;font-family:var(--f-display);font-weight:800;font-size:clamp(22px,2.4vw,32px);line-height:1;letter-spacing:-.035em;text-transform:uppercase;color:var(--ink)}
+.pill{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 26px;border-radius:999px;border:1px solid var(--pill-line);background:var(--pill);color:var(--pill-ink);box-shadow:var(--pill-shadow);font-family:var(--f-ui);font-weight:600;font-size:15px;text-decoration:none;cursor:pointer;transition:transform .18s ease,opacity .2s ease;-webkit-tap-highlight-color:transparent}
+.pill:hover:not(:disabled){transform:translateY(-1px)}
+.pill:active:not(:disabled){transform:translateY(1px)}
+.pill:disabled{opacity:.45;cursor:default;box-shadow:none}
+.pill:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+.close{grid-area:close;justify-self:end;align-self:start}
+.prev{grid-area:prev;justify-self:start;align-self:end;min-width:132px}
+.next{grid-area:next;justify-self:end;align-self:end;min-width:132px}
+.stage{grid-area:stage;min-height:0;display:grid;place-items:center;container-type:size}
+.esc{display:grid;place-items:center;width:100%;height:100%}
+.esc>*{grid-area:1/1}
+.cerrado-btn[hidden]{display:none}
+.cerrado-btn{display:flex;flex-direction:column;align-items:center;gap:14px;border:0;background:none;padding:0;cursor:pointer;transition:transform .3s ease,opacity .35s ease;max-height:100%}
+.cerrado-btn.saliendo{opacity:0;transform:scale(.94);pointer-events:none}
+.cerrado-btn img{display:block;width:auto;height:auto;max-width:min(100cqw,900px);max-height:calc(100cqh - 74px);filter:drop-shadow(0 18px 18px rgba(0,0,0,.2));animation:flota 4.5s ease-in-out infinite}
+@keyframes flota{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.cerrado-btn:focus-visible{outline:3px solid var(--focus);outline-offset:6px;border-radius:16px}
+.abrir{display:inline-flex;align-items:center;gap:8px;padding:10px 22px;border:2px solid var(--accent);border-radius:999px;background:#fff;font:600 14px var(--f-ui);color:var(--ink);box-shadow:0 4px 0 rgba(0,0,0,.12)}
+.libro{position:relative;width:min(100cqw,calc((100cqh - 30px) * var(--ar)),1900px);aspect-ratio:var(--ar);perspective:4200px;touch-action:pan-y pinch-zoom;cursor:pointer;user-select:none;-webkit-user-select:none;opacity:0;transition:transform .9s cubic-bezier(.5,.05,.25,1),opacity .35s ease}
+.libro.visible{opacity:1}
+.libro.cerrado{transform:translateX(-25%)}
+.libro[hidden]{display:none}
+.libro:focus-visible{outline:3px solid var(--focus);outline-offset:8px;border-radius:12px}
+.plato{position:absolute;top:0;width:50%;height:100%;background:#fff;transition:opacity .4s ease}
+.plato.izq{left:0;border-radius:10px 0 0 10px;box-shadow:-3px 3px 0 var(--paper-edge),-6px 6px 0 var(--edge2),-10px 22px 30px rgba(20,10,50,.18)}
+.plato.der{left:50%;border-radius:0 10px 10px 0;box-shadow:3px 3px 0 var(--paper-edge),6px 6px 0 var(--edge2),10px 22px 30px rgba(20,10,50,.18)}
+.libro.cerrado .plato.izq{opacity:0}
+.hoja{position:absolute;top:0;left:50%;width:50%;height:100%;transform-origin:left center;transform-style:preserve-3d;transition:transform .95s cubic-bezier(.5,.05,.25,1),z-index 0s .475s}
+.hoja.pasada{transform:rotateY(-180deg)}
+.pg{position:absolute;inset:0;overflow:hidden;background:#fff;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.pg.f{border-radius:0 10px 10px 0}
+.pg.b{transform:rotateY(180deg);border-radius:10px 0 0 10px}
+.pg img{display:block;width:100%;height:100%;object-fit:cover;pointer-events:none;-webkit-user-drag:none}
+.pg::after{content:"";position:absolute;inset:0;pointer-events:none}
+.pg.f::after{background:linear-gradient(90deg,rgba(20,10,50,.26),rgba(20,10,50,.05) 5%,rgba(20,10,50,0) 12%,rgba(20,10,50,0) 94%,rgba(20,10,50,.07))}
+.pg.b::after{background:linear-gradient(270deg,rgba(20,10,50,.26),rgba(20,10,50,.05) 5%,rgba(20,10,50,0) 12%,rgba(20,10,50,0) 94%,rgba(20,10,50,.07))}
+.pg.vacia{background:var(--cover)}
+.count{grid-area:count;align-self:center;display:grid;justify-items:center;gap:2px;font-family:var(--f-mono);font-variant-numeric:tabular-nums;color:var(--ink-soft);text-align:center}
+.count .num{font-size:13px;letter-spacing:.08em;color:var(--ink)}
+.count .name{font-size:11px;letter-spacing:.14em;text-transform:uppercase;min-height:1em}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@media (max-width:720px){
+  .viewer{grid-template-columns:1fr 1fr;grid-template-rows:auto 1fr auto auto;grid-template-areas:"title close" "stage stage" "count count" "prev next";column-gap:10px}
+  .pill{min-height:44px;padding:0 18px;font-size:14px}
+  .prev,.next{min-width:0;width:100%}
+  .count{padding-top:4px}
+}
+@media (prefers-reduced-motion:reduce){.hoja,.libro,.cerrado-btn,.plato{transition-duration:.01s;transition-delay:0s}.cerrado-btn img{animation:none}}
+</style></head><body>
+<main class="viewer">
+  <header class="title"><span class="eyebrow">Manual de marca</span><h1>Arepa Mía</h1></header>
+  <a class="pill close" id="close" href="../../../index.html#cat-brand" aria-label="Volver al portafolio">← Volver</a>
+  <section class="stage" aria-roledescription="libro" aria-label="Brand book de Arepa Mía">
+    <div class="esc" id="esc">
+      <span id="cerrado" hidden></span>
+      <div class="libro cerrado" id="libro"  tabindex="0" role="group" aria-roledescription="libro" aria-label="Manual de marca de Arepa Mía"></div>
+    </div>
+    <p class="sr" id="live" aria-live="polite"></p>
+  </section>
+  <button class="pill prev" id="prev" type="button">Anterior</button>
+  <div class="count" aria-hidden="true"><span class="num" id="num"></span><span class="name" id="name"></span></div>
+  <button class="pill next" id="next" type="button">Siguiente</button>
+</main>
+<script>
+(() => {
+  const PAGES = ["../paginas/arepa-page-1.webp", "../paginas/arepa-page-2.webp", "../paginas/arepa-page-3.webp", "../paginas/arepa-page-4.webp", "../paginas/arepa-page-5.webp", "../paginas/arepa-page-6.webp", "../paginas/arepa-page-7.webp", "../paginas/arepa-page-8.webp", "../paginas/arepa-page-9.webp", "../paginas/arepa-page-10.webp", "../paginas/arepa-page-11.webp", "../paginas/arepa-page-12.webp", "../paginas/arepa-page-13.webp", "../paginas/arepa-page-14.webp", "../paginas/arepa-page-15.webp", "../paginas/arepa-page-16.webp", "../paginas/arepa-page-17.webp", "../paginas/arepa-page-18.webp", "../paginas/arepa-page-19.webp", "../paginas/arepa-page-20.webp", "../paginas/arepa-page-21.webp"];
+  const NAMES = null;
+  const CLOSED = null;
+  const N = PAGES.length, HOJAS = Math.ceil(N / 2), MAX = Math.floor(N / 2);
+  const $ = id => document.getElementById(id);
+  const libro = $("libro"), cerrado = $("cerrado"), esc = $("esc");
+  const prevBtn = $("prev"), nextBtn = $("next"), num = $("num"), nameEl = $("name"), live = $("live"), closeLink = $("close");
+  const pad = n => String(n).padStart(2, "0");
+  let hojas = [], estado = 0, construido = false, abierto = !CLOSED, busy = false;
+
+  function cara(tipo, i) {
+    const d = document.createElement("div");
+    d.className = "pg " + tipo;
+    if (i >= N) { d.className += " vacia"; return d; }
+    const im = document.createElement("img");
+    im.src = PAGES[i]; im.decoding = "async"; im.alt = "Página " + (i + 1);
+    d.appendChild(im);
+    return d;
+  }
+  function construir() {
+    if (construido) return; construido = true;
+    ["izq", "der"].forEach(c => { const pl = document.createElement("div"); pl.className = "plato " + c; pl.setAttribute("aria-hidden", "true"); libro.appendChild(pl); });
+    for (let i = 0; i < HOJAS; i++) {
+      const h = document.createElement("div"); h.className = "hoja";
+      h.appendChild(cara("f", 2 * i)); h.appendChild(cara("b", 2 * i + 1));
+      libro.appendChild(h); hojas.push(h);
+    }
+  }
+  function etiqueta() {
+    const a = 2 * estado - 1, b = 2 * estado;
+    return a < 0 ? pad(1) : (b >= N ? pad(a + 1) : pad(a + 1) + " – " + pad(b + 1));
+  }
+  function ir(n) {
+    estado = Math.max(0, Math.min(MAX, n));
+    libro.classList.toggle("cerrado", estado === 0);
+    hojas.forEach((h, i) => { h.classList.toggle("pasada", i < estado); h.style.zIndex = i < estado ? (i + 1) : (HOJAS - i); });
+    const a = 2 * estado - 1, b = 2 * estado, lab = etiqueta();
+    num.textContent = lab + " / " + pad(N);
+    nameEl.textContent = NAMES ? ((NAMES[Math.max(a, 0)] || "") + (a >= 0 && b < N && NAMES[b] ? " · " + NAMES[b] : "")) : "";
+    live.textContent = "Páginas " + lab + " de " + N;
+    prevBtn.disabled = estado === 0 && abierto; nextBtn.disabled = estado === MAX;
+  }
+  const cache = []; PAGES.forEach(s => { const im = new Image(); im.src = s; cache.push(im); });
+
+  function abrir() {
+    if (abierto) return; abierto = true; construir();
+    const portada = libro.querySelector(".pg.f img");
+    const espera = new Promise(ok => setTimeout(ok, 1500));
+    const lista = (portada && portada.decode) ? Promise.race([portada.decode().catch(() => {}), espera]) : Promise.resolve();
+    lista.then(() => {
+      libro.hidden = false; ir(0);
+      cerrado.classList.add("saliendo");
+      requestAnimationFrame(() => requestAnimationFrame(() => libro.classList.add("visible")));
+      setTimeout(() => ir(1), 480);
+      setTimeout(() => { cerrado.hidden = true; }, 700);
+    });
+  }
+  construir();
+  if (CLOSED) { cerrado.addEventListener("click", abrir); ir(0); prevBtn.disabled = true; }
+  else { libro.hidden = false; ir(0); requestAnimationFrame(() => requestAnimationFrame(() => libro.classList.add("visible"))); }
+
+  nextBtn.addEventListener("click", () => { if (!abierto) abrir(); else ir(estado + 1); });
+  prevBtn.addEventListener("click", () => ir(estado - 1));
+  let x0 = null;
+  libro.addEventListener("pointerdown", e => { x0 = e.clientX; });
+  libro.addEventListener("pointerup", e => {
+    if (x0 === null) return;
+    const dx = e.clientX - x0; x0 = null;
+    if (Math.abs(dx) > 40) { ir(estado + (dx < 0 ? 1 : -1)); return; }
+    if (Math.abs(dx) < 10) {
+      if (estado === 0) { ir(1); return; }
+      const r = libro.getBoundingClientRect();
+      ir(estado + ((e.clientX - r.left) < r.width / 2 ? -1 : 1));
+    }
+  });
+  libro.addEventListener("pointercancel", () => { x0 = null; });
+  document.addEventListener("keydown", e => {
+    if (e.key === "ArrowRight" || e.key === "PageDown") { e.preventDefault(); if (!abierto) abrir(); else ir(estado + 1); }
+    else if (e.key === "ArrowLeft" || e.key === "PageUp") { e.preventDefault(); ir(estado - 1); }
+    else if (e.key === "Home") { e.preventDefault(); ir(0); }
+    else if (e.key === "End") { e.preventDefault(); if (abierto) ir(MAX); }
+    else if (e.key === "Escape") { closeLink.click(); }
+  });
+  const h = parseInt(location.hash.replace("#", ""), 10);
+  if (h >= 1 && h <= N) { if (!abierto) { abierto = true; cerrado.hidden = true; libro.hidden = false; libro.classList.add("visible"); } ir(Math.floor(h / 2)); }
+})();
+</script></body></html>

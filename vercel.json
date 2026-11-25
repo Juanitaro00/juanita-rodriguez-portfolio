@@ -1,0 +1,8 @@
+{
+  "redirects": [
+    { "source": "/proyectos", "destination": "/#contenidos", "permanent": false },
+    { "source": "/proyectos/:path*", "destination": "/#contenidos", "permanent": false },
+    { "source": "/sobre-mi", "destination": "/#sobre-mi", "permanent": false },
+    { "source": "/ia-generativa", "destination": "/#cat-ia", "permanent": false }
+  ]
+}
